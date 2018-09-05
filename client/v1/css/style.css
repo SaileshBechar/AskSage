@@ -1,0 +1,33 @@
+main    
+{
+    flex: 1 0 auto;
+    overflow: auto;
+}
+body 
+{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+   
+}
+select
+{
+    display:flex;
+}
+nav
+{
+    overflow: hidden;
+}
+.card-panel
+{
+
+    border-radius:10px 10px 10px 10px;
+    
+    overflow: hidden;
+}
+table{
+    height: 200px;
+}
+
+
+

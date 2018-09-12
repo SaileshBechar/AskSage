@@ -7,6 +7,10 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 templateUrl: '../views/login.html',
                 controller: 'LoginCtrl'
             })
+            .when("/newuser", {
+                templateUrl: '../views/newUser.html',
+                controller: 'NewUserCtrl'
+            })
             .when("/feedback", {
                 templateUrl: 'views/feedback.html',
                 controller: 'FeedbackCtrl'
@@ -20,12 +24,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 controller: 'HomeCtrl'
             })
             .otherwise({
-                redirectTo: "/home"
+                redirectTo: "/login"
             })
     }])
     .controller('LoginCtrl', function ($scope, $http, $location) {
         $scope.tile = "Sign in";
-        $scope.appName = "ChatBot";
+        $scope.appName = "Broker Assistant"; //APP NAME change as required
 
         $scope.login = function (app) {
             //Add client validations
@@ -48,10 +52,11 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     localStorage.setItem("id", $scope.auth);
                     
                     //Redirect to Buy Policy
-                    $location.path("/buy");
+                    $location.path("/home");
                 },
                     function errorCallback(response) {
                         // called asynchronously if an error occurs
+                        M.toast({ html: "Please check user name and Password" });
                         $scope.loggedin = false;
                     });
 
@@ -82,12 +87,19 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         
         //Get feedback
         //Post to feedback api
+        //Store analytics
+
+    })
+
+    .controller('NewUserCtrl', function ($scope, $http) {
+        $scope.title = "Broker Registration";
+        
 
     })
 
     .controller('ChatCtrl', function ($scope, $http) {
      //Call ProNav apis
-     $scope.title = "Chat Bot"; 
+     $scope.title = "Broker Assistant";  //App name at login page
 
      
 

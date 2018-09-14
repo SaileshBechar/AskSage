@@ -1,5 +1,6 @@
 "use strict";
 
+
 angular.module('myApp', ['ngRoute', 'ngMessages'])
     .config(['$routeProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
@@ -22,6 +23,10 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             .when("/home", {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl'
+            })
+            .when("/profile", {
+                templateUrl: 'views/profile.html',
+                controller: 'ProfileCtrl'
             })
             .otherwise({
                 redirectTo: "/login"
@@ -46,9 +51,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 .then(function (response) {
                     // POST 200 sucess
                     $scope.auth = response.data.id;
+                    $scope.userId = response.data.userId;
                     $scope.loggedin = true;
 
                     //Save to local storage
+
+                    localStorage.setItem("userId", $scope.userId);
                     localStorage.setItem("token", $scope.auth);
                     
                     //Redirect to Buy Policy
@@ -70,6 +78,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             $http.post("api/Users/logout?access_token=" + $scope.auth)
                 .then((response) => {
                     $scope.auth = null;
+                    $scope.userId = null;
                     $scope.loggedin = false;
                     localStorage.clear();
                 },
@@ -116,10 +125,36 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('HomeCtrl', function ($scope, $http) { 
     //Display Home Page mostly Static content  
     $scope.page = "Home Page";  
-    
-
-        
+           
     })
+
+    .controller('ProfileCtrl', function ($scope, $http) {
+        $scope.title = "Profile Page";
+        $scope.appName = "Profile Page"; 
+        $scope.userId = localStorage.getItem("userId"); //Might be unessessary im not sure
+
+    
+        $http({
+            method: 'GET',
+            data: $.param({ id: $scope.userId}),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            url: '/api/Users/' + $scope.userId
+        })
+            .then(function (response) {
+                // POST 200 sucess
+                $scope.email = response.data.email;
+                $scope.bdr = response.data.BDR;
+            },
+                function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    M.toast({ html: "User not found" });
+                });
+
+      
+
+    })
+
+
     .controller('appController', function ($scope, $http, $location) {
         var app = {
             title: "Broker Assistant",

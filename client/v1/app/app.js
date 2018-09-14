@@ -57,7 +57,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     //Save to local storage
 
                     localStorage.setItem("userId", $scope.userId);
-                    localStorage.setItem("token", $scope.auth);
+                    localStorage.setItem("id", $scope.auth);
                     
                     //Redirect to Buy Policy
                     $location.path("/home");
@@ -122,6 +122,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
                     //Save to local storage
                     // localStorage.setItem("id", $scope.auth);
+             
                     
                     //Redirect to Home
                     $location.path("/home");

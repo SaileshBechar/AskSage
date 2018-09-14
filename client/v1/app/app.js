@@ -55,8 +55,9 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     $scope.loggedin = true;
 
                     //Save to local storage
-                    localStorage.setItem("id", $scope.auth);
+
                     localStorage.setItem("userId", $scope.userId);
+                    localStorage.setItem("token", $scope.auth);
                     
                     //Redirect to Buy Policy
                     $location.path("/home");

@@ -100,9 +100,41 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
     })
 
-    .controller('NewUserCtrl', function ($scope, $http) {
+    .controller('NewUserCtrl', function ($scope, $http, $location) {
         $scope.title = "Broker Registration";
         
+        $scope.register = function (app) {
+            //Add client validations
+            // $scope.validate(app);
+
+            // POST http://localhost:3000/api/Users
+            // parameters sent as form data
+            $http({
+                method: 'POST',
+                data: $.param({ email: $scope.email, password: $scope.password }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                url: '/api/Users'
+            })
+                .then(function (response) {
+                    // POST 200 sucess
+                    $scope.auth = response.data.id;
+                    $scope.loggedin = true;
+
+                    //Save to local storage
+                    // localStorage.setItem("id", $scope.auth);
+                    
+                    //Redirect to Home
+                    $location.path("/home");
+                },
+                    function errorCallback(response) {
+                        // called asynchronously if an error occurs
+                        M.toast({ html: "Failed to create a Broker"  });
+
+                        $scope.loggedin = false;
+                    });
+                }
+       
+
 
     })
 

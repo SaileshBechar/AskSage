@@ -1,21 +1,17 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 9,
+    "AccessToken": 3,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1
   },
   "models": {
     "User": {
-      "1": "{\"id\":1,\"password\":\"$2a$10$2SRI2kc7c8tgqAHSG2H1yu4b7.i3EQ2QhwoSPFoTd/WbIWz/iGBw6\",\"email\":\"jdoe@wawanesa.com\",\"BDR\":\"BDR Name\"}"
+      "1": "{\"password\":\"$2a$10$QJfK8./f4PpYC08fJCfcD.eBzuZQgEwwmU3MLWXDdJ.ADuDYQ1W.C\",\"email\":\"a@b.com\",\"id\":1}"
     },
     "AccessToken": {
-      "875mLOt4Jp2hlfal7WmaQ4uLcDQOB1NvMUUNKW2AAESrdpPDBC1qVX0zUKUkn9Hb": "{\"id\":\"875mLOt4Jp2hlfal7WmaQ4uLcDQOB1NvMUUNKW2AAESrdpPDBC1qVX0zUKUkn9Hb\",\"ttl\":1209600,\"created\":\"2018-09-02T17:38:11.338Z\",\"userId\":1}",
-      "LqZbcZ5951fHjXNnx25K953alKt8O72b2P4QNOTZJrNVkQNonh0QOL6ki1igDAON": "{\"id\":\"LqZbcZ5951fHjXNnx25K953alKt8O72b2P4QNOTZJrNVkQNonh0QOL6ki1igDAON\",\"ttl\":1209600,\"created\":\"2018-09-06T18:37:22.663Z\",\"userId\":1}",
-      "BkcXxIqOsaWBxVs1Usbp5Z9j1gLLb56wAHgzUJrPiCLuxCEK5lVBwcDWpaa5XxUx": "{\"id\":\"BkcXxIqOsaWBxVs1Usbp5Z9j1gLLb56wAHgzUJrPiCLuxCEK5lVBwcDWpaa5XxUx\",\"ttl\":1209600,\"created\":\"2018-09-11T18:28:50.395Z\",\"userId\":1}",
-      "854xENoYxd1jyM4g2dhp7A1L27Mk0PqusspOyvHFSfDtCOxSqBANPCsCElLCMnkG": "{\"id\":\"854xENoYxd1jyM4g2dhp7A1L27Mk0PqusspOyvHFSfDtCOxSqBANPCsCElLCMnkG\",\"ttl\":1209600,\"created\":\"2018-09-11T19:45:18.248Z\",\"userId\":1}",
-      "HHyFLSL87nZ9znEwbv7R8LQFeN9rgAZ0Hf4LE1K17iZriIPg5b8Jwg2kz612H4Rb": "{\"id\":\"HHyFLSL87nZ9znEwbv7R8LQFeN9rgAZ0Hf4LE1K17iZriIPg5b8Jwg2kz612H4Rb\",\"ttl\":1209600,\"created\":\"2018-09-11T19:47:08.515Z\",\"userId\":1}"
+      "69oj8CIHGzLaLzT86bp6raHMGouZzUH7eF8oQsTvmQryTips2nGOr2xJxE2kAHSA": "{\"id\":\"69oj8CIHGzLaLzT86bp6raHMGouZzUH7eF8oQsTvmQryTips2nGOr2xJxE2kAHSA\",\"ttl\":1209600,\"created\":\"2018-09-14T16:18:36.683Z\",\"userId\":1}"
     },
     "ACL": {},
     "RoleMapping": {},

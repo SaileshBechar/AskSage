@@ -34,20 +34,30 @@
                     
             </div>
         </nav>
-        <!-- <ul class="sidenav" id="mobile-menu">
+    </div>
+
+     <ul class="sidenav right" id="mobile-menu">
                 <li><div>
                     <div class="white background">
-                    <img ng-src="../img/Logo.jpg">
+                    <img class ="responsive-img" ng-src="../img/Logo.jpg">
                     </div>
                     </div></li>
                 <li><div class="divider"></div></li>
                 <li><a href="#!home">Home</a></li>
+                <li><a href="#!profile">Profile</a></li>
                 <li><a href="#!chat">Chat</a></li>
                 <li><a routerLink="feedback">Feedback</a></li> 
-            </ul> -->
-    </div>
+            </ul>
 </header>
 
+<script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav({
+            edge: 'right',
+            menuWidth: 200
+        });
+    })
+</script>
 <!-- <div class="alert alert-primary" role="alert">
         This is a primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
       </div> -->

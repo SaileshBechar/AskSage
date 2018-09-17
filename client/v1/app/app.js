@@ -29,7 +29,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 controller: 'ProfileCtrl'
             })
             .otherwise({
-                redirectTo: "/login"
+                redirectTo: "/home"
             })
     }])
     .controller('LoginCtrl', function ($scope, $http, $location) {
@@ -78,7 +78,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             $http.post("api/Users/logout?access_token=" + $scope.auth)
                 .then((response) => {
                     $scope.auth = null;
-                    $scope.userId = null;
+                    // $scope.userId = null;
                     $scope.loggedin = false;
                     localStorage.clear();
                 },
@@ -103,12 +103,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('NewUserCtrl', function ($scope, $http, $location) {
         $scope.title = "Broker Registration";
         
-        $scope.register = function (app) {
-            //Add client validations
-            // $scope.validate(app);
+        // $scope.register = function (app) {
+        //     //Add client validations
+        //     // $scope.validate(app);
 
-            // POST http://localhost:3000/api/Users
-            // parameters sent as form data
+        //     // POST http://localhost:3000/api/Users
+        //     // parameters sent as form data
             $http({
                 method: 'POST',
                 data: $.param({ email: $scope.email, password: $scope.password }),
@@ -133,9 +133,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
                         $scope.loggedin = false;
                     });
-                }
-       
-
 
     })
 
@@ -145,13 +142,13 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
      
 
-     $http.get("https://api.giphy.com/v1/gifs/search?q=happy&api_key=sYKZJHhXlE4V67xhJ1LZV8hghoWbNlIv&limit=5")
-                .then((response) => {
-                  //err
-                },
-                    (res) => {
-                        console.log('res.data');
-                    });
+    //  $http.get("https://api.giphy.com/v1/gifs/search?q=happy&api_key=sYKZJHhXlE4V67xhJ1LZV8hghoWbNlIv&limit=5")
+    //             .then((response) => {
+    //               //err
+    //             },
+    //                 (res) => {
+    //                     console.log('res.data');
+    //                 });
 
 
     })
@@ -166,12 +163,13 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         $scope.appName = "Profile Page"; 
         $scope.userId = localStorage.getItem("userId"); //Might be unessessary im not sure
 
+        // http://localhost:3000/api/Users/logout?access_token=PqosmmPCdQgwerDYwQcVCxMakGQV0BSUwG4iGVLvD3XUYZRQky1cmG8ocmzsVpEE.
     
         $http({
             method: 'GET',
             data: $.param({ id: $scope.userId}),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            url: '/api/Users/' + $scope.userId
+            url: '/api/Users/'+ $scope.userId
         })
             .then(function (response) {
                 // POST 200 sucess
@@ -182,9 +180,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     // called asynchronously if an error occurs
                     M.toast({ html: "User not found" });
                 });
-
-      
-
     })
 
 
@@ -207,20 +202,23 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             $scope.loggedin = true;
             $scope.loggedinMsg = "Logoff"; //For display at Header
             $scope.auth = localStorage.getItem("id");
+            $scope.profileMsg = "Profile";
+
         }
         else {
             //Loggedin = false;
             $scope.loggedin = false;
             $scope.loggedinMsg = "Login"; //For display at Header
+            $scope.profileMsg = null; 
 
         }
 
 
-        $scope.addAction = function (app) {
+        // $scope.addAction = function (app) {
 
-            M.toast({ html: app.actionResult });
-           // app.actionCount++;
-        }
+        //     M.toast({ html: app.actionResult });
+        //    // app.actionCount++;
+        // }
 
 
     });

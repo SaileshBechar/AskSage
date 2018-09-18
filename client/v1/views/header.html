@@ -46,7 +46,10 @@
                 <li><a href="#!home">Home</a></li>
                 <li><a href="#!profile">Profile</a></li>
                 <li><a href="#!chat">Chat</a></li>
-                <li><a routerLink="feedback">Feedback</a></li> 
+                <!-- <li><a routerLink="feedback">Feedback</a></li> -->
+                <li>
+                    <a href="#!login" ng-click="logoff(app)"> {{ loggedinMsg }} </a>
+                </li> 
             </ul>
 </header>
 

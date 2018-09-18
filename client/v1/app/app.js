@@ -29,12 +29,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 controller: 'ProfileCtrl'
             })
             .otherwise({
-                redirectTo: "/home"
+                redirectTo: "/login"
             })
     }])
     .controller('LoginCtrl', function ($scope, $http, $location) {
         $scope.tile = "Sign in";
-        $scope.appName = "Broker Assistant"; //APP NAME change as required
+        $scope.appName = "Ask Sage"; //APP NAME change as required
 
         $scope.login = function (app) {
             //Add client validations
@@ -103,7 +103,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('NewUserCtrl', function ($scope, $http, $location) {
         $scope.title = "Broker Registration";
         
-        // $scope.register = function (app) {
+        $scope.register = function (app) {
         //     //Add client validations
         //     // $scope.validate(app);
 
@@ -111,7 +111,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //     // parameters sent as form data
             $http({
                 method: 'POST',
-                data: $.param({ email: $scope.email, password: $scope.password }),
+                data: $.param({ email: $scope.email, password: $scope.password, bdr: $scope.bdr, phone: $scope.phone}),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 url: '/api/Users'
             })
@@ -124,8 +124,8 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     // localStorage.setItem("id", $scope.auth);
              
                     
-                    //Redirect to Home
-                    $location.path("/home");
+                    //Redirect to Login
+                    $location.path("/login");
                 },
                     function errorCallback(response) {
                         // called asynchronously if an error occurs
@@ -133,14 +133,30 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
                         $scope.loggedin = false;
                     });
+        }
 
     })
 
     .controller('ChatCtrl', function ($scope, $http) {
      //Call ProNav apis
-     $scope.title = "Broker Assistant";  //App name at login page
+     $scope.title = "Ask Sage";  //App name at login page
+     $scope.id = localStorage.getItem("id"); 
+     $scope.userId = localStorage.getItem("userId"); 
 
-     
+     $http({
+        method: 'GET',
+       // data: $.param({ id: $scope.userId}),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        url: '/api/Users/' + $scope.userId + '?access_token='+ $scope.id
+    })
+        .then(function (response) {
+            // POST 200 sucess
+            $scope.bdr = response.data.bdr;
+        },
+            function errorCallback(response) {
+                // called asynchronously if an error occurs
+                M.toast({ html: "User not found" });
+            });
 
     //  $http.get("https://api.giphy.com/v1/gifs/search?q=happy&api_key=sYKZJHhXlE4V67xhJ1LZV8hghoWbNlIv&limit=5")
     //             .then((response) => {
@@ -160,21 +176,23 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
     .controller('ProfileCtrl', function ($scope, $http) {
         $scope.title = "Profile Page";
-        $scope.appName = "Profile Page"; 
-        $scope.userId = localStorage.getItem("userId"); //Might be unessessary im not sure
+        //$scope.appName = "Profile Page"; 
+        $scope.id = localStorage.getItem("id"); 
+        $scope.userId = localStorage.getItem("userId"); 
 
-        // http://localhost:3000/api/Users/logout?access_token=PqosmmPCdQgwerDYwQcVCxMakGQV0BSUwG4iGVLvD3XUYZRQky1cmG8ocmzsVpEE.
+        // http://localhost:3000/api/Users/?access_token=PqosmmPCdQgwerDYwQcVCxMakGQV0BSUwG4iGVLvD3XUYZRQky1cmG8ocmzsVpEE.
     
         $http({
             method: 'GET',
-            data: $.param({ id: $scope.userId}),
+           // data: $.param({ id: $scope.userId}),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            url: '/api/Users/'+ $scope.userId
+            url: '/api/Users/' + $scope.userId + '?access_token='+ $scope.id
         })
             .then(function (response) {
                 // POST 200 sucess
                 $scope.email = response.data.email;
-                $scope.bdr = response.data.BDR;
+                $scope.bdr = response.data.bdr;
+                $scope.phone = response.data.phone;
             },
                 function errorCallback(response) {
                     // called asynchronously if an error occurs
@@ -185,7 +203,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
     .controller('appController', function ($scope, $http, $location) {
         var app = {
-            title: "Broker Assistant",
+            title: "Ask Sage",
             version: "V0.1",
         };
 

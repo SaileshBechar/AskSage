@@ -1,8 +1,9 @@
 {
   "ids": {
     "User": 2,
-    "AccessToken": 8,
+    "AccessToken": 12,
     "ACL": 1,
+    "Broker": 2,
     "RoleMapping": 1,
     "Role": 1
   },
@@ -11,14 +12,12 @@
       "1": "{\"password\":\"$2a$10$QJfK8./f4PpYC08fJCfcD.eBzuZQgEwwmU3MLWXDdJ.ADuDYQ1W.C\",\"email\":\"a@b.com\",\"id\":1}"
     },
     "AccessToken": {
-      "69oj8CIHGzLaLzT86bp6raHMGouZzUH7eF8oQsTvmQryTips2nGOr2xJxE2kAHSA": "{\"id\":\"69oj8CIHGzLaLzT86bp6raHMGouZzUH7eF8oQsTvmQryTips2nGOr2xJxE2kAHSA\",\"ttl\":1209600,\"created\":\"2018-09-14T16:18:36.683Z\",\"userId\":1}",
-      "vnmTOGBau79LUB5vJ0IZYXIDE10k3aS2Shg7j3wCFCPzUj5esifNu3DtwY3T1Gih": "{\"id\":\"vnmTOGBau79LUB5vJ0IZYXIDE10k3aS2Shg7j3wCFCPzUj5esifNu3DtwY3T1Gih\",\"ttl\":1209600,\"created\":\"2018-09-17T14:45:56.224Z\",\"userId\":1}",
-      "0DjwXlYUVGZrl4FbIIwG0VLnDaf7QIsIBLrPfBTWO6DjHtsVrmydUZmfRNlf1Uoe": "{\"id\":\"0DjwXlYUVGZrl4FbIIwG0VLnDaf7QIsIBLrPfBTWO6DjHtsVrmydUZmfRNlf1Uoe\",\"ttl\":1209600,\"created\":\"2018-09-17T14:49:11.059Z\",\"userId\":1}",
-      "uTFfz66IF9h58CG8DW4PIrMXPdry5Vh8aKKhHlarB1VkznFfD7Fnen2F98FNTRCo": "{\"id\":\"uTFfz66IF9h58CG8DW4PIrMXPdry5Vh8aKKhHlarB1VkznFfD7Fnen2F98FNTRCo\",\"ttl\":1209600,\"created\":\"2018-09-17T14:49:24.054Z\",\"userId\":1}",
-      "86FsXS87gAPYTtwwO9FAyWdIAvUrjbSQCBY4iHJU0cqloY51QQwCZ2dLwdO0FUBN": "{\"id\":\"86FsXS87gAPYTtwwO9FAyWdIAvUrjbSQCBY4iHJU0cqloY51QQwCZ2dLwdO0FUBN\",\"ttl\":1209600,\"created\":\"2018-09-17T14:49:42.539Z\",\"userId\":1}",
-      "qUbkKBOEp3eo4TAG2amGQBDFWGvIOIAu9F6JwfdbVq4OUF8RVZMWSP6gGDgcUVbO": "{\"id\":\"qUbkKBOEp3eo4TAG2amGQBDFWGvIOIAu9F6JwfdbVq4OUF8RVZMWSP6gGDgcUVbO\",\"ttl\":1209600,\"created\":\"2018-09-17T14:55:34.868Z\",\"userId\":1}"
+      "9mQKhASg8DZ5WtwaDsuKatGWE4LgCSx9r2T9080vC7CFr1qYYWd9yWP9TrB4O17m": "{\"id\":\"9mQKhASg8DZ5WtwaDsuKatGWE4LgCSx9r2T9080vC7CFr1qYYWd9yWP9TrB4O17m\",\"ttl\":1209600,\"created\":\"2018-09-19T20:09:22.287Z\",\"userId\":1}"
     },
     "ACL": {},
+    "Broker": {
+      "1": "{\"bdr\":\"New User\",\"phone\":\"123 456 7890\",\"password\":\"$2a$10$qtAyLCu1UXpqDQ5bC0kPFuQoxU85yUkRM/hcDE7jzMuXGawwnrz1i\",\"email\":\"new@user.com\",\"id\":1}"
+    },
     "RoleMapping": {},
     "Role": {}
   }

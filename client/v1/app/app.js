@@ -46,7 +46,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 method: 'POST',
                 data: $.param({ email: $scope.email, password: $scope.password }),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                url: '/api/Users/login'
+                url: '/api/Brokers/login'
             })
                 .then(function (response) {
                     // POST 200 sucess
@@ -75,7 +75,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         $scope.logoff = function (app) {
             //Logoff Function
             //post to users logoff with ($scope.auth) 
-            $http.post("api/Users/logout?access_token=" + $scope.auth)
+            $http.post("api/Brokers/logout?access_token=" + $scope.auth)
                 .then((response) => {
                     $scope.auth = null;
                     // $scope.userId = null;
@@ -113,7 +113,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 method: 'POST',
                 data: $.param({ email: $scope.email, password: $scope.password, bdr: $scope.bdr, phone: $scope.phone}),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                url: '/api/Users'
+                url: '/api/Brokers'
             })
                 .then(function (response) {
                     // POST 200 sucess
@@ -143,11 +143,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
      $scope.id = localStorage.getItem("id"); 
      $scope.userId = localStorage.getItem("userId"); 
 
+
      $http({
         method: 'GET',
        // data: $.param({ id: $scope.userId}),
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        url: '/api/Users/' + $scope.userId + '?access_token='+ $scope.id
+        url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.id
     })
         .then(function (response) {
             // POST 200 sucess
@@ -186,7 +187,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             method: 'GET',
            // data: $.param({ id: $scope.userId}),
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            url: '/api/Users/' + $scope.userId + '?access_token='+ $scope.id
+            url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.id
         })
             .then(function (response) {
                 // POST 200 sucess

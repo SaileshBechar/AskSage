@@ -24,6 +24,10 @@
     "dataSource": "db",
     "public": false
   },
+  "Broker": {
+    "dataSource": "db",
+    "public": true
+  },
   "RoleMapping": {
     "dataSource": "db",
     "public": false,

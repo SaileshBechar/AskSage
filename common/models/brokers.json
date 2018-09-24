@@ -8,20 +8,16 @@
     },
     "properties": {
       "bdr": {
-        "type": {
-          "name" : "string",
-          "address" : "string",
-          "phone" : "string"
-        },
+        "type": "object",
         "required": true
       },
       "fname": {
         "type": "string",
-        "required" : true
+        "required" : false
       },
       "lname" : {
         "type": "string",
-        "required" : true
+        "required" : false
       }     
     },
     "validations": [],

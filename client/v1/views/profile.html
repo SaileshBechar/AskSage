@@ -6,6 +6,29 @@
     .bdr {
         background-color: cyan lighten-4;
     }
+    .image {
+        opacity: 1;
+        display: block;
+        transition: .5s ease;
+        backface-visibility: hidden;
+    }
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+    }
+
+    .col.s12:hover .image {
+        opacity: 0.3;
+    }
+
+    .col.s12:hover .middle {
+        opacity: 1;
+    }
 
     /* main {
         flex: 1 0 auto;
@@ -19,13 +42,15 @@
     <div class="container section">
         <div class="row">
             <div class="col s12">
-                <img class="hoverable" ng-src="../img/profile.png" style="width: 100%; max-width: 200px; height: auto;">
+                <img class="image" ng-src="../img/profile.png" alt="Profile Picture" style="width: 100%; max-width: 200px; height: auto;">
+                <div class="middle left">
+                        <a class="waves-effect waves-circle waves-light btn-floating green " ng-click="register(app)" >
+                                <i class="large material-icons">edit</i>
+                        </a> 
+                </div>
                 <div class="col s12">
                     <span class="bdr flow-text">BDR: {{bdr}}</span>
                 </div>
-                <div class="col s12">
-                    <input class="btn waves-effect waves-light blue" ng-click="register(app)" type="submit" value="Edit" />
-                </div>  
                                  
             </div>   
             <div class="col s12">
@@ -36,7 +61,32 @@
                         <h6><em>Email:</em> {{email}}</h6>
                         <br><br>
                         <div class="card-action">
-                                <a href="#" class="black-text">Edit Information</a>
+                                <button ng-click="openModal()" class="btn black-text modal-trigger">Edit Information</button>
+                        </div>
+                        <div id="editmodal" class="modal">
+                            <!-- <div class="modal-content"> -->
+                              <h4>Edit Your Profile Information</h4>
+                              <!-- <form class="card-panel lighten-2 grey " style="width: auto;" method="post" name="registerForm">
+                                <div class="input-field col s12">
+                                    <label for="email">Email:</label>
+                                    <input class="validate" type="email" id="email" name="email" ng-model="email" required/>
+                                    <span ng-show="loginForm.email.$touched && loginForm.email.$invalid">Please enter a valid email.</span>
+                                </div>
+                                <div class="input-field col s12">
+                                    <label for="bdr">BDR:</label>
+                                    <input type="text" id="bdr" ng-model="bdr" required/>
+                                </div>
+                    
+                                <div class="input-field col s12">
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="text" id="phone" ng-model="phone"/>
+                                </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Exit</a>
+                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Save</a>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -44,5 +94,13 @@
         </div>
     </div>
 </main>
-    
+
+
+
+<script>
+    $(document).ready(function(){
+       $('.modal').modal();
+     });
+   </script>
+       
 <span ng-include="'views/footer.html'"></span>

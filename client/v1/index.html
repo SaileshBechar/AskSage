@@ -71,7 +71,9 @@ mixpanel.init("aa635c1d2c48333edbc72a585af6e2fe");</script> -->
             var elems = document.querySelectorAll('.fixed-action-btn');
             var instances = M.FloatingActionButton.init(elems, { direction: 'top' });
             var nav = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(nav, { edge: 'right', draggable: 'true'}); 
+            var instances = M.Sidenav.init(nav, { edge: 'right', draggable: 'true'});
+            var modalelems = document.querySelectorAll('.modal');
+            var modinstances = M.Modal.init(modalelems, options); 
         });
 
         // mixpanel.track("Page Load event key", "val");

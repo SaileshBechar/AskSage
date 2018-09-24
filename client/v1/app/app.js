@@ -199,6 +199,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     // called asynchronously if an error occurs
                     M.toast({ html: "User not found" });
                 });
+
+                $scope.openModal = function() {
+                    $modal.open();
+                    console.log('Modal is opened!');
+                }
+                
     })
 
 

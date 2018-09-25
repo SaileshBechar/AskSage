@@ -111,7 +111,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //     // parameters sent as form data
             $http({
                 method: 'POST',
-                data: $.param({ email: $scope.email, password: $scope.password, bdr: $scope.bdr, phone: $scope.phone}),
+                data: $.param({ email: $scope.email, password: $scope.password, fname: $scope.fname, lname: $scope.lname}),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 url: '/api/Brokers'
             })
@@ -152,7 +152,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     })
         .then(function (response) {
             // POST 200 sucess
-            $scope.bdr = response.data.bdr;
+            $scope.fname = response.data.fname;
         },
             function errorCallback(response) {
                 // called asynchronously if an error occurs
@@ -172,7 +172,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('HomeCtrl', function ($scope, $http) { 
     //Display Home Page mostly Static content  
     $scope.page = "Home Page";  
-           
+ 
     })
 
     .controller('ProfileCtrl', function ($scope, $http) {
@@ -192,20 +192,31 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             .then(function (response) {
                 // POST 200 sucess
                 $scope.email = response.data.email;
-                $scope.bdr = response.data.bdr;
-                $scope.phone = response.data.phone;
+                $scope.fname = response.data.fname;
+                $scope.lname = response.data.lname;
             },
-                function errorCallback(response) {
-                    // called asynchronously if an error occurs
-                    M.toast({ html: "User not found" });
-                });
+        function errorCallback(response) {
+            // called asynchronously if an error occurs
+            M.toast({ html: "User not found" });
+        });
 
-                $scope.openModal = function() {
-                    $modal.open();
-                    console.log('Modal is opened!');
-                }
-                
+        // $scope.editProfile = function() {
+        //     console.log('Modal is opened!');
+        // }
+        
     })
+
+    // .controller('editModalCtrl', function ($scope, $modalInstance) {
+    //     $scope.save = function () {
+    //         console.log('Pressed save');
+    //         $modalInstance.close();
+    //     }
+
+    //     $scope.cancel = function () {
+    //         $modalInstance.dismiss('cancel');
+    //     };
+
+    // })
 
 
     .controller('appController', function ($scope, $http, $location) {

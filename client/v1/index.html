@@ -52,7 +52,7 @@ mixpanel.init("aa635c1d2c48333edbc72a585af6e2fe");</script> -->
 
             <ng-view></ng-view>
 
-            <div class="fixed-action-btn">
+            <div class="fixed-action-btn .hide-on-small-only">
                     <a class="btn-floating btn-large orange pulse z-depth-5">
                         <i class="far fa-comment-alt"></i>
                     </a>
@@ -73,7 +73,7 @@ mixpanel.init("aa635c1d2c48333edbc72a585af6e2fe");</script> -->
             var nav = document.querySelectorAll('.sidenav');
             var instances = M.Sidenav.init(nav, { edge: 'right', draggable: 'true'});
             var modalelems = document.querySelectorAll('.modal');
-            var modinstances = M.Modal.init(modalelems, options); 
+            var modinstances = M.Modal.init(modalelems, {}); 
         });
 
         // mixpanel.track("Page Load event key", "val");

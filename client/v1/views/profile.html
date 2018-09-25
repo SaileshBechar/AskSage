@@ -38,6 +38,34 @@
 
 <div ng-controller="ProfileCtrl" ng-cloak="">
 <span ng-include="'views/header.html'"></span>
+<!-- <script type="text/ng-template" id="editModal.html">
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h4>Edit Your Profile Information</h4>
+            <form class="card-panel lighten-2 grey " style="width: auto;" method="post" name="registerForm">
+                <div class="input-field col s12">
+                    <label for="email">Email:</label>
+                    <input class="validate" type="email" id="email" name="email" ng-model="email" required/>
+                    <span ng-show="loginForm.email.$touched && loginForm.email.$invalid">Please enter a valid email.</span>
+                </div>
+                <div class="input-field col s12">
+                    <label for="bdr">BDR:</label>
+                    <input type="text" id="bdr" ng-model="bdr" required/>
+                </div>
+
+                <div class="input-field col s12">
+                    <label for="phone">Phone Number:</label>
+                    <input type="text" id="phone" ng-model="phone"/>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="modal-close waves-effect waves-green btn-flat" ng-click="cancel()">Cancel</a>
+            <a href="#" class="modal-close waves-effect waves-green btn-flat" ng-click="save()">Save</a>
+        </div>
+    </div>
+</script> -->
+
 <main>
     <div class="container section">
         <div class="row">
@@ -49,7 +77,7 @@
                         </a> 
                 </div>
                 <div class="col s12">
-                    <span class="bdr flow-text">BDR: {{bdr}}</span>
+                    <span class="bdr flow-text">{{fname}} {{lname}}</span>
                 </div>
                                  
             </div>   
@@ -57,37 +85,12 @@
                 <div class="card blue-grey lighten-4">
                     <div class="card-content">
                         <span class="card-title center">Profile Information</span>
-                        <h6><em>Phone:</em> {{phone}}</h6>
                         <h6><em>Email:</em> {{email}}</h6>
                         <br><br>
                         <div class="card-action">
-                                <button ng-click="openModal()" class="btn black-text modal-trigger">Edit Information</button>
+                                <button href="#editModal" ng-click="editProfile()" modal open="openModal" class="btn black-text modal-trigger">Edit Information</button>
                         </div>
-                        <div id="editmodal" class="modal">
-                            <!-- <div class="modal-content"> -->
-                              <h4>Edit Your Profile Information</h4>
-                              <!-- <form class="card-panel lighten-2 grey " style="width: auto;" method="post" name="registerForm">
-                                <div class="input-field col s12">
-                                    <label for="email">Email:</label>
-                                    <input class="validate" type="email" id="email" name="email" ng-model="email" required/>
-                                    <span ng-show="loginForm.email.$touched && loginForm.email.$invalid">Please enter a valid email.</span>
-                                </div>
-                                <div class="input-field col s12">
-                                    <label for="bdr">BDR:</label>
-                                    <input type="text" id="bdr" ng-model="bdr" required/>
-                                </div>
-                    
-                                <div class="input-field col s12">
-                                    <label for="phone">Phone Number:</label>
-                                    <input type="text" id="phone" ng-model="phone"/>
-                                </div>
-                            </form>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Exit</a>
-                                <a href="#" class="modal-close waves-effect waves-green btn-flat">Save</a>
-                            </div> -->
-                        </div>
+                       
                     </div>
                 </div>
             </div>

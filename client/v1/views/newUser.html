@@ -12,28 +12,33 @@
             </div> -->
               <h4>{{title}}</h4>
             <!-- <div>to continue to <strong>{{appName}}</strong></div> -->
-          
-            <div class="input-field col s12">
-              <label for="email">Email:</label>
-              <input class="validate" type="email" id="email" name="email" ng-model="email" required/>
-              <span ng-show="loginForm.email.$touched && loginForm.email.$invalid">Please enter a valid email.</span>
+          <div class="row">
+              <div class="input-field col s6">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" ng-model="fname" required/>
+            </div>
+            <div class="input-field col s6">
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" ng-model="lname" required/>
+            </div>
+          </div>
+           
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="email">Email:</label>
+                <input class="validate" type="email" id="email" name="email" ng-model="email" required/>
+                <span ng-show="loginForm.email.$touched && loginForm.email.$invalid">Please enter a valid email.</span>
+              </div>
             </div>
 
-            <div class="input-field col s12">
-              <label for="password">Password:</label>
-              <input type="password" id="password" ng-model="password" required/>
-            </div>
-
-            <div class="input-field col s12">
-                <label for="bdr">BDR:</label>
-                <input type="text" id="bdr" ng-model="bdr" required/>
-            </div>
-
-            <div class="input-field col s12">
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" ng-model="phone"/>
+            <div class="row">
+              <div class="input-field col s12">
+                <label for="password">Password:</label>
+                <input type="password" id="password" ng-model="password" required/>
+              </div>
             </div>
             
+
             <div>
               <input class="btn waves-effect waves-light blue right" ng-click="register(app)" type="submit" value="Register" />
               <!-- ng-disabled="loginForm.email.$invalid || loginForm.password.$invalid "/> -->

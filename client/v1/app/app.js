@@ -200,23 +200,16 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             M.toast({ html: "User not found" });
         });
 
-        // $scope.editProfile = function() {
-        //     console.log('Modal is opened!');
-        // }
-        
+        $scope.save = function (app) {
+            console.log($scope.bdrname);
+            console.log($scope.bdrphone);
+            console.log($scope.bdraddress);
+
+        }
+
+       
     })
 
-    // .controller('editModalCtrl', function ($scope, $modalInstance) {
-    //     $scope.save = function () {
-    //         console.log('Pressed save');
-    //         $modalInstance.close();
-    //     }
-
-    //     $scope.cancel = function () {
-    //         $modalInstance.dismiss('cancel');
-    //     };
-
-    // })
 
 
     .controller('appController', function ($scope, $http, $location) {

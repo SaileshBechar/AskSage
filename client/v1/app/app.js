@@ -66,14 +66,14 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             .when("/profile", {
                 templateUrl: 'views/profile.html',
                 controller: 'ProfileCtrl',
-                resolve: { 
-                    "Validate": function ($location, $rootScope) { 
-                        if (!$rootScope.loggedin) { 
-                            $location.path('/login'); 
-                            M.toast({ html: "Please log in"});
-                        }
-                    } 
-                } 
+                // resolve: { 
+                //     "Validate": function ($location, $rootScope) { 
+                //         if (!$rootScope.loggedin) { 
+                //             $location.path('/login'); 
+                //             M.toast({ html: "Please log in"});
+                //         }
+                //     } 
+                // } 
             })
             .otherwise({
                 redirectTo: "/login"
@@ -194,8 +194,8 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('ChatCtrl', function ($scope, $http) {
      //Call ProNav apis
      $scope.title = "Ask Sage";  //App name at login page
-     $scope.id = localStorage.getItem("id"); 
-     $scope.userId = localStorage.getItem("userId"); 
+     $scope.id = sessionStorage.token; 
+     $scope.userId = sessionStorage.userId;
 
 
      $http({
@@ -222,37 +222,54 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('ProfileCtrl', function ($scope, $http) {
         $scope.title = "Profile Page";
         
-
-        $scope.id = localStorage.getItem("id"); 
-        $scope.userId = localStorage.getItem("userId"); 
-
-        // http://localhost:3000/api/Users/?access_token=PqosmmPCdQgwerDYwQcVCxMakGQV0BSUwG4iGVLvD3XUYZRQky1cmG8ocmzsVpEE.
+        $scope.id = sessionStorage.token; 
+        $scope.userId = sessionStorage.userId;
+        
+        $scope.getinfo = function(){
+            $http({
+                method: 'GET',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.id
+            })
+                .then(function (response) {
+                    // POST 200 sucess
+                    $scope.email = response.data.email;
+                    $scope.fname = response.data.fname;
+                    $scope.lname = response.data.lname;
+                    $scope.bdrname = response.data.bdr.name;
+                    $scope.bdrphone = response.data.bdr.phone;
+                    $scope.bdraddress = response.data.bdr.address;
+                },
+            function errorCallback(response) {
+                // called asynchronously if an error occurs
+                M.toast({ html: "User not found" });
+            });
     
-        $http({
-            method: 'GET',
-           // data: $.param({ id: $scope.userId}),
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.id
-        })
-            .then(function (response) {
-                // POST 200 sucess
-                $scope.email = response.data.email;
-                $scope.fname = response.data.fname;
-                $scope.lname = response.data.lname;
-            },
-        function errorCallback(response) {
-            // called asynchronously if an error occurs
-            M.toast({ html: "User not found" });
-        });
+        }
+       
+        $scope.getinfo(); //Retrieve info initially to display on page
 
-        $scope.save = function (app) {
-            console.log($scope.bdrname);
-            console.log($scope.bdrphone);
-            console.log($scope.bdraddress);
-
+        $scope.save = function () {
+            $http({
+                method: 'PATCH',
+                data: $.param({bdr: { name: $scope.bdrname, phone: $scope.bdrphone, address: $scope.bdraddress},
+                fname: $scope.fname, lname: $scope.lname}),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                url: '/api/Brokers/' + $scope.userId + '/?access_token='+ $scope.id
+            })
+                .then(function (response) {
+                    // POST 200 sucess
+                   console.log('successful post!');
+                },
+            function errorCallback(response) {
+                // called asynchronously if an error occurs
+                M.toast({ html: "User not found" });
+            });
         }
 
-       
+        $scope.cancel = function () {
+            $scope.getinfo(); //Revert text boxes to original content
+        }
     })
 
 

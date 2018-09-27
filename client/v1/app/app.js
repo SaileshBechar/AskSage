@@ -2,10 +2,10 @@
 
 
 angular.module('myApp', ['ngRoute', 'ngMessages'])
-    .run(function($rootScope) {
-        $rootScope.loggedin = false; //Defaults to logged out
-     
-        
+    .run(function ($rootScope) {
+        // $rootScope.loggedin = false; //Defaults to logged out
+
+
 
 
     })
@@ -18,80 +18,121 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             .when("/newuser", {
                 templateUrl: '../views/newUser.html',
                 controller: 'NewUserCtrl',
-                resolve: { 
-                    "Validate": function ($location, $rootScope) { 
-                        if (!$rootScope.loggedin) { 
-                            $location.path('/login'); 
-                            M.toast({ html: "Please log in"});
+                resolve: {
+                    "Validate": function ($location, $rootScope) {
+                        if (!$rootScope.loggedin) {
+                            
+                            $location.path('/login');
+                            M.toast({ html: "Please log in" });
+                        }
+                        else{
+                            //do noithing
                         }
                     }
-                } 
+                }
             })
             .when("/feedback", {
-                templateUrl: 'views/feedback.html',
+                templateUrl: '../views/feedback.html',
                 controller: 'FeedbackCtrl',
-                resolve: { 
-                    "Validate": function ($location, $rootScope) { 
-                        if (!$rootScope.loggedin) { 
-                            $location.path('/login'); 
-                            M.toast({ html: "Please log in"});
+                resolve: {
+                    "Validate": function ($location, $rootScope) {
+                        if (!$rootScope.loggedin) {
+                            $location.path('/login');
+                            M.toast({ html: "Please log in" });
                         }
-                    } 
-                } 
+                    }
+                }
             })
             .when("/chat", {
                 templateUrl: 'views/chat.html',
                 controller: 'ChatCtrl',
-                resolve: { 
-                    "Validate": function ($location, $rootScope) { 
-                        if (!$rootScope.loggedin) { 
-                            $location.path('/login'); 
-                            M.toast({ html: "Please log in"});
+                resolve: {
+                    "Validate": function ($location, $rootScope) {
+                        console.log($rootScope.loggedin);
+                        if (!$rootScope.loggedin) {
+                            $location.path('/login');
+                            M.toast({ html: "Please log in" });
                         }
-                    } 
-                } 
+                    }
+                }
             })
             .when("/home", {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl',
-                resolve: { 
-                    "Validate": function ($location, $rootScope) { 
-                        if (!$rootScope.loggedin) { 
-                            $location.path('/login'); 
-                            M.toast({ html: "Please log in"});
+                resolve: {
+                    "Validate": function ($location, $rootScope) {
+                        console.log($rootScope.loggedin);
+                        if (!$rootScope.loggedin) {
+                            $location.path('/login');
+                            M.toast({ html: "Please log in" });
                         }
-                    } 
-                } 
+                    }
+                }
             })
             .when("/profile", {
                 templateUrl: 'views/profile.html',
                 controller: 'ProfileCtrl',
-                // resolve: { 
-                //     "Validate": function ($location, $rootScope) { 
-                //         if (!$rootScope.loggedin) { 
-                //             $location.path('/login'); 
-                //             M.toast({ html: "Please log in"});
-                //         }
-                //     } 
-                // } 
+                resolve: {
+                    "Validate": function ($location, $rootScope) {
+                        console.log($rootScope.loggedin);
+                        if (!$rootScope.loggedin) {
+                            $location.path('/login');
+                            M.toast({ html: "Please log in" });
+                        }
+                    }
+                }
             })
             .otherwise({
                 redirectTo: "/login"
-                
             })
     }])
 
-    //Controllers start here
+    //All Controllers start from here
     .controller('LoginCtrl', function ($scope, $http, $location, $rootScope) {
+
         $scope.tile = "Sign in";
-        $scope.appName = "Ask Sage"; //APP NAME change as required
+        $scope.appName = $scope.app.title; //APP NAME from appCtrl
 
-        
 
+        // If session found RETRIEVE VALUE
+        // else set the session during login 
+        var initSession = function (app) {      
+            if (sessionStorage.userId && sessionStorage.token) {
+                
+                $scope.userId = sessionStorage.userId;
+                $rootScope.token = sessionStorage.token
+                
+
+                $rootScope.loggedin = true;
+                
+                //For display at Header
+                $rootScope.profileMsg = "Profile";
+                $rootScope.loggedinMsg = "Logoff";
+
+                //Success path -> Redirect to Home if found session
+                $location.path("/home");
+
+
+            } else {
+                //Loggedin = false;
+                $rootScope.loggedin = false;
+                // console.log("Please login to continue"); //TODO remove me later
+
+                //For display at Header
+                $rootScope.loggedinMsg = "Login";
+                $rootScope.profileMsg = null;
+
+                //Redirect to login page
+                $location.path("/login");
+
+            }
+        }();
+
+       
+
+
+        //Login function
         $scope.login = function (app) {
-            //Read session for token if available 
-
-
             // POST http://localhost:3000/api/Users/login
             // parameter: Email, password
             // parameters are sent as form-urlencoded data
@@ -107,47 +148,26 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     $scope.userId = response.data.userId;
                     $rootScope.loggedin = true;
 
-                
+
                     //Add Session Storage
                     sessionStorage.userId = $scope.userId;
                     sessionStorage.token = $scope.token;
-                    
+
                     //Success path -> Redirect to Home
                     $location.path("/home");
                 },
                     function errorCallback(response) {
                         // Called asynchronously if an error occurs
-                        console.log(response);
+                        // console.log(response);
                         M.toast({ html: "Please try again: " + response.statusText });
                         $rootScope.loggedin = false;
-    
+
                     });
         };
-
-        $scope.logoff = function (app) {
-            //Logoff Function
-            //post to users logoff with ($scope.auth) 
-            $http.post("api/Brokers/logout?access_token=" + $scope.auth)
-                .then((response) => {
-                    $scope.auth = null;
-                    $scope.userId = null;
-                    
-                    $rootScope.loggedin = false;
-                    localStorage.clear();
-                    sessionStorage.clear();
-                },
-                    (res) => {
-                        $rootScope.loggedin = true;
-                    });
-
-        }
-
-
-
     })
 
     .controller('FeedbackCtrl', function ($scope, $http) {
-        
+
         //Get feedback
         //Post to feedback api
         //Store analytics
@@ -156,34 +176,27 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
     .controller('NewUserCtrl', function ($scope, $http, $location) {
         $scope.title = "Broker Registration";
-        
-        $scope.register = function (app) {
-        //     //Add client validations
-        //     // $scope.validate(app);
 
-        //     // POST http://localhost:3000/api/Users
-        //     // parameters sent as form data
+        $scope.register = function (app) {
+
+            // POST http://localhost:3000/api/Users
+            // parameters sent as form data
             $http({
                 method: 'POST',
-                data: $.param({ email: $scope.email, password: $scope.password, fname: $scope.fname, lname: $scope.lname}),
+                data: $.param({ email: $scope.email, password: $scope.password, fname: $scope.fname, lname: $scope.lname }),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 url: '/api/Brokers'
             })
                 .then(function (response) {
                     // POST 200 sucess
                     $scope.auth = response.data.id;
-                    
 
-                    //Save to local storage
-                    // localStorage.setItem("id", $scope.auth);
-             
-                    
                     //Redirect to Login
                     $location.path("/login");
                 },
                     function errorCallback(response) {
                         // called asynchronously if an error occurs
-                        M.toast({ html: "Failed to create a Broker"  });
+                        M.toast({ html: "Failed to create a Broker" });
 
                         $scope.loggedin = false;
                     });
@@ -192,44 +205,49 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     })
 
     .controller('ChatCtrl', function ($scope, $http) {
-     //Call ProNav apis
-     $scope.title = "Ask Sage";  //App name at login page
-     $scope.id = sessionStorage.token; 
-     $scope.userId = sessionStorage.userId;
+        //Call ProNav apis
+        $scope.title = $scope.app.title;
 
 
-     $http({
-        method: 'GET',
-       // data: $.param({ id: $scope.userId}),
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.id
+        $scope.token = sessionStorage.token;
+        $scope.userId = sessionStorage.userId;
+
+        $http({
+            method: 'GET',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            url: '/api/Brokers/' + $scope.userId + '?access_token=' + $scope.token
+        })
+            .then(function (response) {
+                // POST 200 sucess
+                $scope.fname = response.data.fname;
+            },
+                function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    M.toast({ html: "User not found" });
+                });
     })
-        .then(function (response) {
-            // POST 200 sucess
-            $scope.fname = response.data.fname;
-        },
-            function errorCallback(response) {
-                // called asynchronously if an error occurs
-                M.toast({ html: "User not found" });
-            });
-    })
-    .controller('HomeCtrl', function ($scope, $http) { 
-    //Display Home Page mostly Static content  
-    //Include news feeds from Intellizence??
-    $scope.page = "Home Page";  
+    .controller('HomeCtrl', function ($scope, $http) {
+        //Display Home Page mostly Static content  
+        //Include news feeds from Intellizence??
+        $scope.page = "Home Page";
+
     })
 
     .controller('ProfileCtrl', function ($scope, $http) {
         $scope.title = "Profile Page";
-        
-        $scope.id = sessionStorage.token; 
+
+        //sessionStorage.userId && sessionStorage.token
+
+        $scope.token = sessionStorage.token;
         $scope.userId = sessionStorage.userId;
-        
+
+        // http://localhost:3000/api/Users/?access_token=PqosmmPCdQgwerDYwQcVCxMakGQV0BSUwG4iGVLvD3XUYZRQky1cmG8ocmzsVpEE.
+
         $scope.getinfo = function(){
             $http({
                 method: 'GET',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.id
+                url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.token
             })
                 .then(function (response) {
                     // POST 200 sucess
@@ -255,7 +273,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 data: $.param({bdr: { name: $scope.bdrname, phone: $scope.bdrphone, address: $scope.bdraddress},
                 fname: $scope.fname, lname: $scope.lname}),
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                url: '/api/Brokers/' + $scope.userId + '/?access_token='+ $scope.id
+                url: '/api/Brokers/' + $scope.userId + '/?access_token='+ $scope.token
             })
                 .then(function (response) {
                     // POST 200 sucess
@@ -272,38 +290,46 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         }
     })
 
+    .controller('appController', function ($scope, $http, $location, $rootScope) {
+        // Application related properties goes here
+        // Example name, version, major / minor version, etc..
 
-
-    .controller('appController', function ($scope, $http, $location) {
         var app = {
             title: "Ask Sage",
             version: "V0.1",
         };
         $scope.app = app;
 
-     
-       // If seesion found RETRIEVE VALUE
-       //else set the session 
+        
 
-        if (sessionStorage.userId) {
-            $scope.userId = sessionStorage.userId;
-            $scope.token = sessionStorage.token
+        //Logoff Function
+        //post to brokers logoff with ($scope.token) 
+        $scope.logoff = function (app) {   
+            $http.post("api/Brokers/logout?access_token=" + $scope.token)
+                .then(function (response) {
+                    // POST 200 success
+                    $rootScope.loggedin = false;
 
-            //Loggedin = true;
-            $scope.loggedin = true;
+                    //Clear scope vars
+                    $scope.userId = null;
+                    $scope.token = null;
 
-            //For display at Header
-            $scope.profileMsg = "Profile";
-            $scope.loggedinMsg = "Logoff"; 
+                    // Clear sessions
+                    sessionStorage.removeItem('userId');
+                    sessionStorage.removeItem('token');
 
-        } else {
-            //Loggedin = false;
-            $scope.loggedin = false;
-            $scope.loggedinMsg = "Login"; //For display at Header
-            $scope.profileMsg = null; 
+                    //Success path -> Redirect to Home
+                    $location.path("/login");
+                },
+                    function errorCallback(response) {
+                        // Called asynchronously if an error occurs
+                        // console.log(response);
+                        M.toast({ html: "Please try again: " + response.statusText });
+                        $rootScope.loggedin = true;
 
-        }
+                    });
+                }
 
-   
+
 
     });

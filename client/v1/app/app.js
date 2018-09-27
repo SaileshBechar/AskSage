@@ -208,6 +208,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //Call ProNav apis
         $scope.title = $scope.app.title;
 
+
         $scope.token = sessionStorage.token;
         $scope.userId = sessionStorage.userId;
 
@@ -242,26 +243,57 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
         // http://localhost:3000/api/Users/?access_token=PqosmmPCdQgwerDYwQcVCxMakGQV0BSUwG4iGVLvD3XUYZRQky1cmG8ocmzsVpEE.
 
-        $http({
-            method: 'GET',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            url: '/api/Brokers/' + $scope.userId + '?access_token=' + $scope.token
-        })
-            .then(function (response) {
-                // POST 200 sucess
-                $scope.email = response.data.email;
-                $scope.fname = response.data.fname;
-                $scope.lname = response.data.lname;
-            },
-                function errorCallback(response) {
-                    // called asynchronously if an error occurs
-                    M.toast({ html: "User not found" });
-                });
+        $scope.getinfo = function(){
+            $http({
+                method: 'GET',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                url: '/api/Brokers/' + $scope.userId + '?access_token='+ $scope.token
+            })
+                .then(function (response) {
+                    // POST 200 sucess
+                    $scope.email = response.data.email;
+                    $scope.fname = response.data.fname;
+                    $scope.lname = response.data.lname;
+                    $scope.bdrname = response.data.bdr.name;
+                    $scope.bdrphone = response.data.bdr.phone;
+                    $scope.bdraddress = response.data.bdr.address;
+                },
+            function errorCallback(response) {
+                // called asynchronously if an error occurs
+                M.toast({ html: "User not found" });
+            });
+    
+        }
+       
+        $scope.getinfo(); //Retrieve info initially to display on page
+
+        $scope.save = function () {
+            $http({
+                method: 'PATCH',
+                data: $.param({bdr: { name: $scope.bdrname, phone: $scope.bdrphone, address: $scope.bdraddress},
+                fname: $scope.fname, lname: $scope.lname}),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                url: '/api/Brokers/' + $scope.userId + '/?access_token='+ $scope.token
+            })
+                .then(function (response) {
+                    // POST 200 sucess
+                   console.log('successful post!');
+                },
+            function errorCallback(response) {
+                // called asynchronously if an error occurs
+                M.toast({ html: "User not found" });
+            });
+        }
+
+        $scope.cancel = function () {
+            $scope.getinfo(); //Revert text boxes to original content
+        }
     })
 
     .controller('appController', function ($scope, $http, $location, $rootScope) {
         // Application related properties goes here
         // Example name, version, major / minor version, etc..
+
         var app = {
             title: "Ask Sage",
             version: "V0.1",

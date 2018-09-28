@@ -76,15 +76,15 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             .when("/profile", {
                 templateUrl: 'views/profile.html',
                 controller: 'ProfileCtrl',
-                resolve: {
-                    "Validate": function ($location, $rootScope) {
-                        console.log($rootScope.loggedin);
-                        if (!$rootScope.loggedin) {
-                            $location.path('/login');
-                            M.toast({ html: "Please log in" });
-                        }
-                    }
-                }
+                // resolve: {
+                //     "Validate": function ($location, $rootScope) {
+                //         console.log($rootScope.loggedin);
+                //         if (!$rootScope.loggedin) {
+                //             $location.path('/login');
+                //             M.toast({ html: "Please log in" });
+                //         }
+                //     }
+                // }
             })
             .otherwise({
                 redirectTo: "/landing"
@@ -105,7 +105,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
         // If session found RETRIEVE VALUE
         // else set the session during login 
-        var initSession = function (app) {      
+        $scope.initSession = function () {      
             if (sessionStorage.userId && sessionStorage.token) {
                 
                 $scope.userId = sessionStorage.userId;
@@ -135,7 +135,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 $location.path("/login");
 
             }
-        }();
+        };
 
        
 
@@ -162,6 +162,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     sessionStorage.userId = $scope.userId;
                     sessionStorage.token = $scope.token;
 
+                    $scope.initSession();
                     //Success path -> Redirect to Home
                     $location.path("/home");
                 },

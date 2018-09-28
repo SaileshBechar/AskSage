@@ -7,17 +7,25 @@
         display: block;
         transition: .5s ease;
         backface-visibility: hidden;
+        width: 100%; 
+        /* max-width: 200px; */
+        height: auto;
+        border-style: ridge;
     }
     .profilepic {
         transition: .5s ease;
         opacity: 0;
+        position: absolute;
+        margin: -23px 0 0 -23px;
+        left: 50%;
+        top: 50%;
     }
 
-    .col.s12:hover .image {
+    .col.s6.push-s3.m3:hover .image {
         opacity: 0.3;
     }
 
-    .col.s12:hover .profilepic {
+    .col.s6.push-s3.m3:hover .profilepic {
         opacity: 1;
     }
 
@@ -32,8 +40,20 @@
 
     .card .card-content {
         padding-top: 0px;
-        padding-bottom: 0px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
     }
+
+    .card .card-title {
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+    }
+
+    .row {
+        margin-top : 20px;
+    }
+    
 
 </style>
 
@@ -43,15 +63,14 @@
 <main>
     <div class="container">
         <div class="row">
-            <div class="col s12 m3">
-                <img class="image" ng-src="../img/profile.png" alt="Profile Picture" style="width: 100%; max-width: 200px; height: auto;">
-                <div class="profilepic">
-                        <a class="waves-effect waves-circle waves-light btn-floating green " ng-click="register(app)" >
-                                <i class="large material-icons">edit</i>
-                        </a> 
-                </div>                                 
+            <div class="col s6 push-s3 m3">
+                <div class="card">
+                    <img class="image" ng-src="../img/profile.png" alt="Profile Picture">
+                    <a class="waves-effect waves-circle waves-light btn-floating btn-large green profilepic" ng-click="register(app)" >
+                        <i class="fas fa-paint-brush"></i>
+                    </a> 
+                </div>                           
             </div>
-            <br>
             <div class="col s12 m6 push-m3">
                 <div class="card blue-grey lighten-4">
                     <div class="card-content">
@@ -60,17 +79,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m6 push-m6">
+        
+            <div class="col s12 m6 push-m3">
                 <div class="card blue-grey lighten-4">
                     <div class="card-content">
                         <h4 class="card-title center">
                             BDR Info
                         </h4>
-                        <h6><em>Name: </em> {{bdrname}}</h6>
-                        <h6><em>Phone: </em> {{bdrphone}}</h6>
-                        <h6><em>Address: </em> {{bdraddress}}</h6>
+                        <h6><em>Name:       </em> {{bdrname}}</h6>
+                        <h6><em>Phone:      </em> {{bdrphone}}</h6>
+                        <h6><em>Address:        </em> {{bdraddress}}</h6>
                     </div>
                     <div class="card-action center">
                         <button data-target="editModal" class="btn black-text modal-trigger ">Edit Information</button>

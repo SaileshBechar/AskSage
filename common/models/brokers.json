@@ -20,7 +20,23 @@
         "required" : false
       }    
     },
-    "validations": [],
+    "validations": [{
+      "fname" : {
+        "type" : "string",
+        "description" : "First name of Broker",
+        "min" : 2,
+        "max" : 13
+      },
+      "lname" : {
+        "type" : "string",
+        "description" : "Last name of Broker",
+        "min" : 2,
+        "max" : 13
+      }
+    }
+      
+
+    ],
     "relations": {},
     "acls": [],
     "methods": {}

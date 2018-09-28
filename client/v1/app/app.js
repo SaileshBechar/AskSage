@@ -11,6 +11,10 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     })
     .config(['$routeProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
+            .when("/landing", {
+                templateUrl: '../views/landingPage.html',
+                controller: 'LandingCtrl'
+            })
             .when("/login", {
                 templateUrl: '../views/login.html',
                 controller: 'LoginCtrl'
@@ -83,11 +87,16 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 }
             })
             .otherwise({
-                redirectTo: "/login"
+                redirectTo: "/landing"
             })
     }])
 
     //All Controllers start from here
+    .controller('LandingCtrl', function ($scope, $http, $location, $rootScope) {
+        $scope.tile = "Landing Page";
+    })
+    
+    
     .controller('LoginCtrl', function ($scope, $http, $location, $rootScope) {
 
         $scope.tile = "Sign in";
@@ -173,7 +182,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //Store analytics
 
     })
-
     .controller('NewUserCtrl', function ($scope, $http, $location) {
         $scope.title = "Broker Registration";
 

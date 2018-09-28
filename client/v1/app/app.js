@@ -3,7 +3,7 @@
 
 angular.module('myApp', ['ngRoute', 'ngMessages'])
     .run(function ($rootScope) {
-        // $rootScope.loggedin = false; //Defaults to logged out
+        $rootScope.loggedin = false; //Defaults to logged out
 
 
 

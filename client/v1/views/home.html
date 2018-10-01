@@ -12,5 +12,13 @@
             and the cloud – you position your business to drive extreme efficiency within your brokerage, more profitable 
             interactions with insurers, and enhanced customer experience.</div>
     </div>
+    Data from Intellizence:
+    {{data}}
+
+    <ul>
+        <li ng-repeat="x in myData">
+          {{ x.Name + ', ' + x.Country }}
+        </li>
+      </ul>
 
 <span ng-include="'views/footer.html'"></span>

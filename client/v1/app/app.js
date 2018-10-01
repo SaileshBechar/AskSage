@@ -9,7 +9,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
 
     })
-    .config(['$routeProvider', function ($routeProvider, $locationProvider) {
+    .config(['$routeProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+     
+        //Required for Intellizence API calls
+        // $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
+       
+
         $routeProvider
             .when("/landing", {
                 templateUrl: '../views/landingPage.html',
@@ -26,11 +31,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate": function ($location, $rootScope) {
                         if (!$rootScope.loggedin) {
                             
-                            $location.path('/login');
+                            $location.path('/landing');
                             M.toast({ html: "Please log in" });
                         }
                         else{
-                            //do noithing
+                            //do nothing
+                            console.log($location);
                         }
                     }
                 }
@@ -41,7 +47,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 resolve: {
                     "Validate": function ($location, $rootScope) {
                         if (!$rootScope.loggedin) {
-                            $location.path('/login');
+                            $location.path('/landing');
                             M.toast({ html: "Please log in" });
                         }
                     }
@@ -52,9 +58,9 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 controller: 'ChatCtrl',
                 resolve: {
                     "Validate": function ($location, $rootScope) {
-                        console.log($rootScope.loggedin);
+                        // console.log($rootScope.loggedin);
                         if (!$rootScope.loggedin) {
-                            $location.path('/login');
+                            $location.path('/landing');
                             M.toast({ html: "Please log in" });
                         }
                     }
@@ -65,9 +71,9 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 controller: 'HomeCtrl',
                 resolve: {
                     "Validate": function ($location, $rootScope) {
-                        console.log($rootScope.loggedin);
+                        // console.log($rootScope.loggedin);
                         if (!$rootScope.loggedin) {
-                            $location.path('/login');
+                            $location.path('/landing');
                             M.toast({ html: "Please log in" });
                         }
                     }
@@ -76,19 +82,20 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             .when("/profile", {
                 templateUrl: 'views/profile.html',
                 controller: 'ProfileCtrl',
-                // resolve: {
-                //     "Validate": function ($location, $rootScope) {
-                //         console.log($rootScope.loggedin);
-                //         if (!$rootScope.loggedin) {
-                //             $location.path('/login');
-                //             M.toast({ html: "Please log in" });
-                //         }
-                //     }
-                // }
+                resolve: {
+                    "Validate": function ($location, $rootScope) {
+                        // console.log($rootScope.loggedin);
+                        if (!$rootScope.loggedin) {
+                            $location.path('/login');
+                            M.toast({ html: "Please log in" });
+                        }
+                    }
+                }
             })
             .otherwise({
                 redirectTo: "/landing"
             })
+           
     }])
 
     //All Controllers start from here
@@ -240,6 +247,30 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //Include news feeds from Intellizence??
         $scope.page = "Home Page";
 
+
+
+
+        //Call Intellizence - News Agregator
+        $http({
+            method: 'GET',
+            headers: { 
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+                'Access-Control-Allow-Origin': '*',
+                'x-api-key':'gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi' 
+            },
+            url: 'https://api.intellizence.com/api/v1/companies'
+        })
+            .then(function (response) {
+                // POST 200 sucess
+                $scope.data = response.data;
+                $scope.myData = response.data.records;
+            },
+                function errorCallback(response) {
+                    // called asynchronously if an error occurs
+                    M.toast({ html: "Error call back" + response });
+                    console.log( response )
+                });
+
     })
 
     .controller('ProfileCtrl', function ($scope, $http) {
@@ -286,7 +317,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             })
                 .then(function (response) {
                     // POST 200 sucess
-                   console.log('successful post!');
+                M.toast({ html: "Saved changes" });
                 },
             function errorCallback(response) {
                 // called asynchronously if an error occurs
@@ -328,7 +359,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     sessionStorage.removeItem('token');
 
                     //Success path -> Redirect to Home
-                    $location.path("/login");
+                    $location.path("/landing");
                 },
                     function errorCallback(response) {
                         // Called asynchronously if an error occurs

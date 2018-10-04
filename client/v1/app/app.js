@@ -2,14 +2,40 @@
 
 
 angular.module('myApp', ['ngRoute', 'ngMessages'])
-    .run(function ($rootScope) {
-        $rootScope.loggedin = false; //Defaults to logged out
+    .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {          
+        var isLoggedin = function($http){
+            var userId = sessionStorage.getItem('userId');
+            var token = sessionStorage.getItem('token');
 
+            if (token != null && userId != null){
+                /*TO UNCOMMENT ONCE HTTP IS USED FOR AUTH*/
+                // $http.get('/api/Brokers/' + userId + '/accessTokens/' + token + '?access_token=' + token)
+                // .then(function (response) {
+                //     console.log('Authenticate says its logged in');
+                //     return true;
+                
+                // $http({
+                //     method: 'GET',
+                //     // headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                //     url: '/api/Brokers/' + userId + '/accessTokens/' + token + '?access_token=' + token
+                // })
+                // .then(function (response) {
+                    return true;
+                // },
+                // function errorCallback(response) {
+                //     // Called asynchronously if an error occurs     
+                //     console.log('Authenticate says its NOT logged in');                   
+                //     console.log(token);
+                //     console.log(userId);
+                //     return false;
 
-
-
-    })
-    .config(['$routeProvider', function ($routeProvider, $locationProvider, $httpProvider) {
+                // });                
+            }
+            else{ 
+                return false;
+            }
+        }
+        
         $routeProvider
             .when("/public", {
                 templateUrl: '../views/publicPage.html',
@@ -17,21 +43,25 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             })
             .when("/login", {
                 templateUrl: '../views/login.html',
-                controller: 'LoginCtrl'
+                controller: 'LoginCtrl',
+                resolve: {                      
+                    "Validate" : function($location){
+                        var loggedin = isLoggedin();
+                        if (loggedin){
+                            $location.path('/home'); 
+                        }             
+                    }
+                }
             })
             .when("/newuser", {
                 templateUrl: '../views/newUser.html',
                 controller: 'NewUserCtrl',
                 resolve: {
-                    "Validate": function ($location, $rootScope) {
-                        if (!$rootScope.loggedin) {
-                            
-                            $location.path('/public');
-                            M.toast({ html: "Please log in" });
-                        }
-                        else{
-                            // console.log($location);
-                        }
+                    "Validate" : function($location){
+                        var loggedin = isLoggedin();
+                        if (!loggedin){
+                            $location.path('/landing'); 
+                        }             
                     }
                 }
             })
@@ -39,11 +69,11 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 templateUrl: '../views/feedback.html',
                 controller: 'FeedbackCtrl',
                 resolve: {
-                    "Validate": function ($location, $rootScope) {
-                        if (!$rootScope.loggedin) {
-                            $location.path('/public');
-                            M.toast({ html: "Please log in" });
-                        }
+                    "Validate" : function($location){
+                        var loggedin = isLoggedin();
+                        if (!loggedin){
+                            $location.path('/landing'); 
+                        }             
                     }
                 }
             })
@@ -51,26 +81,24 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 templateUrl: 'views/chat.html',
                 controller: 'ChatCtrl',
                 resolve: {
-                    "Validate": function ($location, $rootScope) {
-                        // console.log($rootScope.loggedin);
-                        if (!$rootScope.loggedin) {
-                            $location.path('/public');
-                            M.toast({ html: "Please log in" });
-                        }
+                    "Validate" : function($location){
+                        var loggedin = isLoggedin();
+                        if (!loggedin){
+                            $location.path('/landing'); 
+                        }             
+
                     }
                 }
             })
             .when("/home", {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl',
-                resolve: {
-                    "Validate": function ($location, $rootScope) {
-                        // console.log($rootScope.loggedin);
-                        if (!$rootScope.loggedin) {
-                            $location.path('/public');
-                            M.toast({ html: "Please log in" });
-                        }
-                        
+                resolve: {                   
+                    "Validate" : function($location){
+                        var loggedin = isLoggedin();
+                        if (!loggedin){
+                            $location.path('/landing'); 
+                        }             
                     }
                 }
             })
@@ -78,12 +106,11 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 templateUrl: 'views/profile.html',
                 controller: 'ProfileCtrl',
                 resolve: {
-                    "Validate": function ($location, $rootScope) {
-                        // console.log($rootScope.loggedin);
-                        if (!$rootScope.loggedin) {
-                            $location.path('/login');
-                            M.toast({ html: "Please log in" });
-                        }
+                    "Validate" : function($location){
+                        var loggedin = isLoggedin();
+                        if (!loggedin){
+                            $location.path('/landing'); 
+                        }             
                     }
                 }
             })
@@ -94,15 +121,16 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
            
     }])
 
+    
     //All Controllers start from here
-    .controller('LandingCtrl', function ($scope, $http, $location, $rootScope ) {
+    .controller('LandingCtrl', function ($scope, $http, $location) {
         $scope.tile = "Landing Page";
 
         
     })
     
     
-    .controller('LoginCtrl', function ($scope, $http, $location, $rootScope) {
+    .controller('LoginCtrl', function ($scope, $http, $location) {
        
         console.log("Repeat Test");
         //from appController
@@ -111,87 +139,43 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             version: "V0.1",
         };
         $scope.app = app;
-       
-        
+        $scope.tile = "Sign in";
+        $scope.appName = $scope.app.title; //APP NAME from appCtrl    
+                
 
         //Logoff Function
         //post to brokers logoff with ($scope.token) 
-        $scope.logoff = function (app) {   
-            $http.post("api/Brokers/logout?access_token=" + $scope.token)
-                .then(function (response) {
-                    // POST 200 success
-                    $rootScope.loggedin = false;
+        $scope.logoff = function (app) {
+            $scope.token = sessionStorage.getItem('token');   
+            $scope.userId = sessionStorage.getItem('userId');   
+            $http.post("api/Brokers/logout?access_token=" + $scope.token)            
+            /* TO UNCOMMENT ONCE HTTP IS USED TO AUTHENTICATE */
+            // $http({
+            //     method: 'DELETE',
+            //     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+            //     url: '/api/Brokers/' + $scope.userId + '/accessTokens?access_token=' + $scope.token
+            // })
+            .then(function (response) {
+                // POST 200 success
 
-                    //Clear scope vars
-                    $scope.userId = null;
-                    $scope.token = null;
+                //Clear scope vars
+                $scope.userId = null;
+                $scope.token = null;
 
-                    // Clear sessions
-                    sessionStorage.removeItem('userId');
-                    sessionStorage.removeItem('token');
+                // Clear sessions
+                sessionStorage.removeItem('userId');
+                sessionStorage.removeItem('token');
 
-                    //Success path -> Redirect to Home
-                    $location.path("/landing");
-                },
-                    function errorCallback(response) {
-                        // Called asynchronously if an error occurs
-                        // console.log(response);
-                        M.toast({ html: "Please try again: " + response.statusText });
-                        $rootScope.loggedin = true;
+                //Success path -> Redirect to Home
+                $location.path("/landing");
+            },
+            function errorCallback(response) {
+                // Called asynchronously if an error occurs
+                // console.log(response);
+                M.toast({ html: "Please try again: " + response.statusText });
 
-                    });
-                }
-
-
-
-
-
-
-
-
-
-        
-        $scope.tile = "Sign in";
-        $scope.appName = $scope.app.title; //APP NAME from appCtrl
-
-
-        // If session found RETRIEVE VALUE
-        // else set the session during login 
-        $scope.initSession = function () {      
-            // console.log('Init session invoked');
-            if (sessionStorage.userId && sessionStorage.token) {
-                
-                $scope.userId = sessionStorage.userId;
-                $rootScope.token = sessionStorage.token
-                
-
-                $rootScope.loggedin = true;
-                
-                //For display at Header
-                $rootScope.profileMsg = "Profile";
-                $rootScope.loggedinMsg = "Logoff";
-
-                //Success path -> Redirect to Home if found session
-                $location.path("/home");
-
-
-            } else {
-                //Loggedin = false;
-                $rootScope.loggedin = false;
-                // console.log("Please login to continue"); //TODO remove me later
-
-                //For display at Header
-                $rootScope.loggedinMsg = "Login";
-                $rootScope.profileMsg = null;
-
-                //Redirect to login page
-                $location.path("/login");
-
-            }
-        };
-
-       
-
+            });
+        }
 
         //Login function
         $scope.login = function (app) {
@@ -204,47 +188,21 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 url: '/api/Brokers/login'
             })
-                .then(function (response) {
-                    // POST 200 success
-                    $scope.token = response.data.id;
-                    $scope.userId = response.data.userId;
-                    $rootScope.loggedin = true;
+            .then(function (response) {
+                // POST 200 success
+                //Add to Session Storage
+                sessionStorage.userId = response.data.userId;
+                sessionStorage.token = response.data.id;
 
-
-                    //Add Session Storage
-                    sessionStorage.userId = $scope.userId;
-                    sessionStorage.token = $scope.token;
-
-                    $scope.initSession();
-
-                //     //Test MixPanel Users
-   
-                // mixpanel.identify("12148");
-
-                // mixpanel.people.set({
-                //     "$email": "jsmith@example.com",    // only special properties need the $
-                    
-                //     "$created": "2011-03-16 16:53:54",
-                //     "$last_login": new Date(),         // properties can be dates...
-                    
-                //     "credits": 150,                    // ...or numbers
-                    
-                //     "gender": "Male"                    // feel free to define your own properties
-                // });
-
-
-
-
-                    //Success path -> Redirect to Home
-                    $location.path("/home");
-                },
-                    function errorCallback(response) {
-                        // Called asynchronously if an error occurs
-                        // console.log(response);
-                        M.toast({ html: "Please try again: " + response.statusText });
-                        $rootScope.loggedin = false;
-
-                    });
+                //Success path -> Redirect to Home
+                 $location.path("/home");
+               
+            },
+            function errorCallback(response) {
+                // Called asynchronously if an error occurs
+                console.log(response);
+                M.toast({ html: "Please try again: " + response.statusText });
+            });
         };
     })
 
@@ -397,7 +355,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         }
     })
 
-    .controller('appController', function ($scope, $http, $location, $rootScope) {
+    .controller('appController', function ($scope, $http, $location) {
         // Application related properties goes here
         // Example name, version, major / minor version, etc..
 

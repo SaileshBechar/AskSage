@@ -34,8 +34,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-    <script src="app/app.js"></script>
+    
     <script src="app/init.js"></script>
+    <script src="app/app.js"></script>
 
     
 
@@ -49,7 +50,7 @@
 
 <body>
     <main>
-        <div ng-app="myApp" ng-controller="LoginCtrl" class="s12 white " id="mainPage">
+        <div ng-app="myApp" ng-controller="appController" class="s12 white " id="mainPage">
             <!-- {{app.title}} -->
             
             <ng-view></ng-view>
@@ -69,6 +70,7 @@
         
     </main>
 
+  
   <script src="app/resolve.js"></script>
 
 </body>

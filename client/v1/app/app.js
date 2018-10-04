@@ -11,8 +11,8 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     })
     .config(['$routeProvider', function ($routeProvider, $locationProvider, $httpProvider) {
         $routeProvider
-            .when("/landing", {
-                templateUrl: '../views/landingPage.html',
+            .when("/public", {
+                templateUrl: '../views/publicPage.html',
                 controller: 'LandingCtrl'
             })
             .when("/login", {
@@ -26,7 +26,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate": function ($location, $rootScope) {
                         if (!$rootScope.loggedin) {
                             
-                            $location.path('/landing');
+                            $location.path('/public');
                             M.toast({ html: "Please log in" });
                         }
                         else{
@@ -41,7 +41,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 resolve: {
                     "Validate": function ($location, $rootScope) {
                         if (!$rootScope.loggedin) {
-                            $location.path('/landing');
+                            $location.path('/public');
                             M.toast({ html: "Please log in" });
                         }
                     }
@@ -54,7 +54,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate": function ($location, $rootScope) {
                         // console.log($rootScope.loggedin);
                         if (!$rootScope.loggedin) {
-                            $location.path('/landing');
+                            $location.path('/public');
                             M.toast({ html: "Please log in" });
                         }
                     }
@@ -67,7 +67,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate": function ($location, $rootScope) {
                         // console.log($rootScope.loggedin);
                         if (!$rootScope.loggedin) {
-                            $location.path('/landing');
+                            $location.path('/public');
                             M.toast({ html: "Please log in" });
                         }
                         
@@ -88,7 +88,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 }
             })
             .otherwise({
-                redirectTo: "/landing"
+                redirectTo: "/public"
             })
            
            
@@ -104,14 +104,14 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     
     .controller('LoginCtrl', function ($scope, $http, $location, $rootScope) {
        
-
+        console.log("Repeat Test");
         //from appController
         var app = {
             title: "Ask Sage",
             version: "V0.1",
         };
         $scope.app = app;
-        console.log('test for repeat');
+       
         
 
         //Logoff Function
@@ -216,6 +216,25 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     sessionStorage.token = $scope.token;
 
                     $scope.initSession();
+
+                //     //Test MixPanel Users
+   
+                // mixpanel.identify("12148");
+
+                // mixpanel.people.set({
+                //     "$email": "jsmith@example.com",    // only special properties need the $
+                    
+                //     "$created": "2011-03-16 16:53:54",
+                //     "$last_login": new Date(),         // properties can be dates...
+                    
+                //     "credits": 150,                    // ...or numbers
+                    
+                //     "gender": "Male"                    // feel free to define your own properties
+                // });
+
+
+
+
                     //Success path -> Redirect to Home
                     $location.path("/home");
                 },
@@ -231,6 +250,8 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
     .controller('FeedbackCtrl', function ($scope, $http) {
 
+
+        console.log('test for repeat');
         //Get feedback
         //Post to feedback api
         //Store analytics

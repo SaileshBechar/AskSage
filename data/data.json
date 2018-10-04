@@ -1,0 +1,24 @@
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "Broker": 6,
+    "RoleMapping": 1,
+    "Role": 1
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "Broker": {
+      "1": "{\"password\":\"$2a$10$eswOwEYRVmfDN75d9JuyruW2UhaOswBifX8WwzZZxhpal54kdCyXW\",\"email\":\"tester1@pronav.com\",\"id\":1}",
+      "2": "{\"password\":\"$2a$10$tXd6jtwJOnFT9.G6c5Bpcuku/JSZ9UadYqkDd4MUsl/9V.1OOW8NC\",\"email\":\"tester2@pronav.com\",\"id\":2}",
+      "3": "{\"password\":\"$2a$10$ZzmaxjXh0.Y0XIFMLD3EOeaS7pV0Ty9oSjJ8l/gfj8x999AKsaPv2\",\"email\":\"tester3@pronav.com\",\"id\":3}",
+      "4": "{\"password\":\"$2a$10$qVU2On9Fss9kDexHA/g.IOiKZfh6Tb7TmdgWoCpaDjZE3pONcMdwe\",\"email\":\"tester4@pronav.com\",\"id\":4}",
+      "5": "{\"password\":\"$2a$10$SZlMq9EVsaJJUukn5jBS8.PFdFacZOK2.bbolv2M2qXDyooEE7N4y\",\"email\":\"tester5@pronav.com\",\"id\":5}"
+    },
+    "RoleMapping": {},
+    "Role": {}
+  }
+}

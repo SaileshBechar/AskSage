@@ -37,6 +37,10 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         }
         
         $routeProvider
+            .when("/landing", {
+                templateUrl: '../views/landingPage.html',
+                controller: 'LandingCtrl'
+            })
             .when("/login", {
                 templateUrl: '../views/login.html',
                 controller: 'LoginCtrl',
@@ -56,7 +60,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/login'); 
+                            $location.path('/landing'); 
                         }             
                     }
                 }
@@ -68,7 +72,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/login'); 
+                            $location.path('/landing'); 
                         }             
                     }
                 }
@@ -80,8 +84,9 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/login'); 
+                            $location.path('/landing'); 
                         }             
+
                     }
                 }
             })
@@ -92,7 +97,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/login'); 
+                            $location.path('/landing'); 
                         }             
                     }
                 }
@@ -104,23 +109,73 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/login'); 
+                            $location.path('/landing'); 
                         }             
                     }
                 }
             })
             .otherwise({
-                redirectTo: "/login"
+                redirectTo: "/landing"
             })
+           
+           
     }])
 
     
     //All Controllers start from here
+    .controller('LandingCtrl', function ($scope, $http, $location) {
+        $scope.tile = "Landing Page";
+
+        
+    })
+    
+    
     .controller('LoginCtrl', function ($scope, $http, $location) {
+       
 
+        //from appController
+        var app = {
+            title: "Ask Sage",
+            version: "V0.1",
+        };
+        $scope.app = app;
         $scope.tile = "Sign in";
-        $scope.appName = $scope.app.title; //APP NAME from appCtrl      
+        $scope.appName = $scope.app.title; //APP NAME from appCtrl    
+                
 
+        //Logoff Function
+        //post to brokers logoff with ($scope.token) 
+        $scope.logoff = function (app) {
+            $scope.token = sessionStorage.getItem('token');   
+            $scope.userId = sessionStorage.getItem('userId');   
+            $http.post("api/Brokers/logout?access_token=" + $scope.token)            
+            /* TO UNCOMMENT ONCE HTTP IS USED TO AUTHENTICATE */
+            // $http({
+            //     method: 'DELETE',
+            //     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+            //     url: '/api/Brokers/' + $scope.userId + '/accessTokens?access_token=' + $scope.token
+            // })
+            .then(function (response) {
+                // POST 200 success
+
+                //Clear scope vars
+                $scope.userId = null;
+                $scope.token = null;
+
+                // Clear sessions
+                sessionStorage.removeItem('userId');
+                sessionStorage.removeItem('token');
+
+                //Success path -> Redirect to Home
+                $location.path("/landing");
+            },
+            function errorCallback(response) {
+                // Called asynchronously if an error occurs
+                // console.log(response);
+                M.toast({ html: "Please try again: " + response.statusText });
+
+            });
+        }
 
         //Login function
         $scope.login = function (app) {
@@ -158,7 +213,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //Store analytics
 
     })
-
     .controller('NewUserCtrl', function ($scope, $http, $location) {
         $scope.title = "Broker Registration";
 
@@ -216,6 +270,30 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //Include news feeds from Intellizence??
         $scope.page = "Home Page";
 
+
+
+
+        // //Call Intellizence - News Agregator
+        // $http({
+        //     method: 'GET',
+        //     headers: { 
+        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //         'Access-Control-Allow-Origin': '*',
+        //         'x-api-key':'gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi' 
+        //     },
+        //     url: 'https://api.intellizence.com/api/v1/companies'
+        // })
+        //     .then(function (response) {
+        //         // POST 200 sucess
+        //         $scope.data = response.data;
+        //         $scope.myData = response.data.records;
+        //     },
+        //         function errorCallback(response) {
+        //             // called asynchronously if an error occurs
+        //             M.toast({ html: "Error call back" + response });
+        //             console.log( response )
+        //         });
+
     })
 
     .controller('ProfileCtrl', function ($scope, $http) {
@@ -262,7 +340,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             })
                 .then(function (response) {
                     // POST 200 sucess
-                   console.log('successful post!');
+                M.toast({ html: "Saved changes" });
                 },
             function errorCallback(response) {
                 // called asynchronously if an error occurs
@@ -279,42 +357,42 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         // Application related properties goes here
         // Example name, version, major / minor version, etc..
 
-        var app = {
-            title: "Ask Sage",
-            version: "V0.1",
-        };
-        $scope.app = app;
+        // var app = {
+        //     title: "Ask Sage",
+        //     version: "V0.1",
+        // };
+        // $scope.app = app;
+
         
-        $scope.logoff = function (app) {
-            $scope.userId = sessionStorage.getItem('userId');
-            $scope.token = sessionStorage.getItem('token');
 
-            /* TO UNCOMMENT ONCE HTTP IS USED TO AUTHENTICATE */
-            // $http({
-            //     method: 'DELETE',
-            //     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
-            //     url: '/api/Brokers/' + $scope.userId + '/accessTokens?access_token=' + $scope.token
-            // })
-            // .then(function (response) {
-                // POST 200 success
-                // Clear sessions
-                sessionStorage.removeItem('userId');
-                sessionStorage.removeItem('token');
+        // //Logoff Function
+        // //post to brokers logoff with ($scope.token) 
+        // $scope.logoff = function (app) {   
+        //     $http.post("api/Brokers/logout?access_token=" + $scope.token)
+        //         .then(function (response) {
+        //             // POST 200 success
+        //             $rootScope.loggedin = false;
 
-                //Success path -> Redirect to Home
-                
-                $location.path("/login");
-            // },
-            //     function errorCallback(response) {
-            //         // Called asynchronously if an error occurs
-            //         console.log(response);
-            //         M.toast({ html: "Please try again: " + response.statusText });
-            //     });
-            }
+        //             //Clear scope vars
+        //             $scope.userId = null;
+        //             $scope.token = null;
+
+        //             // Clear sessions
+        //             sessionStorage.removeItem('userId');
+        //             sessionStorage.removeItem('token');
+
+        //             //Success path -> Redirect to Home
+        //             $location.path("/landing");
+        //         },
+        //             function errorCallback(response) {
+        //                 // Called asynchronously if an error occurs
+        //                 // console.log(response);
+        //                 M.toast({ html: "Please try again: " + response.statusText });
+        //                 $rootScope.loggedin = true;
+
+        //             });
+        //         }
 
 
 
     });
-
-    
-  

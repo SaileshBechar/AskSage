@@ -2,16 +2,20 @@
 <html lang="en">
 
 <head>
+    <!-- Time page load events -->
+        <script type="text/javascript">
+            var timerStart = Date.now();
+        </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Broker Assistant | Wawanesa Insurance </title>
+    <title> Ask Sage | Wawanesa Insurance </title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"  media="screen,projection">
     <link rel="stylesheet" href="css/style.css">
@@ -26,18 +30,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
-    
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
     <script src="app/app.js"></script>
+    <script src="app/init.js"></script>
 
     
-    <!-- <script type="text/javascript">(function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
-0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
-for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn4.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
-mixpanel.init("aa635c1d2c48333edbc72a585af6e2fe");</script> -->
+
 
 
 <!-- <script src="https://s3.us-east-2.amazonaws.com/pronav-sdk/1.6.12/pronav.1.6.12.min.js"></script> -->
@@ -48,36 +49,27 @@ mixpanel.init("aa635c1d2c48333edbc72a585af6e2fe");</script> -->
 
 <body>
     <main>
-        <div ng-app="myApp" ng-controller="appController" class="s12 white " id="mainPage">
+        <div ng-app="myApp" ng-controller="LoginCtrl" class="s12 white " id="mainPage">
             <!-- {{app.title}} -->
+            
             <ng-view></ng-view>
         </div>
 
-            <div class="fixed-action-btn .hide-on-small-only">
+            <div class="fixed-action-btn hide-on-small-only">
                     <a class="btn-floating btn-large orange pulse z-depth-5">
                         <i class="far fa-comment-alt"></i>
                     </a>
-                    <ul>
-                      <li><a href="#!login" class="btn-floating red"><i class="material-icons">fingerprint</i></a></li>
-                      <li><a href="#!chat" class="btn-floating yellow darken-1"><i class="material-icons">question_answer</i></a></li>
-                      <!-- <li><a href="#!feedback" class="btn-floating green"><i class="material-icons">terrain</i></a></li> -->
+                    <!-- <ul>
+                        <li><a href="#!login" class="btn-floating red"><i class="material-icons">fingerprint</i></a></li>
+                        <li><a href="#!chat" class="btn-floating yellow darken-1"><i class="material-icons">question_answer</i></a></li>
+                        <li><a href="#!feedback" class="btn-floating green"><i class="material-icons">terrain</i></a></li>
                     </ul>
+                -->
             </div>
         
     </main>
 
-    <script>
-        M.AutoInit();
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.fixed-action-btn');
-            var instances = M.FloatingActionButton.init(elems, { direction: 'top' });
-            var nav = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(nav, { edge: 'right', draggable: 'true'});
-            var modalelems = document.querySelectorAll('.modal');
-            var modinstances = M.Modal.init(modalelems, {}); 
-        });
+  <script src="app/resolve.js"></script>
 
-        // mixpanel.track("Page Load event key", "val");
-    </script>
 </body>
 </html>

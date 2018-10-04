@@ -10,11 +10,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
     })
     .config(['$routeProvider', function ($routeProvider, $locationProvider, $httpProvider) {
-     
-        //Required for Intellizence API calls
-        // $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = '*';
-       
-
         $routeProvider
             .when("/landing", {
                 templateUrl: '../views/landingPage.html',
@@ -35,8 +30,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                             M.toast({ html: "Please log in" });
                         }
                         else{
-                            //do nothing
-                            console.log($location);
+                            // console.log($location);
                         }
                     }
                 }
@@ -76,6 +70,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                             $location.path('/landing');
                             M.toast({ html: "Please log in" });
                         }
+                        
                     }
                 }
             })
@@ -96,16 +91,66 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                 redirectTo: "/landing"
             })
            
+           
     }])
 
     //All Controllers start from here
-    .controller('LandingCtrl', function ($scope, $http, $location, $rootScope) {
+    .controller('LandingCtrl', function ($scope, $http, $location, $rootScope ) {
         $scope.tile = "Landing Page";
+
+        
     })
     
     
     .controller('LoginCtrl', function ($scope, $http, $location, $rootScope) {
+       
 
+        //from appController
+        var app = {
+            title: "Ask Sage",
+            version: "V0.1",
+        };
+        $scope.app = app;
+        console.log('test for repeat');
+        
+
+        //Logoff Function
+        //post to brokers logoff with ($scope.token) 
+        $scope.logoff = function (app) {   
+            $http.post("api/Brokers/logout?access_token=" + $scope.token)
+                .then(function (response) {
+                    // POST 200 success
+                    $rootScope.loggedin = false;
+
+                    //Clear scope vars
+                    $scope.userId = null;
+                    $scope.token = null;
+
+                    // Clear sessions
+                    sessionStorage.removeItem('userId');
+                    sessionStorage.removeItem('token');
+
+                    //Success path -> Redirect to Home
+                    $location.path("/landing");
+                },
+                    function errorCallback(response) {
+                        // Called asynchronously if an error occurs
+                        // console.log(response);
+                        M.toast({ html: "Please try again: " + response.statusText });
+                        $rootScope.loggedin = true;
+
+                    });
+                }
+
+
+
+
+
+
+
+
+
+        
         $scope.tile = "Sign in";
         $scope.appName = $scope.app.title; //APP NAME from appCtrl
 
@@ -113,6 +158,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         // If session found RETRIEVE VALUE
         // else set the session during login 
         $scope.initSession = function () {      
+            // console.log('Init session invoked');
             if (sessionStorage.userId && sessionStorage.token) {
                 
                 $scope.userId = sessionStorage.userId;
@@ -250,26 +296,26 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
 
 
-        //Call Intellizence - News Agregator
-        $http({
-            method: 'GET',
-            headers: { 
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-                'Access-Control-Allow-Origin': '*',
-                'x-api-key':'gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi' 
-            },
-            url: 'https://api.intellizence.com/api/v1/companies'
-        })
-            .then(function (response) {
-                // POST 200 sucess
-                $scope.data = response.data;
-                $scope.myData = response.data.records;
-            },
-                function errorCallback(response) {
-                    // called asynchronously if an error occurs
-                    M.toast({ html: "Error call back" + response });
-                    console.log( response )
-                });
+        // //Call Intellizence - News Agregator
+        // $http({
+        //     method: 'GET',
+        //     headers: { 
+        //         // 'Content-Type': 'application/x-www-form-urlencoded',
+        //         'Access-Control-Allow-Origin': '*',
+        //         'x-api-key':'gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi' 
+        //     },
+        //     url: 'https://api.intellizence.com/api/v1/companies'
+        // })
+        //     .then(function (response) {
+        //         // POST 200 sucess
+        //         $scope.data = response.data;
+        //         $scope.myData = response.data.records;
+        //     },
+        //         function errorCallback(response) {
+        //             // called asynchronously if an error occurs
+        //             M.toast({ html: "Error call back" + response });
+        //             console.log( response )
+        //         });
 
     })
 
@@ -334,41 +380,41 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         // Application related properties goes here
         // Example name, version, major / minor version, etc..
 
-        var app = {
-            title: "Ask Sage",
-            version: "V0.1",
-        };
-        $scope.app = app;
+        // var app = {
+        //     title: "Ask Sage",
+        //     version: "V0.1",
+        // };
+        // $scope.app = app;
 
         
 
-        //Logoff Function
-        //post to brokers logoff with ($scope.token) 
-        $scope.logoff = function (app) {   
-            $http.post("api/Brokers/logout?access_token=" + $scope.token)
-                .then(function (response) {
-                    // POST 200 success
-                    $rootScope.loggedin = false;
+        // //Logoff Function
+        // //post to brokers logoff with ($scope.token) 
+        // $scope.logoff = function (app) {   
+        //     $http.post("api/Brokers/logout?access_token=" + $scope.token)
+        //         .then(function (response) {
+        //             // POST 200 success
+        //             $rootScope.loggedin = false;
 
-                    //Clear scope vars
-                    $scope.userId = null;
-                    $scope.token = null;
+        //             //Clear scope vars
+        //             $scope.userId = null;
+        //             $scope.token = null;
 
-                    // Clear sessions
-                    sessionStorage.removeItem('userId');
-                    sessionStorage.removeItem('token');
+        //             // Clear sessions
+        //             sessionStorage.removeItem('userId');
+        //             sessionStorage.removeItem('token');
 
-                    //Success path -> Redirect to Home
-                    $location.path("/landing");
-                },
-                    function errorCallback(response) {
-                        // Called asynchronously if an error occurs
-                        // console.log(response);
-                        M.toast({ html: "Please try again: " + response.statusText });
-                        $rootScope.loggedin = true;
+        //             //Success path -> Redirect to Home
+        //             $location.path("/landing");
+        //         },
+        //             function errorCallback(response) {
+        //                 // Called asynchronously if an error occurs
+        //                 // console.log(response);
+        //                 M.toast({ html: "Please try again: " + response.statusText });
+        //                 $rootScope.loggedin = true;
 
-                    });
-                }
+        //             });
+        //         }
 
 
 

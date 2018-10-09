@@ -1,0 +1,14 @@
+.contains {
+    background: linear-gradient(0deg, rgba(96, 136, 223, 0.514), white);
+  }
+
+  .image {
+    /* opacity: 1;
+         display: block;
+         transition: .5s ease;
+         backface-visibility: hidden;
+         width: 100%; 
+         max-width: 200px; 
+         height: auto;
+         border-style: ridge; */
+  }

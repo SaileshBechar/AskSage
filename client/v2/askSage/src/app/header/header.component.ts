@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   //Properties
   public userName = "Jhon";
   public brokerId = "1";
+  
 
 
   public isDisabled = true;

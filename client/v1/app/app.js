@@ -3,39 +3,20 @@
 
 angular.module('myApp', ['ngRoute', 'ngMessages'])
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {          
-        var isLoggedin = function($http){
+        var isLoggedin = function(verify){
             var userId = sessionStorage.getItem('userId');
             var token = sessionStorage.getItem('token');
 
             if (token != null && userId != null){
-                /*TO UNCOMMENT ONCE HTTP IS USED FOR AUTH*/
-                // $http.get('/api/Brokers/' + userId + '/accessTokens/' + token + '?access_token=' + token)
-                // .then(function (response) {
-                //     console.log('Authenticate says its logged in');
-                //     return true;
-                
-                // $http({
-                //     method: 'GET',
-                //     // headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
-                //     url: '/api/Brokers/' + userId + '/accessTokens/' + token + '?access_token=' + token
-                // })
-                // .then(function (response) {
-                    return true;
-                // },
-                // function errorCallback(response) {
-                //     // Called asynchronously if an error occurs     
-                //     console.log('Authenticate says its NOT logged in');                   
-                //     console.log(token);
-                //     console.log(userId);
-                //     return false;
-
-                // });                
+                    console.log('About to go in verify service');
+                    console.log(verify);
+                    return true;            
             }
             else{ 
                 return false;
             }
         }
-        
+       
         $routeProvider
             .when("/public", {
                 templateUrl: '../views/publicPage.html',
@@ -60,7 +41,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/landing'); 
+                            $location.path('/public'); 
                         }             
                     }
                 }
@@ -72,7 +53,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/landing'); 
+                            $location.path('/public'); 
                         }             
                     }
                 }
@@ -84,7 +65,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/landing'); 
+                            $location.path('/public'); 
                         }             
 
                     }
@@ -97,7 +78,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/landing'); 
+                            $location.path('/public'); 
                         }             
                     }
                 }
@@ -109,7 +90,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
                     "Validate" : function($location){
                         var loggedin = isLoggedin();
                         if (!loggedin){
-                            $location.path('/landing'); 
+                            $location.path('/public'); 
                         }             
                     }
                 }
@@ -120,16 +101,37 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
            
            
     }])
-
+    .provider("verify", function(){
+        this.$get = function($http){
+                console.log('In verify provider');
+                var userId = sessionStorage.getItem('userId');
+                var token = sessionStorage.getItem('token');
+                 $http({
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                    url: '/api/Brokers/' + userId + '/accessTokens/' + token + '?access_token=' + token
+                })
+                .then(function (response) {
+                    console.log('VERIFIED');   
+                    return true;
+                },
+                function errorCallback(response) {
+                    // Called asynchronously if an error occurs     
+                    console.log('Verify says INVALID');                   
+                    console.log(token);
+                    console.log(userId);
+                    return false;
+        
+                });           
+            }        
+    })
     
     //All Controllers start from here
     .controller('LandingCtrl', function ($scope, $http, $location) {
         $scope.tile = "Landing Page";
 
         
-    })
-    
-    
+    })    
     .controller('LoginCtrl', function ($scope, $http, $location) {
        
         console.log("Repeat Test");
@@ -141,11 +143,12 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         $scope.app = app;
         $scope.tile = "Sign in";
         $scope.appName = $scope.app.title; //APP NAME from appCtrl    
-                
+      
 
         //Logoff Function
         //post to brokers logoff with ($scope.token) 
         $scope.logoff = function (app) {
+            console.log('In Logoff function');
             $scope.token = sessionStorage.getItem('token');   
             $scope.userId = sessionStorage.getItem('userId');   
             $http.post("api/Brokers/logout?access_token=" + $scope.token)            
@@ -271,8 +274,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         //Display Home Page mostly Static content  
         //Include news feeds from Intellizence??
         $scope.page = "Home Page";
-
-
 
 
         // //Call Intellizence - News Agregator

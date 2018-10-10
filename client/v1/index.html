@@ -3,75 +3,53 @@
 
 <head>
     <!-- Time page load events -->
-        <script type="text/javascript">
-            var timerStart = Date.now();
-        </script>
+    <script type="text/javascript">
+        var timerStart = Date.now();
+    </script>
+     <title> Ask Sage | Wawanesa Insurance </title>
+     <base href="/" />
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Ask Sage | Wawanesa Insurance </title>
+   
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"  media="screen,projection">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css"
+        media="screen,projection">
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
-    <!-- <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script> -->
-   
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
     <script src="app/init.js"></script>
     <script src="app/app.js"></script>
-
-    
-
-
-
-<!-- <script src="https://s3.us-east-2.amazonaws.com/pronav-sdk/1.6.12/pronav.1.6.12.min.js"></script> -->
-
-
 
 </head>
 
 <body>
     <main>
-        <div ng-app="myApp"  class="s12 white " id="mainPage"> 
+        <div ng-app="myApp" class="s12 white" id="mainPage">
             <!-- {{app.title}} ng-controller="appController" -->
-            
+
             <ng-view></ng-view>
         </div>
-
-            <div class="fixed-action-btn hide-on-small-only">
-                    <a class="btn-floating btn-large orange pulse z-depth-5">
-                        <i class="far fa-comment-alt"></i>
-                    </a>
-                    <!-- <ul>
-                        <li><a href="#!login" class="btn-floating red"><i class="material-icons">fingerprint</i></a></li>
-                        <li><a href="#!chat" class="btn-floating yellow darken-1"><i class="material-icons">question_answer</i></a></li>
-                        <li><a href="#!feedback" class="btn-floating green"><i class="material-icons">terrain</i></a></li>
-                    </ul>
-                -->
-            </div>
-        
     </main>
 
-  
-  <script src="app/resolve.js"></script>
-
+    <script src="app/resolve.js"></script>
 </body>
 </html>

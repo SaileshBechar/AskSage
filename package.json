@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "buildClient": " echo  hello",
     
-    "start": "concurrently \"npm run serve-api\" \"npm run serve\"",
+    "start": "node .",
     "serve": "ng build --prod", 
     "serve-api": "nodemon 'server/server.js'",
 

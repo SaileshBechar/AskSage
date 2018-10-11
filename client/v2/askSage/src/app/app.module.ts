@@ -3,14 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrokerComponent } from './components/broker/broker.component';
-import { HeaderComponent } from './header/header.component';
+import { PublicComponent } from './FrontEndComponents/public/public.component';
+import { LoginComponent } from './FrontEndComponents/login/login.component';
+import { HeaderComponent } from './FrontEndComponents/header/header.component';
+import { HomeComponent } from './FrontEndComponents/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BrokerComponent,
-    HeaderComponent
+    PublicComponent,
+    LoginComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

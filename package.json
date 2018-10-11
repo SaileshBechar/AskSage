@@ -7,18 +7,24 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "buildClient": " echo  hello",
+    
+    "start": "concurrently \"npm run serve-api\" \"npm run serve\"",
+    "serve": "ng build --prod", 
+    "serve-api": "nodemon 'server/server.js'",
+
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {
     "compression": "^1.0.3",
+    "concurrently": "^4.0.1",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
+    "loopback": "^3.19.0",
     "loopback-boot": "^2.6.5",
-    "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^3.0.0",
     "loopback-component-explorer": "^6.0.0",
-    "loopback": "^3.19.0"
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^3.17.1",

@@ -13,6 +13,8 @@ All client files are under:
 ./client/v1/
 
 
- curl -X OPTIONS https://api.intellizence.com/api/v1/companies -i
- To find out which request methods a server supports
+<<<<<<< HEAD
+
+=======
+>>>>>>> 187ff05572aea22356aa35a72af66a109fa03a9b
 

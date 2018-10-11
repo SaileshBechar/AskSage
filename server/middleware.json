@@ -40,7 +40,7 @@
   },
   "files": {
     "loopback#static" : {
-      "params" : "$!../client/v1"
+      "params" : "$!../client/v2/askSage/dist/askSage"
     }
   },
   "final": {

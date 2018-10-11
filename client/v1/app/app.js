@@ -2,6 +2,54 @@
 
 
 angular.module('myApp', ['ngRoute', 'ngMessages'])
+    .factory('logoffService', function(){
+        return {
+            logoff: function(){
+
+                console.log("Started logoff service ..")
+                $scope.token = sessionStorage.getItem('token');   
+                $scope.userId = sessionStorage.getItem('userId');   
+                $http.post("api/Brokers/logout?access_token=" + $scope.token)            
+                /* TO UNCOMMENT ONCE HTTP IS USED TO AUTHENTICATE */
+                // $http({
+                //     method: 'DELETE',
+                //     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+                //     url: '/api/Brokers/' + $scope.userId + '/accessTokens?access_token=' + $scope.token
+                // })
+                .then(function (response) {
+                    // POST 200 success
+    
+                    //Clear scope vars
+                    $scope.userId = null;
+                    $scope.token = null;
+    
+                    // Clear sessions
+                    sessionStorage.removeItem('userId');
+                    sessionStorage.removeItem('token');
+    
+                    //Success path -> Redirect to Home
+                    $location.path("/public");
+                },
+                function errorCallback(response) {
+                    // Called asynchronously if an error occurs
+                    // console.log(response);
+                    M.toast({ html: "Please try again: " + response.statusText });
+    
+                });
+
+                return true; //Should return  
+            }
+
+        }
+    })
+    // .factory('loginService', function(){
+    //     return {
+    //         login: function(app){
+
+    //             return true; //Should return  
+    //         }
+    //     }
+    // })
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {          
         var isLoggedin = function(verify){
             var userId = sessionStorage.getItem('userId');
@@ -131,15 +179,21 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         $scope.tile = "Landing Page";
 
         
+<<<<<<< HEAD
+    })
+    
+    
+    .controller('LoginCtrl', function ($scope, $http, $location, logoffService) {
+=======
     })    
     .controller('LoginCtrl', function ($scope, $http, $location) {
+>>>>>>> 187ff05572aea22356aa35a72af66a109fa03a9b
        
-        console.log("Repeat Test");
-        //from appController
         var app = {
             title: "Ask Sage",
             version: "V0.1",
         };
+       
         $scope.app = app;
         $scope.tile = "Sign in";
         $scope.appName = $scope.app.title; //APP NAME from appCtrl    
@@ -147,6 +201,11 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
         //Logoff Function
         //post to brokers logoff with ($scope.token) 
+<<<<<<< HEAD
+        $scope.logoff = function () {
+            $scope.output = logoffService.logoff();
+        }
+=======
         $scope.logoff = function (app) {
             console.log('In Logoff function');
             $scope.token = sessionStorage.getItem('token');   
@@ -160,25 +219,40 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             // })
             .then(function (response) {
                 // POST 200 success
+>>>>>>> 187ff05572aea22356aa35a72af66a109fa03a9b
 
-                //Clear scope vars
-                $scope.userId = null;
-                $scope.token = null;
 
-                // Clear sessions
-                sessionStorage.removeItem('userId');
-                sessionStorage.removeItem('token');
 
-                //Success path -> Redirect to Home
-                $location.path("/landing");
-            },
-            function errorCallback(response) {
-                // Called asynchronously if an error occurs
-                // console.log(response);
-                M.toast({ html: "Please try again: " + response.statusText });
+        //     $scope.token = sessionStorage.getItem('token');   
+        //     $scope.userId = sessionStorage.getItem('userId');   
+        //     $http.post("api/Brokers/logout?access_token=" + $scope.token)            
+        //     /* TO UNCOMMENT ONCE HTTP IS USED TO AUTHENTICATE */
+        //     // $http({
+        //     //     method: 'DELETE',
+        //     //     headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+        //     //     url: '/api/Brokers/' + $scope.userId + '/accessTokens?access_token=' + $scope.token
+        //     // })
+        //     .then(function (response) {
+        //         // POST 200 success
 
-            });
-        }
+        //         //Clear scope vars
+        //         $scope.userId = null;
+        //         $scope.token = null;
+
+        //         // Clear sessions
+        //         sessionStorage.removeItem('userId');
+        //         sessionStorage.removeItem('token');
+
+        //         //Success path -> Redirect to Home
+        //         $location.path("/landing");
+        //     },
+        //     function errorCallback(response) {
+        //         // Called asynchronously if an error occurs
+        //         // console.log(response);
+        //         M.toast({ html: "Please try again: " + response.statusText });
+
+        //     });
+        // }
 
         //Login function
         $scope.login = function (app) {
@@ -212,7 +286,7 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
     .controller('FeedbackCtrl', function ($scope, $http) {
 
 
-        console.log('test for repeat');
+        
         //Get feedback
         //Post to feedback api
         //Store analytics

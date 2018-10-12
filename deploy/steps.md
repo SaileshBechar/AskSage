@@ -10,5 +10,7 @@ git remote add deploy ssh://ubuntu@ec2-35-182-204-3.ca-central-1.compute.amazona
 git add .
 git commit -m "Added remote reop on EC2 "
 //Only first time to snyc repo
-git push deploy +master:refs/head/master 
+git push deploy +master:refs/head/master
+
+git branch all
 

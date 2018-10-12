@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PublicComponent } from './FrontEndComponents/public/public.component';
 import { LoginComponent } from './FrontEndComponents/login/login.component';
 import { HomeComponent } from './FrontEndComponents/home/home.component';
+import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path : "**",
+    component: PageNotFoundComponent
   }
 ];
 

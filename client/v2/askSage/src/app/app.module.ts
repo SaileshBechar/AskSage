@@ -12,6 +12,7 @@ import { HeaderComponent } from './FrontEndComponents/header/header.component';
 import { HomeComponent } from './FrontEndComponents/home/home.component';
 /* Services */
 import { BrokerService } from './Services/broker.service';
+import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BrokerService } from './Services/broker.service';
     PublicComponent,
     LoginComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

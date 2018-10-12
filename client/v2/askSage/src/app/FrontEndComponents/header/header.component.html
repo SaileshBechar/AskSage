@@ -1,3 +1,57 @@
-<p>
-  header works!
-</p>
+<header>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper  green darken-3" >        
+
+                <ul id="nav-web" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="">Home</a>
+                    </li>
+                    <li>
+                        <a href="">Profile</a>
+                    </li> 
+                    <!-- <li>
+                        <a href="#!chat">Chat Bot</a>
+                    </li> -->
+                    <li>
+                        <!-- <a href="#!feedback">Feedback</a> -->
+                    </li>
+                    <li>
+                        <!-- <a ng-click="logoff(app)"> Logoff </a>  -->
+                        
+                    </li>
+                </ul>
+                <div>
+                    <a data-target="mobile-menu" class="sidenav-trigger right">
+                    <i class="material-icons">menu</i></a>
+                </div>
+                    
+            </div>
+        </nav>
+    </div>
+
+     <ul class="sidenav right" id="mobile-menu">
+                <li><div>
+                    <div class="white background">
+                    <!-- <img class ="responsive-img" ng-src="../img/Logo.jpg"> -->
+                    </div>
+                    </div></li>
+                <li><div class="divider"></div></li>
+                <!-- <li><a href="#!home">Home</a></li>
+                <li><a href="#!profile">Profile</a></li>
+                <li><a href="#!chat">Chat</a></li> -->
+                <!-- <li><a routerLink="feedback">Feedback</a></li> -->
+                <li>
+                    <!-- <a href="#!login" ng-click="logoff(app)"> Logoff</a> -->
+                </li> 
+            </ul>
+</header>
+
+<script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav({
+            edge: 'right',
+            menuWidth: 200
+        });
+    })
+</script>

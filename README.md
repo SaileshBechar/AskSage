@@ -13,8 +13,4 @@ All client files are under:
 ./client/v1/
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 187ff05572aea22356aa35a72af66a109fa03a9b
 

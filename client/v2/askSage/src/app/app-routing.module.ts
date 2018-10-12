@@ -7,6 +7,11 @@ import { HomeComponent } from './FrontEndComponents/home/home.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/public',
+    pathMatch: 'full'
+  },
+  {
+    path: 'public',
     component: PublicComponent
   },
   {

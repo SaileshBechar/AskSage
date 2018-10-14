@@ -29,4 +29,10 @@ boot(app, __dirname, function(err) {
     app.start();
 });
 
+var logMemory = function() {
+  var util = require('util');
+  console.log(util.inspect(process.memoryUsage()));
+  setTimeout(logMemory, 60000);
+};
 
+logMemory();

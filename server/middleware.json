@@ -39,9 +39,16 @@
     }
   },
   "files": {
-    "loopback#static" : {
-      "params" : "$!../client/v2/askSage/dist/askSage"
-    }
+    "loopback#static": [{
+      "name": "root",
+      "paths": ["/"],
+      "params": "$!../client/v2/askSage/dist/askSage"
+    },
+    {
+      "name": "other",
+      "paths": ["/*"],
+      "params": "$!../client/v2/askSage/dist/askSage"
+    }]
   },
   "final": {
     "loopback#urlNotFound": {}

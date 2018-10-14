@@ -1,9 +1,9 @@
 {
   "name": "ask-sage",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxyconfig.json",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

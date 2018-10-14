@@ -3,8 +3,8 @@
       {
         "name": "AskSage",
         "script": "server/server.js",
-        "exec_mode": "cluster",
-        "instances": 2,
+        "exec_mode": "fork",
+        "instances": 1,
         "node_args": "--max_old_space_size=8192"
       }
     ]

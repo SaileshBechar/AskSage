@@ -1,4 +1,35 @@
 .contains {
-    background: linear-gradient(0deg, rgba(96, 136, 223, 0.514), white);
+    background: linear-gradient(0deg, rgba(33, 90, 28, 0.514), white);
   }
 
+  login {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0px 10px;
+  }
+
+
+
+  login li a:hover {
+    background: black;
+  }
+
+.fixed-action-btn{
+bottom: auto;
+}
+
+.btn-floating{
+  border-radius:5%;
+  
+}
+
+.btn-floating.btn-large{
+  width: auto;
+  /* border:solid thin; */
+  /* color:black; */
+  
+}
+
+.btn-floating.btn-large a{
+  /* color:black; */
+}

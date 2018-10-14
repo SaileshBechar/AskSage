@@ -2,26 +2,34 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PublicComponent } from './FrontEndComponents/public/public.component';
 import { LoginComponent } from './FrontEndComponents/login/login.component';
+import { RegisterComponent } from './FrontEndComponents/register/register.component';
+
 import { HomeComponent } from './FrontEndComponents/home/home.component';
-import { FooterComponent } from './FrontEndComponents/footer/footer.component';
+import { FeedbackComponent } from './FrontEndComponents/feedback/feedback.component';
+
+import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: '/public',
-    pathMatch: 'full'
+    path: '', redirectTo: '/public', pathMatch: 'full'
   },
   {
-    path: 'public',
-    component: PublicComponent
+    path: 'public', component: PublicComponent
   },
   {
-    path: 'login',
-    component: LoginComponent 
+    path: 'login', component: LoginComponent 
   },
   {
-    path: 'home',
-    component: HomeComponent
+    path: 'register', component: RegisterComponent 
+  },
+  {
+    path: 'home', component: HomeComponent
+  },
+  {
+    path: 'feedback', component: FeedbackComponent
+  },
+  {
+    path: '**', component: PageNotFoundComponent
   }
 ];
 

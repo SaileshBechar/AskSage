@@ -1,0 +1,15 @@
+/* nav 
+{
+    background: none;
+    background: rbga(96, 136, 223, 0.2); 
+    color: black;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    
+    
+}
+nav a 
+{
+    color: black;
+} */

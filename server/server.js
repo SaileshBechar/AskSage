@@ -21,9 +21,12 @@ app.start = function() {
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {
-  if (err) throw err;
+  if (err) //res.sendFile(path.join(__dirname + '/client/v2/asksage/dist/index.html')); 
+    throw err;
 
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
 });
+
+

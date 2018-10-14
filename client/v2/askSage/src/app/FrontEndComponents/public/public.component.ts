@@ -11,6 +11,8 @@ export class PublicComponent implements OnInit {
   constructor(private _brokerService : BrokerService) { }
 
   ngOnInit() {
+
+    
   }
 
 }

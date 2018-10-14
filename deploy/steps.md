@@ -20,7 +20,7 @@ git pull
 npm i && 
 cd ./client/v2/askSage/ && 
 npm i && 
-ng build --prod --base-href /asksage &&
+ng build --prod --build-optimizer --base-href /asksage &&
 cd /home/ubuntu/repo &&
 pm2 restart all
 

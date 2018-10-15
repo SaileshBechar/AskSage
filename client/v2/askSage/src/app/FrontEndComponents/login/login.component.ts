@@ -17,15 +17,10 @@ export class LoginComponent implements OnInit {
 
   onLogin(userDetails){
   
-    console.log(userDetails.email);
-    console.log(userDetails.password);
-
     this._brokerService.setLogin(userDetails.email, userDetails.password)
       .subscribe(
         data => {
           console.log('Success!', data);
-          console.log(data.id);
-          console.log(data.userId);
           this._brokerService.storeCredentials(data.id, data.userId);
           this.router.navigate(['/home']);
 

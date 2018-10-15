@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BrokerService} from '../../Services/broker.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +8,8 @@ import { BrokerService} from '../../Services/broker.service';
 export class HomeComponent implements OnInit {
   token : string;
   userId : string;
-  constructor(private _brokerService : BrokerService) { }
+
+  constructor() { }
 
   ngOnInit() {
     this.token = sessionStorage.getItem('token');

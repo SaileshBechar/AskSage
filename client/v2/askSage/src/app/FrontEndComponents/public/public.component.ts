@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BrokerService } from '../../Services/broker.service'
 
 @Component({
   selector: 'app-public',
@@ -8,7 +7,7 @@ import { BrokerService } from '../../Services/broker.service'
 })
 export class PublicComponent implements OnInit {
 
-  constructor(private _brokerService : BrokerService) { }
+  constructor() { }
 
   ngOnInit() {
 

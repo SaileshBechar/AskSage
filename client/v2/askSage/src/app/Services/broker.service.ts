@@ -11,8 +11,8 @@ export class BrokerService {
   constructor(private http: HttpClient) { }
 
   setLogin(email: string, password: string) {
-    var data = this.http.post<any>('/api/Brokers/login', {email, password});
-    return data;
+    return this.http.post<any>('/api/Brokers/login', {email, password});
+
   }
 
   storeCredentials(token : string, userId : string){

@@ -16,9 +16,8 @@ import { HeaderComponent } from './FrontEndComponents/header/header.component';
 import { NewsComponent } from './FrontEndComponents/news/news.component';
 import { FooterComponent } from './FrontEndComponents/footer/footer.component';
 import { ChatComponent } from './FrontEndComponents/chat/chat.component';
-
+import { ProfileComponent } from './FrontEndComponents/profile/profile.component';
 import { FeedbackComponent } from './FrontEndComponents/feedback/feedback.component';
-
 import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
 /* Services */
 import { BrokerService } from './Services/broker.service';
@@ -37,6 +36,7 @@ import { BrokerService } from './Services/broker.service';
     ChatComponent,
     NewsComponent,
     FeedbackComponent,
+    ProfileComponent,
     PageNotFoundComponent
   ],
   imports: [

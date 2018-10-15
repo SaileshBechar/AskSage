@@ -11,7 +11,7 @@
                         <a routerLink="/profile">Profile</a>
                     </li> 
                     <li>
-                        <a ng-click="logoff(app)"> Logoff </a> 
+                        <a (click)="logoff()"> Logoff </a> 
                         
                     </li>
                 </ul>
@@ -36,7 +36,7 @@
                 <!-- <li><a href="#!chat">Chat</a></li> -->
                 <!-- <li><a routerLink="feedback">Feedback</a></li> -->
                 <li>
-                    <!-- <a href="#!login" ng-click="logoff(app)"> Logoff</a> -->
+                    <a (click)="logoff()"> Logoff</a>
                 </li> 
             </ul>
 </header>

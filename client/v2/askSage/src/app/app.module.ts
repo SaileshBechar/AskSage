@@ -7,10 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 /* Components */
 import { AppComponent } from './app.component';
 import { PublicComponent } from './FrontEndComponents/public/public.component';
-
 import { LoginComponent } from './FrontEndComponents/login/login.component';
 import { RegisterComponent } from './FrontEndComponents/register/register.component';
-
 import { HomeComponent } from './FrontEndComponents/home/home.component';
 import { HeaderComponent } from './FrontEndComponents/header/header.component';
 import { NewsComponent } from './FrontEndComponents/news/news.component';
@@ -21,6 +19,8 @@ import { FeedbackComponent } from './FrontEndComponents/feedback/feedback.compon
 import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
 /* Services */
 import { BrokerService } from './Services/broker.service';
+import { AuthGuard } from './Services/auth.guard'
+import { LoginGuard} from './Services/login.guard'
 
 
 
@@ -45,7 +45,7 @@ import { BrokerService } from './Services/broker.service';
     FormsModule,
     HttpClientModule
   ],
-  providers: [BrokerService],
+  providers: [BrokerService, AuthGuard, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

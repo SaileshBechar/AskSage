@@ -1,0 +1,1057 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "AskSage"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/Brokers/{id}/accessTokens/{fk}": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Find a related item by id for accessTokens.",
+                "operationId": "Broker.prototype.__findById__accessTokens",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "fk",
+                        "in": "path",
+                        "description": "Foreign key for accessTokens",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/AccessToken"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Update a related item by id for accessTokens.",
+                "operationId": "Broker.prototype.__updateById__accessTokens",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "fk",
+                        "in": "path",
+                        "description": "Foreign key for accessTokens",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/AccessToken"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/AccessToken"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/{id}/accessTokens": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Queries accessTokens of Broker.",
+                "operationId": "Broker.prototype.__get__accessTokens",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/AccessToken"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+        "/Brokers/{id}/accessTokens/count": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Counts accessTokens of Broker.",
+                "operationId": "Broker.prototype.__count__accessTokens",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "Criteria to match model instances",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "count": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Create a new instance of the model and persist it into the data source.",
+                "operationId": "Broker.create",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Model instance data",
+                        "required": false,
+                        "schema": {
+                            "description": "Model instance data",
+                            "$ref": "#/definitions/$new_Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Patch an existing model instance or insert a new one into the data source.",
+                "operationId": "Broker.patchOrCreate",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Model instance data",
+                        "required": false,
+                        "schema": {
+                            "description": "Model instance data",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Replace an existing model instance or insert a new one into the data source.",
+                "operationId": "Broker.replaceOrCreate__put_Brokers",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Model instance data",
+                        "required": false,
+                        "schema": {
+                            "description": "Model instance data",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Find all instances of the model matched by filter from the data source.",
+                "operationId": "Broker.find",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({\"something\":\"value\"})",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Broker"
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/replaceOrCreate": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Replace an existing model instance or insert a new one into the data source.",
+                "operationId": "Broker.replaceOrCreate__post_Brokers_replaceOrCreate",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Model instance data",
+                        "required": false,
+                        "schema": {
+                            "description": "Model instance data",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/upsertWithWhere": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Update an existing model instance or insert a new one into the data source based on the where criteria.",
+                "operationId": "Broker.upsertWithWhere",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "Criteria to match model instances",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "An object of model property name/value pairs",
+                        "required": false,
+                        "schema": {
+                            "description": "An object of model property name/value pairs",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/{id}/exists": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Check whether a model instance exists in the data source.",
+                "operationId": "Broker.exists__get_Brokers_{id}_exists",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "exists": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/{id}": {
+            "head": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Check whether a model instance exists in the data source.",
+                "operationId": "Broker.exists__head_Brokers_{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "exists": {
+                                    "type": "boolean"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Find a model instance by {{id}} from the data source.",
+                "operationId": "Broker.findById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter defining fields and include - must be a JSON-encoded string ({\"something\":\"value\"})",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "put": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Replace attributes for a model instance and persist it into the data source.",
+                "operationId": "Broker.replaceById__put_Brokers_{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Model instance data",
+                        "required": false,
+                        "schema": {
+                            "description": "Model instance data",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "delete": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Delete a model instance by {{id}} from the data source.",
+                "operationId": "Broker.deleteById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "patch": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Patch attributes for a model instance and persist it into the data source.",
+                "operationId": "Broker.prototype.patchAttributes",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "An object of model property name/value pairs",
+                        "required": false,
+                        "schema": {
+                            "description": "An object of model property name/value pairs",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/{id}/replace": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Replace attributes for a model instance and persist it into the data source.",
+                "operationId": "Broker.replaceById__post_Brokers_{id}_replace",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "Model instance data",
+                        "required": false,
+                        "schema": {
+                            "description": "Model instance data",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/findOne": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Find first instance of the model matched by filter from the data source.",
+                "operationId": "Broker.findOne",
+                "parameters": [
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({\"something\":\"value\"})",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/update": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Update instances of the model matched by {{where}} from the data source.",
+                "operationId": "Broker.updateAll",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "Criteria to match model instances",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "description": "An object of model property name/value pairs",
+                        "required": false,
+                        "schema": {
+                            "description": "An object of model property name/value pairs",
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "description": "Information related to the outcome of the operation",
+                            "type": "object",
+                            "properties": {
+                                "count": {
+                                    "description": "The number of instances updated",
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/count": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Count instances of the model matched by where from the data source.",
+                "operationId": "Broker.count",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "Criteria to match model instances",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "count": {
+                                    "type": "number",
+                                    "format": "double"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/change-stream": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Create a change stream.",
+                "operationId": "Broker.createChangeStream__post_Brokers_change-stream",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                },
+                "deprecated": false
+            },
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Create a change stream.",
+                "operationId": "Broker.createChangeStream__get_Brokers_change-stream",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/login": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Login a user with username/email and password.",
+                "operationId": "Broker.login",
+                "parameters": [
+                    {
+                        "name": "credentials",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "Related objects to include in the response. See the description of return value for more details.",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "description": "The response body contains properties of the AccessToken created on login.\nDepending on the value of `include` parameter, the body may contain additional properties:\n\n  - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)\n\n",
+                            "type": "object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/logout": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Logout a user with access token.",
+                "operationId": "Broker.logout",
+                "parameters": [],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/{id}/verify": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Trigger user's identity verification with configured verifyOptions",
+                "operationId": "Broker.prototype.verify",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/confirm": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Confirm a user registration with identity verification token.",
+                "operationId": "Broker.confirm",
+                "parameters": [
+                    {
+                        "name": "uid",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "token",
+                        "in": "query",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "redirect",
+                        "in": "query",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/reset": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Reset password for a user with email.",
+                "operationId": "Broker.resetPassword",
+                "parameters": [
+                    {
+                        "name": "options",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/change-password": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Change a user's password.",
+                "operationId": "Broker.changePassword",
+                "parameters": [
+                    {
+                        "name": "oldPassword",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "newPassword",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/reset-password": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Reset user's password via a password-reset token.",
+                "operationId": "Broker.setPassword",
+                "parameters": [
+                    {
+                        "name": "newPassword",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Broker",
+            "description": "A model represting a broker"
+        }
+    ],
+    "consumes": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "application/xml",
+        "text/xml"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/xml",
+        "application/javascript",
+        "text/javascript"
+    ],
+    "definitions": {
+        "x-any": {
+            "properties": {}
+        },
+        "AccessToken": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "ttl": {
+                    "default": 1209600,
+                    "description": "time to live in seconds (2 weeks by default)",
+                    "type": "number",
+                    "format": "double"
+                },
+                "scopes": {
+                    "description": "Array of scopes granted to this access token.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "created": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "userId": {
+                    "type": "number",
+                    "format": "double"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "additionalProperties": false
+        },
+        "$new_Broker": {
+            "name":"Broker",
+            "description": "A model represting a broker",
+            "properties": {
+                "bdr": {
+                    "type": "object"
+                },
+                "fname": {
+                    "type": "string"
+                },
+                "lname": {
+                    "type": "string"
+                },
+                "realm": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "emailVerified": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "additionalProperties": false
+        },
+        "Broker": {
+            "description": "A model represting a broker",
+            "properties": {
+                "bdr": {
+                    "type": "object"
+                },
+                "fname": {
+                    "type": "string"
+                },
+                "lname": {
+                    "type": "string"
+                },
+                "realm": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "emailVerified": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "number",
+                    "format": "double"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

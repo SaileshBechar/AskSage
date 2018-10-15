@@ -61,6 +61,10 @@ node_modules/.bin/source-map-explorer dist/main.*.bundle.js
   "loopback#static" : {
       "params" : "$!../client/v2/askSage/dist/askSage"
     }
-
+//component-config.json
+{
+    "mountPath": "/explorer",
+    "generateOperationScopedModels": true
+  }
 
 ng build --prod --build-optimizer --base-href /asksage 

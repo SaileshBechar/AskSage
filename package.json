@@ -8,11 +8,9 @@
   "scripts": {
     "lint": "eslint .",
     "buildClient": " echo  hello",
-    
     "start": "concurrently \"npm run serve-api\" \"npm run serve\"",
-    "serve": "ng build --prod", 
+    "serve": "ng build --prod",
     "serve-api": "nodemon 'server/server.js'",
-
     "posttest": "npm run lint && nsp check"
   },
   "dependencies": {

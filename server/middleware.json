@@ -13,7 +13,9 @@
     },
     "helmet#xssFilter": {},
     "helmet#frameguard": {
-      "params": { "action": "deny" }
+      "params": {
+        "action": "deny"
+      }
     },
     "helmet#hsts": {
       "params": {
@@ -39,8 +41,8 @@
     }
   },
   "files": {
-    "loopback#static" : {
-      "params" : "$!../client/v2/askSage/dist/askSage"
+    "loopback#static": {
+      "params": "$!../client/v1"
     }
   },
   "final": {

@@ -201,7 +201,7 @@
 
 
                     <div>
-                        <input class="btn waves-effect waves-light blue right" value="Submit" id="submitButton"/>
+                        <input class="btn waves-effect waves-light blue right" value="Submit" id="submitButton" />
                         <!-- ng-disabled="loginForm.email.$invalid || loginForm.password.$invalid "/> -->
                         <!-- </div> -->
                     </div>
@@ -271,20 +271,44 @@
 
     })
 
-    $(document).ready(function(){
+    $(document).ready(function () {
         //Form Data
         var form = document.querySelector("#feedbackForm")
 
-        $("#submitButton").click(function(){ 
-            console.log("Button Clicked")
-            var inputs = form.querySelectorAll("input")
-            for (input of inputs){
-                console.log(input.value)
-            }
+        $("#submitButton").click(function () {
+            //Verifying user is logged in before submitting data
+            var userId = sessionStorage.getItem('userId');
+            var token = sessionStorage.getItem('token');
 
-            //Finding the number of gold stars
-            var stars = document.querySelectorAll(".star2.gold")
-            console.log("Rating: " + stars.length)
+            //If user is logged in
+            if (token != null && userId != null) {
+                console.log("Submitting feedback data")
+
+                var inputs = form.querySelectorAll("input")
+                for (input of inputs) {
+                    console.log(input.value)
+                }
+
+                //Finding the number of gold stars
+                var stars = document.querySelectorAll(".star2.gold")
+                console.log("Rating: " + stars.length)
+
+                //Building the JSON object
+                var data = {
+                    fname: inputs[0].value,
+                    lname: inputs[1].value,
+                    email: inputs[2].value,
+                    inputText: inputs[4].value
+                }
+
+                console.log("DATA => " + JSON.stringify(data))
+
+                //Posting the data to LoopBack
+                const url = "http://localhost:3000/api/feedback"
+                $.post(url, data, function (data, status) {
+                    console.log(JSON.stringify(data) + " and status is " + status)
+                })
+            }
         })
     })
 </script>

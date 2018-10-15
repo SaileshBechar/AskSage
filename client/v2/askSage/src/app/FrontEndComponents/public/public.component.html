@@ -1,19 +1,27 @@
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large green">
+      <a routerLink="/login" routerLinkActive="active" id="download-button" class="btn-large waves-effect waves-light green lighten-1">Login</a>
+  </a>
+</div>
+
+
+<div style="height:400px; overflow: hidden; ;">
+<img class="materialboxed" width="" src="../assets/casey-horner-508607-unsplash.jpg">
+</div>
 
 
 <div class="contains">
-
-  <div id="index-banner" class="parallax-container">
+  <div id="index-banner" class="">
     <div class="section no-pad-bot">
       <div class="container">
-        <br><br>
-        <h1 class="header center blue-text text-lighten-2">Ask Sage</h1>
+
+        <h1 class="header center green-text text-lighten-2">Ask Sage</h1>
         <div class="row center">
           <h5 class="header col s12 light">Ensure your brokerage’s lasting and profitable future in the digital era.</h5>
         </div>
 
-<!-- Header -->
         <div class="row center">
-          <!-- <a routerLink="/login" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Get Started</a> -->
+          <a routerLink="/login" routerLinkActive="active" id="download-button" class="btn-large waves-effect waves-light green lighten-1">Login</a>
         </div>
         <br><br>
 
@@ -22,10 +30,9 @@
   </div>
 
 
-  <div class="container">
+  <div class="">
     <div class="section">
 
-      <!--   Icon Section   -->
       <div class="row">
         <div class="col s12 m4">
           <div class="icon-block">
@@ -68,15 +75,13 @@
     </div>
   </div>
 
-
-
-  <div class="container">
+  <div class="">
     <div class="section">
-
       <div class="row">
         <div class="col s12 center">
           <h3><i class="mdi-content-send brown-text"></i></h3>
           <h4>Contact Us</h4>
+          <div class="">
           <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id
             nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies
             eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et
@@ -84,25 +89,9 @@
             Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam
             eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
             posuere cubilia Curae;</p>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
-
-
-  <script>
-      window.onscroll = function() {myFunction()};
-      
-      var header = document.getElementById("myHeader");
-      var sticky = header.offsetTop;
-      
-      function myFunction() {
-        if (window.pageYOffset > sticky) {
-          header.classList.add("sticky");
-        } else {
-          header.classList.remove("sticky");
-        }
-      }
-      </script>
-

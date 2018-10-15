@@ -35,4 +35,4 @@ var logMemory = function() {
   setTimeout(logMemory, 60000);
 };
 
-logMemory();
+// logMemory();

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BrokerService } from '../../Services/broker.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _brokerService: BrokerService, private _router: Router) { }
 
   ngOnInit() {
+  }
+
+  logoff(){
+    this._brokerService.setLogoff()
+      .subscribe(
+        data => {
+          this._brokerService.removeCredentials();
+          this._router.navigate(['/']);
+        },
+        error => {
+          console.log('Logoff Error!', error);
+        }
+      )
   }
 
 }

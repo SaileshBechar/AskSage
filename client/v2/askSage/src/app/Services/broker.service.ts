@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BrokerService {
-   _token = sessionStorage.getItem('token');
-   _userId = sessionStorage.getItem('userId');
+  _token: string;
+  _userId: string;
 
   constructor(private http: HttpClient) { }
 
@@ -16,9 +16,35 @@ export class BrokerService {
   }
 
   storeCredentials(token : string, userId : string){
-      sessionStorage.token = token;
-      sessionStorage.userId = userId;
+    localStorage.token = token;
+    localStorage.userId = userId;
   }
 
+  isLoggedIn(){
+    this._token = localStorage.getItem('token');
+    this._userId = localStorage.getItem('userId');
+    if (this._token == null || this._userId == null){
+      return false;
+    }
+    else{
+      return this.isVerified;
+    }
+  }
+
+  isVerified(){
+    console.log("In isVerified");
+    return true;
+  }
+
+  setLogoff(){
+    return this.http.post('/api/Brokers/logout?access_token='+ this._token, {});
+  }
+
+  removeCredentials(){
+    this._token = null;
+    this._userId = null;
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+  }
 
 }

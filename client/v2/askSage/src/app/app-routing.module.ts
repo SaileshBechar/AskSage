@@ -4,6 +4,7 @@ import { PublicComponent } from './FrontEndComponents/public/public.component';
 import { LoginComponent } from './FrontEndComponents/login/login.component';
 import { HomeComponent } from './FrontEndComponents/home/home.component';
 import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
+import { ProfileComponent } from './FrontEndComponents/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -24,13 +25,17 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
     path : "**",
     component: PageNotFoundComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash:true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

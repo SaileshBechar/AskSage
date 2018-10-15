@@ -13,6 +13,8 @@ import { HomeComponent } from './FrontEndComponents/home/home.component';
 /* Services */
 import { BrokerService } from './Services/broker.service';
 import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
+import { FooterComponent } from './FrontEndComponents/footer/footer.component';
+import { ProfileComponent } from './FrontEndComponents/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-
     LoginComponent,
     HeaderComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

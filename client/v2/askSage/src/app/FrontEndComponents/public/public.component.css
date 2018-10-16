@@ -1,5 +1,6 @@
 .contains {
     background: linear-gradient(0deg, rgba(33, 90, 28, 0.514), white);
+    transition: 0.3s all;
   }
 
   login {
@@ -30,6 +31,8 @@ bottom: auto;
   
 }
 
-.btn-floating.btn-large a{
-  /* color:black; */
+
+
+.changeColor {
+  background: white;
 }

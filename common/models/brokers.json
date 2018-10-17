@@ -33,11 +33,15 @@
         "min" : 2,
         "max" : 13
       }
-    }
-      
-
-    ],
+    }],
     "relations": {},
-    "acls": [],
+    "acls": [
+      {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__findById__accessTokens"
+    }
+  ],
     "methods": {}
   }

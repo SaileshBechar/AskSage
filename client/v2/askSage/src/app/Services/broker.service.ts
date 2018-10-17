@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { logging } from 'protractor';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class BrokerService {
   _token: string;
   _userId: string;
+  _loggedIn : boolean;
 
   constructor(private http: HttpClient) { }
 
@@ -15,26 +18,29 @@ export class BrokerService {
 
   }
 
+  //Function called when user logs in to store credentials in local variables
   storeCredentials(token : string, userId : string){
     localStorage.token = token;
     localStorage.userId = userId;
+    this._loggedIn = true; //Service remembers that user was legitamently logged in
   }
 
-  isLoggedIn(){
+
+  //Function to verify authenticity of user
+  verifyUser(){
     this._token = localStorage.getItem('token');
     this._userId = localStorage.getItem('userId');
-    if (this._token == null || this._userId == null){
-      return false;
+    if (this._token == null || this._userId == null){ //Checks if user has no credentials to save resources
+      return of(false); //returns observable
     }
-    else{
-      return this.isVerified;
+    if (this._loggedIn === true){ //Checks if user has logged in this session
+      return of(true);
+    }
+    else{ //If user has not logged in this session, we validate the token
+      return this.http.get('/api/Brokers/' + this._userId + '/accessTokens/' + this._token + '?access_token=' + this._token);
     }
   }
 
-  isVerified(){
-    console.log("In isVerified");
-    return true;
-  }
 
   setLogoff(){
     return this.http.post('/api/Brokers/logout?access_token='+ this._token, {});
@@ -45,6 +51,7 @@ export class BrokerService {
     this._userId = null;
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    this._loggedIn = null;
   }
 
 }

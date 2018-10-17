@@ -21,6 +21,8 @@ import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-
 import { BrokerService } from './Services/broker.service';
 import { AuthGuard } from './Services/auth.guard'
 import { LoginGuard} from './Services/login.guard'
+import { NewsService } from './Services/news.service';
+
 
 
 
@@ -45,7 +47,7 @@ import { LoginGuard} from './Services/login.guard'
     FormsModule,
     HttpClientModule
   ],
-  providers: [BrokerService, AuthGuard, LoginGuard],
+  providers: [BrokerService, AuthGuard, LoginGuard, NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

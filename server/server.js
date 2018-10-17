@@ -30,10 +30,12 @@ boot(app, __dirname, function(err) {
     app.start();
 });
 
+
+//Function to check memory leaks on the server
 var logMemory = function() {
   var util = require('util');
   console.log(util.inspect(process.memoryUsage()));
   setTimeout(logMemory, 60000);
 };
-
+//Uncomment this to log memory usage, check for heap size changes over time
 // logMemory();

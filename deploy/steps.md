@@ -71,3 +71,13 @@ ng build --prod --build-optimizer --base-href /asksage
 
 //Other options not used
 ng g c /FrontEndComponents/news --spec false --flat true
+
+
+ng g s /Services/News
+ng g s /Services/Picture
+
+localStorage.userId = "jhgadshgfdhadsf"
+localStorage.token = "jhgadshgfdhadsf"
+
+
+Search Companies  -> Create a Group  Add Companies to group -> Call Search 

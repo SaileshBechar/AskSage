@@ -1,6 +1,6 @@
 ssh-keygen -t rsa -b 4096 -C "your_email"
-ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com
 
+ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com
 mkdir remoteRepo
 cd remoteRepo
 sudo git init --bare
@@ -18,10 +18,10 @@ git branch all
 ///For any changes to dev branch pull changes to master
 git pull 
 npm i && 
-cd ./client/v2/askSage/ && 
+cd client/v2/askSage/ && 
 npm i && 
 ng build --prod --build-optimizer --base-href /asksage &&
-cd /home/ubuntu/repo &&
+cd /home/ubuntu/asksage &&
 pm2 restart all
 
 pm2 start deploy/deploy.json -prod
@@ -68,3 +68,6 @@ node_modules/.bin/source-map-explorer dist/main.*.bundle.js
   }
 
 ng build --prod --build-optimizer --base-href /asksage 
+
+//Other options not used
+ng g c /FrontEndComponents/news --spec false --flat true

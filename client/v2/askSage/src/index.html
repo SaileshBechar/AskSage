@@ -26,7 +26,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
   <app-root>
 
@@ -48,13 +48,20 @@
         toolbarEnabled: false,
         hoverEnabled: true
       });
-      var sideelems = document.querySelectorAll('.sidenav');
-     var sideinstances = M.Sidenav.init(sideelems, {
-       edge : "right"
-     });
+      var side_elems = document.querySelectorAll('.sidenav');
+      var side_instances = M.Sidenav.init(side_elems, {
+        edge: "right"
+      });
+
+      var slide_elems = document.querySelectorAll('.slider');
+      var slide_instances = M.Slider.init(slide_elems, {
+        indicators:true,
+        height:400,
+
+      });
     });
 
-    
+
 
   </script>
 

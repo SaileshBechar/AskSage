@@ -8,10 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  public title : string ;
+  
 
   constructor(private _brokerService: BrokerService, private _router: Router) { }
 
   ngOnInit() {
+    this.title = "Ask Sage";
+    
+
+  
+
   }
 
   logoff(){

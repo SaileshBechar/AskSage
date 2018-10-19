@@ -1,8 +1,0 @@
-{
-    "db": {
-      "name": "db",
-      "connector": "memory",
-      "file": "data/data.json"
-    }
-  }
-  

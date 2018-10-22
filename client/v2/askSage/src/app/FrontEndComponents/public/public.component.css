@@ -1,38 +1,129 @@
-.contains {
-    background: linear-gradient(0deg, rgba(33, 90, 28, 0.514), white);
-    transition: 0.3s all;
+
+@media(max-width:600px) {
+  * {
+    text-align: center;
   }
-
-  login {
-    position: fixed;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 0px 10px;
-  }
-
-
-
-  login li a:hover {
-    background: black;
-  }
-
-.fixed-action-btn{
-bottom: auto;
-}
-
-.btn-floating{
-  border-radius:5%;
   
 }
 
-.btn-floating.btn-large{
-  width: auto;
-  /* border:solid thin; */
-  /* color:black; */
-  
+.nav-wrapper.default{
+  background-color: #0FB786;
+  transition: 0.8s;
 }
 
+.nav-wrapper.scrolled {
+  background-color: white;
+  transition: 0.8s;
+}
 
+.main-container {
+  background-color:	#0FB786;
+  padding-bottom: 50px;
+  display: flex;
+  align-items: center;
+ 
+}
 
-.changeColor {
-  background: white;
+.image-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-container {
+  padding: 13% 0 5% 5%;
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 180px;
+  margin: auto;
+  border: 10px solid white;
+  border-radius: 1000px;
+}
+
+.floatbtn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.1em;
+  border: 2px solid white;
+  border-radius: 100px;
+  color : white;
+  background-color: #0FB786;
+  padding: 7px 20px;
+  margin-right: 15px;
+}
+
+.title {
+  font-family: 'Cookie', cursive;
+  color: white;
+  margin: auto;
+  font-size: 9vmax;
+  text-shadow: 2px 2px 4px #606060;
+  line-height: 80%;
+  padding-bottom: 3%;
+}
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 2vmax;
+  color: white;
+  margin: 3% 0;
+}
+
+.loginbtn {
+  color: #0FB786;
+  border-radius: 100px;
+  padding: 0 16%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.text-under-main {
+  font-family: 'Montserrat', sans-serif;
+  color:  #0FB786;
+  font-weight: 300;
+  font-size: 1.7em;
+  text-align: center;
+}
+
+.graphic-container {
+  margin: 10% 0;
+}
+
+.pic-header {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.pic-description {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+}
+
+.graphic {
+  max-width: 150px;
+  max-height: 110px;
+}
+
+.footer-container {
+  padding : 0 3%;
+}
+
+.copyright-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+
+.copyright-graphic {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 150px;
+  max-height: 120px;
+  padding: 10px 0;
 }

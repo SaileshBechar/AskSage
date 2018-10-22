@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class BrokerService {
   _token: string;
   _userId: string;

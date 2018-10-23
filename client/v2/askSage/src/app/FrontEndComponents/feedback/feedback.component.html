@@ -1,4 +1,226 @@
-<app-header></app-header>
-<p>
-  feedback works!
-</p>
+<style>
+  .star2 {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 18pt;
+      margin: 0;
+      outline: none;
+      padding: 0;
+  }
+  .star2:focus{
+      background-color: transparent
+  }
+
+  
+  .star2.gold {
+      color: goldenrod;
+  }
+
+</style>
+
+<div ng-controller="HomeCtrl" ng-cloak="">
+  <span ng-include="'views/header.html'"></span>
+
+
+
+  <!-- <div class="container">
+          feedback
+      </div> -->
+
+  <!-- <div class="">
+          <br>
+      <div id="chat" class ="card-panel z-depth-5" style="background-color:lightblue"></div>
+          <br>
+      </div> -->
+
+  <div class="container">
+      <section class="col s12 m6 container" style="min-width: 280px;">
+          <form class="card-panel lighten-2 grey " style="width: auto;" method="post" id="feedbackForm">
+              <div class="center">
+                  <!-- <div class="container">
+                        <img ng-src="../img/wawa.png" style="background:white; " class ="card-panel col s12 m6 l3">
+                      </div> -->
+                  <h4>{{title}}</h4>
+                  <!-- <div>to continue to <strong>{{appName}}</strong></div> -->
+                  <div class="row">
+                      <div class="input-field col s6">
+                          <label for="fname">First Name:</label>
+                          <input type="text" id="fname" ng-model="fname" required />
+                      </div>
+                      <div class="input-field col s6">
+                          <label for="lname">Last Name:</label>
+                          <input type="text" id="lname" ng-model="lname" required />
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <label for="email">Email:</label>
+                          <input class="validate" type="email" id="email" name="email" ng-model="email" required />
+                          <span ng-show="loginForm.email.$touched && loginForm.email.$invalid">Please enter a valid
+                              email.</span>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="input-field col s12">
+                          <label for="password">Password:</label>
+                          <input type="password" id="password" ng-model="password" required />
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <form class="col s12">
+                          <div class="row">
+                              <div class="input-field col s6">
+                                  <input id="input_text" type="text" data-length="10">
+                                  <label for="input_text">Input text</label>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="input-field col s12">
+                                  <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                                  <label for="textarea2">Textarea</label>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+
+
+                  <div class="row">
+
+                      <form class="rate-form" action="#">
+                          <table>
+                              <tbody>
+                                  <tr>
+                                      <table summary="" cellpadding="4" cellspacing="0" class="form-scale-table"
+                                          data-component="scale">
+                                          <tbody>
+                                              <!-- <tr>
+                                                  <th>
+                                                    &nbsp;
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_1"> 1 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_2"> 2 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_3"> 3 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_4"> 4 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_5"> 5 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_6"> 6 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_7"> 7 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_8"> 8 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_9"> 9 </label>
+                                                  </th>
+                                                  <th style="text-align:center">
+                                                    <label for="input_23_10"> 10 </label>
+                                                  </th>
+                                                  <th>
+                                                    &nbsp;
+                                                  </th>
+                                                </tr> -->
+                                              <tr>
+                                                  <!-- <td>
+                                                    <label for="input_23_1"> Boring </label>
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="1" title="1" id="input_23_1" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio"  name="q23_overallHow23" value="2" title="2" id="input_23_2" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="3" title="3" id="input_23_3" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="4" title="4" id="input_23_4" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="5" title="5" id="input_23_5" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="6" title="6" id="input_23_6" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="7" title="7" id="input_23_7" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="8" title="8" id="input_23_8" style="opacity: 1">
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                    <input type="radio" name="q23_overallHow23" value="9" title="9" id="input_23_9"style="opacity: 1" >
+                                                  </td>
+                                                  <td style="text-align:center">
+                                                      <label>
+                                                          <input type="radio" name="q23_overallHow23" value="10" title="10" id="input_23_10" style="opacity: 1">
+                                                      </label>
+                                                  </td>
+                                                  <td>
+                                                      <label>
+                                                          <p>
+                                                              <input  name="q23_overallHow23" type="radio" />
+                                                              <span>10</span>
+                                                          </p>
+                                                      </label>
+                                                  </td>
+                                                  <td>
+                                                    <label for="input_23_10"> Fantastic </label>
+                                                  </td> -->
+                                                  <!-- <hr/> -->
+                                                  <button type="button" class="star2" id="star1">★</button>
+                                                  <button type="button" class="star2" id="star2">★</button>
+                                                  <button type="button" class="star2" id="star3">★</button>
+                                                  <button type="button" class="star2" id="star4">★</button>
+                                                  <button type="button" class="star2" id="star5">★</button>
+                                                  <!-- <hr/> -->
+                                              </tr>
+                                          </tbody>
+                                      </table>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </form>
+                  </div>
+
+
+                  <div>
+                      <input class="btn waves-effect waves-light blue right" value="Submit" id="submitButton"/>
+                      <!-- ng-disabled="loginForm.email.$invalid || loginForm.password.$invalid "/> -->
+                      <!-- </div> -->
+                  </div>
+
+
+                  <br />
+                  <br />
+
+                  <!-- <div class ="center">
+                      <button class="btn waves-effect waves-light grey" name=""><i class="fab fa-google"></i></button>
+                      <button class="btn waves-effect waves-light grey" name=""><i class="fab fa-facebook"></i></button>
+                      <button class="btn waves-effect waves-light grey" name=""><i class="fas fa-plane-departure"></i></button>
+                      
+                    </div>
+                    <div class="center">Comming soon using OAuth</div> -->
+                </div>
+          </form>
+      </section>
+  </div>
+</div>
+
+<span ng-include="'views/footer.html'"></span>

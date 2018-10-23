@@ -179,15 +179,8 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
         $scope.tile = "Landing Page";
 
         
-<<<<<<< HEAD
-    })
-    
-    
-    .controller('LoginCtrl', function ($scope, $http, $location, logoffService) {
-=======
     })    
     .controller('LoginCtrl', function ($scope, $http, $location) {
->>>>>>> 187ff05572aea22356aa35a72af66a109fa03a9b
        
         var app = {
             title: "Ask Sage",
@@ -201,11 +194,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
 
         //Logoff Function
         //post to brokers logoff with ($scope.token) 
-<<<<<<< HEAD
-        $scope.logoff = function () {
-            $scope.output = logoffService.logoff();
-        }
-=======
         $scope.logoff = function (app) {
             console.log('In Logoff function');
             $scope.token = sessionStorage.getItem('token');   
@@ -219,7 +207,6 @@ angular.module('myApp', ['ngRoute', 'ngMessages'])
             // })
             .then(function (response) {
                 // POST 200 success
->>>>>>> 187ff05572aea22356aa35a72af66a109fa03a9b
 
 
 

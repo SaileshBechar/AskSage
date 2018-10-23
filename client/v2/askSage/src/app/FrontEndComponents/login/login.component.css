@@ -1,0 +1,68 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+}
+/* .card-container {
+    box-shadow: 0 -2px 2px 2px #646464;
+} */
+
+.main-container {
+    padding: 50px;
+}
+
+.logo {
+    max-width: 155pt;
+}
+
+.title {
+    font-family: 'Cookie', cursive;
+    color: #0FB786;
+}
+
+.loginbtn {
+    border-radius: 100px;
+    background-color: #0FB786;
+    color: white;
+    padding: 0 8%;
+}
+
+/* label color */
+.input-field label {
+color: #000;
+font-weight: 600;
+}
+
+/* label underline focus color */
+.input-field input:focus {
+border-bottom: 1px solid #0FB786;
+box-shadow: 0 1px 0 0 #0FB786;
+}
+/* valid color */
+.input-field input.valid {
+border-bottom: 1px solid #0FB786;
+box-shadow: 0 1px 0 0 #0FB786;  
+}
+
+.error-text {
+    font-weight: 600;
+    color: rgb(221, 66, 66);
+}
+
+.footer-container {
+    padding : 0 3%;
+  }
+  
+.copyright-text {
+font-family: 'Montserrat', sans-serif;
+font-size: 1em;
+}
+
+.copyright-graphic {
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 150px;
+    max-height: 120px;
+    padding: 10px 0;
+  }
+
+       

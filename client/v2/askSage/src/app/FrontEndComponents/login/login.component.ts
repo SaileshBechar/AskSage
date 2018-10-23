@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  appName:string = "Log In";
+  isError: boolean;
 
   constructor(private _brokerService: BrokerService, private router: Router) { }
 
@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
 
         },
-        error => console.log('error', error)
+        error => {
+          console.log('error', error);
+            this.isError = true;
+        }
       )
   }
 

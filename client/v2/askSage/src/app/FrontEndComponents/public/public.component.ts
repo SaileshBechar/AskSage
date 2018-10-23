@@ -20,7 +20,7 @@ export class PublicComponent implements OnInit {
 
   ngOnInit() {
     $(window).on('scroll', function(){
-      if ($(window).scrollTop() > 200){
+      if ($(window).scrollTop() > 100){
         $('div .nav-wrapper').removeClass('default');
         $('div .nav-wrapper').addClass('scrolled');
       }

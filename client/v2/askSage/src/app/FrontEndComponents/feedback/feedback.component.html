@@ -24,17 +24,6 @@
   <span ng-include="'views/header.html'"></span>
 
 
-
-  <!-- <div class="container">
-          feedback
-      </div> -->
-
-  <!-- <div class="">
-          <br>
-      <div id="chat" class ="card-panel z-depth-5" style="background-color:lightblue"></div>
-          <br>
-      </div> -->
-
   <div class="container">
     <section class="col s12 m6 container" style="min-width: 280px;">
       <form class="card-panel lighten-2 grey " style="width: auto;" method="post" id="feedbackForm" #feedbackForm="ngForm"
@@ -95,92 +84,8 @@
                 <tr>
                   <table summary="" cellpadding="4" cellspacing="0" class="form-scale-table" data-component="scale">
                     <tbody>
-                      <!-- <tr>
-                                                  <th>
-                                                    &nbsp;
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_1"> 1 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_2"> 2 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_3"> 3 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_4"> 4 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_5"> 5 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_6"> 6 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_7"> 7 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_8"> 8 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_9"> 9 </label>
-                                                  </th>
-                                                  <th style="text-align:center">
-                                                    <label for="input_23_10"> 10 </label>
-                                                  </th>
-                                                  <th>
-                                                    &nbsp;
-                                                  </th>
-                                                </tr> -->
                       <tr>
-                        <!-- <td>
-                                                    <label for="input_23_1"> Boring </label>
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="1" title="1" id="input_23_1" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio"  name="q23_overallHow23" value="2" title="2" id="input_23_2" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="3" title="3" id="input_23_3" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="4" title="4" id="input_23_4" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="5" title="5" id="input_23_5" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="6" title="6" id="input_23_6" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="7" title="7" id="input_23_7" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="8" title="8" id="input_23_8" style="opacity: 1">
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                    <input type="radio" name="q23_overallHow23" value="9" title="9" id="input_23_9"style="opacity: 1" >
-                                                  </td>
-                                                  <td style="text-align:center">
-                                                      <label>
-                                                          <input type="radio" name="q23_overallHow23" value="10" title="10" id="input_23_10" style="opacity: 1">
-                                                      </label>
-                                                  </td>
-                                                  <td>
-                                                      <label>
-                                                          <p>
-                                                              <input  name="q23_overallHow23" type="radio" />
-                                                              <span>10</span>
-                                                          </p>
-                                                      </label>
-                                                  </td>
-                                                  <td>
-                                                    <label for="input_23_10"> Fantastic </label>
-                                                  </td> -->
-                        <!-- <hr/> -->
+
                         <button type="button" class="star2" id="star1" (click)="submitRating(0)">★</button>
                         <button type="button" class="star2" id="star2" (click)="submitRating(1)">★</button>
                         <button type="button" class="star2" id="star3" (click)="submitRating(2)">★</button>
@@ -198,21 +103,13 @@
 
           <div>
             <input class="btn waves-effect waves-light blue right" type="submit" value="Submit" id="submitButton" />
-            <!-- ng-disabled="loginForm.email.$invalid || loginForm.password.$invalid "/> -->
-            <!-- </div> -->
+
           </div>
 
 
           <br />
           <br />
 
-          <!-- <div class ="center">
-                      <button class="btn waves-effect waves-light grey" name=""><i class="fab fa-google"></i></button>
-                      <button class="btn waves-effect waves-light grey" name=""><i class="fab fa-facebook"></i></button>
-                      <button class="btn waves-effect waves-light grey" name=""><i class="fas fa-plane-departure"></i></button>
-                      
-                    </div>
-                    <div class="center">Comming soon using OAuth</div> -->
         </div>
       </form>
     </section>

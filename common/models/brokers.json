@@ -41,6 +41,12 @@
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "__findById__accessTokens"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "greet"
     }
   ],
     "methods": {}

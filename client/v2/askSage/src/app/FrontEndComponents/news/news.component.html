@@ -1,85 +1,42 @@
 
-  <div class="container"><h5>{{ title }}</h5></div>
-  <div class="row" >
 
 
+<div class="container row">
+    <h5>{{ title }}</h5>
+    
 
-      <div class="col s12 m6 l4 " *ngFor="let item of newsFeed">
-          <!-- <h2 class="header">Test</h2> -->
-          <div class="card hoverable" >
-            <div class="card-image">
-              
+  <div *ngFor="let item of newsFeed">
 
-                <div style="overflow: hidden; height:10em">
-                    <img [src]="item.imgPath" >
-                </div>
-              
-              <span class="card-title truncate">{{item.topic}} {{item.id}}</span>
+
+    <div *ngIf="item.urlToImage">
+      <div class="col s12 m12 l6 ">
+
+
+        <div class="card hoverable">
+          <div class="card-image">
+
+
+            <div style="overflow: hidden; height:10em">
+              <img [src]="item.urlToImage">
             </div>
-            <div class="card-stacked">
+
+            <span class="card-title truncate" >{{item.title}}</span>
+          </div>
+          <div class="card-stacked">
             <div class="card-content ">
-              <p class ="flow-tex"> {{item.content}}
-            </p>
+              <p class="flow-tex" style="overflow: hidden; height:100px" > {{item.description}}
+              </p>
             </div>
             <div class="card-action">
-              <a href="#">This is a link</a>
+              <a href="{{item.url}}">Link to source</a>
             </div>
           </div>
         </div>
-        </div>
 
 
-
-
-<!-- 
-    <div class="col s12 m6 l4" >
-      <div class="{{ cardColor }}">
-        <div class="card-content black-text">
-          <span class="card-title">{{ x.topic }}</span>
-          <p>{{x.content}}</p>
-        </div>
-        <div class="card-action">
-          <a href="">Dismiss</a>
-        </div>
       </div>
     </div>
 
+  </div>
 
-   
-
-
-    <div class="col s12 m6 l4">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Insure Tech</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.
-            I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores culpa quibusdam assumenda aut recusandae 
-            fugiat pariatur consequuntur quae sint architecto. Velit, temporibus eligendi corrupti praesentium incidunt 
-            eum nesciunt excepturi, obcaecati error molestias tempora, doloribus quae est beatae facilis? Quo beatae id 
-            atque quae mollitia totam nam omnis. Consectetur voluptatibus rerum nulla, quasi aut id odio atque voluptates 
-            sequi quia optio voluptate similique obcaecati molestias neque sapiente alias illo voluptas deserunt ut quaerat 
-            iusto minima possimus? Voluptatibus officia dolor impedit! Ipsa et voluptatem non voluptates molestiae consequuntur 
-            vitae nemo quas modi, commodi eveniet quia! Distinctio, natus eligendi placeat aut laborum eius.
-          
-          </p>
-        </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
-    </div> -->
-
-
-
-
-
-    
-
-
-
- 
 </div>

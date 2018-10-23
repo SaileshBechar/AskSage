@@ -1,7 +1,7 @@
 {
   "ids": {
     "User": 1,
-    "AccessToken": 1,
+    "AccessToken": 13,
     "ACL": 1,
     "Broker": 4,
     "RoleMapping": 1,
@@ -9,7 +9,10 @@
   },
   "models": {
     "User": {},
-    "AccessToken": {},
+    "AccessToken": {
+      "H1LdXUqyEGE3kqGal08ngNZpkCQSZ4qxs2S59GhaPaIUREQqyBiyfufU4SyLtR4N": "{\"id\":\"H1LdXUqyEGE3kqGal08ngNZpkCQSZ4qxs2S59GhaPaIUREQqyBiyfufU4SyLtR4N\",\"ttl\":1209600,\"created\":\"2018-10-19T17:45:47.013Z\",\"userId\":1}",
+      "4kfouIDrBDQvjohIdXlL3ZWjJUZgIen1Q0zI7DERm5Ts5rDmS9vu2IWDW9GYuOsH": "{\"id\":\"4kfouIDrBDQvjohIdXlL3ZWjJUZgIen1Q0zI7DERm5Ts5rDmS9vu2IWDW9GYuOsH\",\"ttl\":1209600,\"created\":\"2018-10-22T18:51:32.239Z\",\"userId\":1}"
+    },
     "ACL": {},
     "Broker": {
       "1": "{\"password\":\"$2a$10$r1dTBHOS61N.1ELBwpC/vOrT5T1yu6DspHmWlMW4FYbxfVD6ssiRy\",\"email\":\"user1@asksage.com\",\"id\":1}",

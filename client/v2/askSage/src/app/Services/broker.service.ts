@@ -16,7 +16,6 @@ export class BrokerService {
 
   setLogin(email: string, password: string) {
     return this.http.post<any>('/api/Brokers/login', {email, password});
-
   }
 
   //Function called when user logs in to store credentials in local variables
@@ -38,6 +37,7 @@ export class BrokerService {
       return of(true);
     }
     else{ //If user has not logged in this session, we validate the token
+      
       return this.http.get('/api/Brokers/' + this._userId + '/accessTokens/' + this._token + '?access_token=' + this._token);
     }
   }

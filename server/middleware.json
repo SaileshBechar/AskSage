@@ -13,7 +13,9 @@
     },
     "helmet#xssFilter": {},
     "helmet#frameguard": {
-      "params": { "action": "deny" }
+      "params": {
+        "action": "deny"
+      }
     },
     "helmet#hsts": {
       "params": {
@@ -39,16 +41,20 @@
     }
   },
   "files": {
-    "loopback#static": [{
-      "name": "root",
-      "paths": ["/"],
-      "params": "$!../client/v2/askSage/dist/askSage"
-    },
-    {
-      "name": "other",
-      "paths": ["/*"],
-      "params": "$!../client/v2/askSage/dist/askSage"
-    }]
+    "loopback#static": [
+      {
+        "paths": [
+          "/"
+        ],
+        "params": "$!../client/v2/askSage/dist/askSage"
+      },
+      {
+        "paths": [
+          "/*"
+        ],
+        "params": "$!../client/v2/askSage/dist/askSage"
+      }
+    ]
   },
   "final": {
     "loopback#urlNotFound": {}

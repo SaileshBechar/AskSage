@@ -5,7 +5,8 @@
     "ACL": 1,
     "Broker": 4,
     "RoleMapping": 1,
-    "Role": 1
+    "Role": 1,
+    "feedback": 20
   },
   "models": {
     "User": {},
@@ -19,6 +20,9 @@
       "3": "{\"password\":\"$2a$10$G6CnE4FKRc0J4e4cwuLJnuhZyvhvzlxX3966yq5MEqHP5AsO13QzK\",\"email\":\"user3@asksage.com\",\"id\":3}"
     },
     "RoleMapping": {},
-    "Role": {}
+    "Role": {},
+    "feedback": {
+      
+    }
   }
 }

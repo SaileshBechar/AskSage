@@ -51,5 +51,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "feedback": {
+    "dataSource": "db",
+    "public": true
   }
 }

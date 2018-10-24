@@ -23,48 +23,36 @@
 <div ng-controller="HomeCtrl" ng-cloak="">
   <span ng-include="'views/header.html'"></span>
 
-
   <div class="container">
     <section class="col s12 m6 container" style="min-width: 280px;">
       <form class="card-panel lighten-2 grey " style="width: auto;" method="post" id="feedbackForm" #feedbackForm="ngForm"
         (ngSubmit)="onSubmit(feedbackForm.value)">
         <div class="center">
-          <!-- <div class="container">
-                        <img ng-src="../img/wawa.png" style="background:white; " class ="card-panel col s12 m6 l3">
-                      </div> -->
           <h4>{{title}}</h4>
-          <!-- <div>to continue to <strong>{{appName}}</strong></div> -->
           <div class="row">
             <div class="input-field col s6">
               <label for="fname">First Name:</label>
-              <input type="text" id="fname" name="fname" ng-model="fname" required ngModel />
+              <input type="text" id="fname" name="fname" required/>
             </div>
             <div class="input-field col s6">
               <label for="lname">Last Name:</label>
-              <input type="text" id="lname" name="lname" ng-model="lname" required ngModel />
+              <input type="text" id="lname" name="lname" required />
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s12">
               <label for="email">Email:</label>
-              <input class="validate" type="email" id="email" name="email" ng-model="email" required ngModel />
+              <input class="validate" type="email" id="email" name="email" required />
               <span ng-show="feedbackForm.email.$touched && feedbackForm.email.$invalid">Please enter a valid
                 email.</span>
             </div>
           </div>
 
           <div class="row">
-            <div class="input-field col s12">
-              <label for="password">Password:</label>
-              <input type="password" id="password" ng-model="password" required ngModel/>
-            </div>
-          </div>
-
-          <div class="row">
             <div class="row">
               <div class="input-field col s6">
-                <input id="input_text" name="inputText" type="text" data-length="10" ngModel>
+                <input id="input_text" name="inputText" type="text" data-length="10">
                 <label for="input_text">Input text</label>
               </div>
             </div>
@@ -85,13 +73,11 @@
                   <table summary="" cellpadding="4" cellspacing="0" class="form-scale-table" data-component="scale">
                     <tbody>
                       <tr>
-
                         <button type="button" class="star2" id="star1" (click)="submitRating(0)">★</button>
                         <button type="button" class="star2" id="star2" (click)="submitRating(1)">★</button>
                         <button type="button" class="star2" id="star3" (click)="submitRating(2)">★</button>
                         <button type="button" class="star2" id="star4" (click)="submitRating(3)">★</button>
                         <button type="button" class="star2" id="star5" (click)="submitRating(4)">★</button>
-                        <!-- <hr/> -->
                       </tr>
                     </tbody>
                   </table>
@@ -103,9 +89,7 @@
 
           <div>
             <input class="btn waves-effect waves-light blue right" type="submit" value="Submit" id="submitButton" />
-
           </div>
-
 
           <br />
           <br />

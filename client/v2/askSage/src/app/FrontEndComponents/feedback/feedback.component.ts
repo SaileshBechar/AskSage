@@ -20,25 +20,11 @@ export class FeedbackComponent implements OnInit {
   }
 
   onSubmit(feedback) {
-    //If user is logged in
-    this._brokerService.verifyUser().subscribe(
-      loggedIn => {
-        //Call service to submit data to endpoint
-        if (loggedIn){
-        console.log(this._feedbackService.postForm(feedback).subscribe(
-          data => {
-            console.log('Success!', data);
-
-          },
-          error => console.log('error', error)
-        ));
-        }else{
-          console.log("Not logged in")
-        }
-
+    console.log(this._feedbackService.postForm(feedback).subscribe(
+      data => {
+        console.log('Success!', data);
       },
-      error => console.log('error', error)
-    );
+      error => console.log('error', error)));
   }
 
 

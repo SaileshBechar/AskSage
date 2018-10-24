@@ -83,3 +83,10 @@ localStorage.token = "jhgadshgfdhadsf"
 Search Companies  -> Create a Group  Add Companies to group -> Call Search 
 
 
+npm install -g rxjs-tslint
+rxjs-5-to-6-migrate -p src/tsconfig.app.json
+
+ng update @angular/cli @angular/core
+//migrate to ng 7.0
+
+

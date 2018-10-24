@@ -1,11 +1,9 @@
-
-
-
 <div class="container row">
-    <h5>{{ title }}</h5>
-    
+  <h5>{{ title }}</h5>
+
 
   <div *ngFor="let item of newsFeed">
+
 
 
     <div *ngIf="item.urlToImage">
@@ -18,25 +16,30 @@
 
             <div style="overflow: hidden; height:10em">
               <img [src]="item.urlToImage">
+              <!-- <div *ngFor="let pic of picsList">
+                <img [src]="pic.urls.small">
+              </div> -->
+
             </div>
 
-            <span class="card-title truncate" >{{item.title}}</span>
+            <span class="card-title truncate">{{item.title}}</span>
           </div>
           <div class="card-stacked">
             <div class="card-content ">
-              <p class="flow-tex" style="overflow: hidden; height:100px" > {{item.description}}
+              <p class="flow-tex" style="overflow: hidden; height:100px"> {{item.description}}
               </p>
             </div>
             <div class="card-action">
               <a href="{{item.url}}">Link to source</a>
             </div>
           </div>
+
+
+
         </div>
-
-
       </div>
-    </div>
 
+    </div>
   </div>
 
 </div>

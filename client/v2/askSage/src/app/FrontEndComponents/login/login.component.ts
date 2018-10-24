@@ -20,13 +20,13 @@ export class LoginComponent implements OnInit {
     this._brokerService.setLogin(userDetails.email, userDetails.password)
       .subscribe(
         data => {
-          console.log('Success!', data);
+          // console.log('Success!', data);
           this._brokerService.storeCredentials(data.id, data.userId);
           this.router.navigate(['/home']);
 
         },
         error => {
-          console.log('error', error);
+          // console.log('Error', error);
             this.isError = true;
         }
       )

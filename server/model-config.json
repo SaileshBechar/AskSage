@@ -31,12 +31,14 @@
     "options": {
       "remoting": {
         "sharedMethods": {
-         "*": false,
+          "*": false,
+          "create":true,
           "login": true,
           "logout": true,
-          "prototype.__findById__accessTokens" :true,
-          "findById":true,
-          "greet":true
+          "prototype.__findById__accessTokens": true,
+          "findById": true,
+          "greet": true
+          
         }
       }
     }
@@ -54,6 +56,46 @@
   },
   "feedback": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "create": true,
+          "find": true,
+          "findById": true
+        }
+      }
+    }
+  },
+  "news": {
+    "dataSource": "newsAPI",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "getNews": true
+        }
+      }
+    }
+  },
+
+
+
+ "swapi": {
+    "dataSource": "swapi",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": true
+         
+        }
+      }
+    }
   }
+
+
+
 }

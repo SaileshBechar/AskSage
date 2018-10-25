@@ -34,16 +34,12 @@
         "min": 2,
         "max": 13
       },
-      "lname" : {
-        "type" : "string",
-        "description" : "Last name of Broker",
-        "min" : 2,
-        "max" : 13
-      }
-    }],
-    "relations": {},
-    "acls": [
-      {
+      "facetName": "common"
+    }
+  ],
+  "relations": {},
+  "acls": [
+    {
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
@@ -56,5 +52,5 @@
       "property": "greet"
     }
   ],
-    "methods": {}
-  }
+  "methods": {}
+}

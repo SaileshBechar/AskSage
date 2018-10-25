@@ -38,5 +38,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "BDR": {
+    "dataSource": "db",
+    "public": false
   }
 }

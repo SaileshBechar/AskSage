@@ -42,6 +42,24 @@ export class BrokerService {
     }
   }
 
+  getBroker(){
+    return this.http.get('/api/Brokers/' + this._userId + '?access_token='+ this._token);
+  }
+
+  updateBroker(brokerModel){
+    return this.http.patch('/api/Brokers/' + this._userId + '?access_token='+ this._token, {
+      email : brokerModel.email,
+      fname : brokerModel.fname,
+      lname : brokerModel.lname,
+      bdr : {
+        name: brokerModel.bdr.name,
+        phone: brokerModel.bdr.phone,
+        email: brokerModel.bdr.email,
+        role: brokerModel.bdr.role,
+        company: brokerModel.bdr.company,
+      }
+    });
+  }
 
   setLogoff(){
     return this.http.post('/api/Brokers/logout?access_token='+ this._token, {});

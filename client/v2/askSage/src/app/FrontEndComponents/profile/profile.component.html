@@ -1,4 +1,75 @@
 <app-header></app-header>
-<p>
-  profile works!
-</p>
+<div class="container">
+  <div class="row center card-panel">
+    <div *ngIf="brokerModel.email && this.isEdit == null">
+      <p>{{brokerModel.email}}</p>
+      <div *ngIf="brokerModel.fname" class="col s12">
+        <p>{{brokerModel.fname}}</p>
+      </div>
+      <div *ngIf="brokerModel.lname" class="col s12">
+        <p>{{brokerModel.lname}}</p>
+      </div>
+      <div *ngIf="brokerModel.bdr">
+        <div *ngIf="brokerModel.bdr.name" class="col s12">
+          <p>{{brokerModel.bdr.name}}</p>
+        </div>
+        <div *ngIf="brokerModel.bdr.company" class="col s12">
+          <p>{{brokerModel.bdr.company}}</p>
+        </div>
+        <div *ngIf="brokerModel.bdr.role" class="col s12">
+          <p>{{brokerModel.bdr.role}}</p>
+        </div>
+        <div *ngIf="brokerModel.bdr.phone" class="col s12">
+          <p>{{brokerModel.bdr.phone}}</p>
+        </div>
+        <div *ngIf="brokerModel.bdr.email" class="col s12">
+          <p>{{brokerModel.bdr.email}}</p>
+        </div>
+      </div>
+      <div class="col s12">
+        <button class="btn waves-effect editbtn" (click)="activateEdit()">Edit User</button>
+      </div>
+    </div>
+    <div *ngIf="isEdit" class="col s12">
+      <form class="container main-container" (ngSubmit)="saveInfo()">
+        <div class="input-field col s12">
+          <label class="active" for="email">Email:</label>
+          <input type="email" name="email" class="validate" disabled value="{{brokerModel.email}}" />
+        </div>
+        <div class="input-field col s12">
+          <label class="active" for="fname">First Name:</label>
+          <input type="text" name="fname" [(ngModel)]="brokerModel.fname" />
+        </div>
+        <div class="input-field col s12">
+          <label class="active" for="lname">Last Name:</label>
+          <input type="text" name="lname" [(ngModel)]="brokerModel.lname" />
+        </div>
+        <div *ngIf="brokerModel.bdr">
+          <div class="input-field col s12">
+            <label class="active" for="bdrName">BDR Name:</label>
+            <input type="text" name="bdrName" [(ngModel)]="brokerModel.bdr.name" />
+          </div>
+          <div class="input-field col s12">
+            <label class="active" for="bdrCompany">BDR Company:</label>
+            <input type="text" name="bdrCompany" [(ngModel)]="brokerModel.bdr.company" />
+          </div>
+          <div class="input-field col s12">
+            <label class="active" for="bdrRole">BDR Role:</label>
+            <input type="text" name="bdrRole" [(ngModel)]="brokerModel.bdr.role" />
+          </div>
+          <div class="input-field col s12">
+            <label class="active" for="bdrEmail">BDR Email:</label>
+            <input type="email" name="bdrEmail" class="validate" [(ngModel)]="brokerModel.bdr.email" />
+          </div>
+          <div class="input-field col s12">
+            <label class="active" for="bdrPhone">BDR Phone:</label>
+            <input type="text" name="bdrPhone" [(ngModel)]="brokerModel.bdr.phone" />
+          </div>
+          <div class="col s12">
+            <input type="submit" class="btn loginbtn z-depth-0" value="SAVE" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

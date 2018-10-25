@@ -1,0 +1,34 @@
+{
+  "name": "BDR",
+  "plural": "BDRs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "customField": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "bdr": {
+      "type": "belongsTo",
+      "model": "Broker",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

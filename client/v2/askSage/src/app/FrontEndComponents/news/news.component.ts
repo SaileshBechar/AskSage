@@ -10,8 +10,8 @@ import { PictureService } from '../../Services/picture.service';
 export class NewsComponent implements OnInit {
   public title: string; 
   public searchQuery :string;
-  private newsFeed : any[];
-  private picsList : any[];
+  public newsFeed : any[];
+  public picsList : any[];
 
   constructor( private _newsService : NewsService, private _picService: PictureService) { }
 

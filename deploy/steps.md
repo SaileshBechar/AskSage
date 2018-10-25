@@ -83,3 +83,22 @@ localStorage.token = "jhgadshgfdhadsf"
 Search Companies  -> Create a Group  Add Companies to group -> Call Search 
 
 
+npm install -g rxjs-tslint
+rxjs-5-to-6-migrate -p src/tsconfig.app.json
+
+ng update @angular/cli @angular/core
+//migrate to ng 7.0
+
+Step 1: From your project repository, bring in the changes and test.
+git fetch origin
+git checkout -b origin/IL-66-FeedbackForm origin/origin/IL-66-FeedbackForm
+git merge master
+
+Step 2: Merge the changes and update on GitHub.
+
+git checkout master
+git merge --no-ff origin/IL-66-FeedbackForm
+git push origin master
+
+
+https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github

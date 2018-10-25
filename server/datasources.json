@@ -3,5 +3,56 @@
     "name": "db",
     "connector": "memory",
     "file": "data/data.json"
+  },
+  "newsAPI": {
+    "name": "newsAPI",
+    "baseURL": "https://api.intellizence.com/api/v1/",
+    "crud": false,
+    "connector": "rest",
+    "operations": [
+      {
+        "functions": {
+          "getNews": ["name"]
+        },
+        "template": {
+          "method": "GET",
+          "url": "companies",
+          "headers": {
+            "accepts": "application/json",
+            "content-type": "application/json",
+            "x-api-key": "gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi"
+          },
+          "query": {
+            "name": "{name}"
+          },
+          "responsePath": "$.companies.*"
+        }
+      }
+    ]
+  },
+
+  "swapi": {
+    "name": "swapi",
+    "baseURL": "http://swapi.co/api/starships",
+    "crud": false,
+    "connector": "rest",
+    "operations": [
+      {
+        "functions": {
+          "getships": []
+        },
+        "template": {
+          "method": "GET",
+          "url": "http://swapi.co/api/starships/",
+          "headers": {
+            "accepts": "application/json",
+            "content-type": "application/json"
+          },
+          "responsePath": "$.results.*"
+        }
+      }
+    ]
   }
+
+  
 }

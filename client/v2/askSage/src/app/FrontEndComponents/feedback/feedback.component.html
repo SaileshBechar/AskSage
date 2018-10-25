@@ -1,4 +1,103 @@
-<app-header></app-header>
-<p>
-  feedback works!
-</p>
+<style>
+  .star2 {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 18pt;
+      margin: 0;
+      outline: none;
+      padding: 0;
+  }
+  .star2:focus{
+      background-color: transparent
+  }
+
+  
+  .star2.gold {
+      color: goldenrod;
+  }
+
+</style>
+
+<div ng-controller="HomeCtrl" ng-cloak="">
+  <span ng-include="'views/header.html'"></span>
+
+  <div class="container">
+    <section class="col s12 m6 container" style="min-width: 280px;">
+      <form class="card-panel lighten-2 grey " style="width: auto;" method="post" id="feedbackForm" #feedbackForm="ngForm"
+        (ngSubmit)="onSubmit(feedbackForm.value)">
+        <div class="center">
+          
+          <div class="row">
+            <div class="input-field col s6">
+              <label for="fname">First Name:</label>
+              <input type="text" id="fname" name="fname" required ngModel/>
+            </div>
+            <div class="input-field col s6">
+              <label for="lname">Last Name:</label>
+              <input type="text" id="lname" name="lname" required ngModel/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="email">Email:</label>
+              <input class="validate" type="email" id="email" name="email" required ngModel/>
+              <span ng-show="feedbackForm.email.$touched && feedbackForm.email.$invalid">Please enter a valid
+                email.</span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="input_text" name="inputText" type="text" data-length="10" ngModel>
+                <label for="input_text">Input text</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                <label for="textarea2">Textarea</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+
+            <table>
+              <tbody>
+                <tr>
+                  <table summary="" cellpadding="4" cellspacing="0" class="form-scale-table" data-component="scale">
+                    <tbody>
+                      <tr>
+                        <button type="button" class="star2" id="star1" (click)="submitRating(0)">★</button>
+                        <button type="button" class="star2" id="star2" (click)="submitRating(1)">★</button>
+                        <button type="button" class="star2" id="star3" (click)="submitRating(2)">★</button>
+                        <button type="button" class="star2" id="star4" (click)="submitRating(3)">★</button>
+                        <button type="button" class="star2" id="star5" (click)="submitRating(4)">★</button>
+                      </tr>
+                    </tbody>
+                  </table>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+          <div>
+            <input class="btn waves-effect waves-light blue right" type="submit" value="Submit" id="submitButton" />
+          </div>
+
+          <br />
+          <br />
+
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+<span ng-include="'views/footer.html'"></span>

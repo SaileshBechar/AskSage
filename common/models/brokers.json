@@ -1,47 +1,56 @@
 {
-    "name": "Broker",
-    "base": "User",
-    "description": "A model represting a broker",
-    "idInjection": true,
-    "options": {
-      "validateUpsert": true
+  "name": "Broker",
+  "description": "A model represting a broker",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "bdr": {
+      "type": "object",
+      "required": false
     },
-    "properties": {
-      "bdr": {
-        "type": "object",
-        "required": false
-      },
+    "fname": {
+      "type": "string",
+      "required": false
+    },
+    "lname": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [
+    {
       "fname": {
         "type": "string",
-        "required" : false
+        "description": "First name of Broker",
+        "min": 2,
+        "max": 13
       },
-      "lname" : {
+      "lname": {
         "type": "string",
-        "required" : false
-      }    
-    },
-    "validations": [{
-      "fname" : {
-        "type" : "string",
-        "description" : "First name of Broker",
-        "min" : 2,
-        "max" : 13
+        "description": "Last name of Broker",
+        "min": 2,
+        "max": 13
       },
-      "lname" : {
-        "type" : "string",
-        "description" : "Last name of Broker",
-        "min" : 2,
-        "max" : 13
-      }
-    }],
-    "relations": {},
-    "acls": [
-      {
+      "facetName": "common"
+    }
+  ],
+  "relations": {},
+  "acls": [
+    {
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW",
       "property": "__findById__accessTokens"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "greet"
     }
   ],
-    "methods": {}
-  }
+  "methods": {}
+}

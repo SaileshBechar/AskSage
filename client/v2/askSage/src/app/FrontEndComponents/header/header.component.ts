@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrokerService } from '../../Services/broker.service';
 import { Router } from '@angular/router';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-header',
@@ -8,20 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  public title : string ;
-  
+  public title: string;
+
 
   constructor(private _brokerService: BrokerService, private _router: Router) { }
 
   ngOnInit() {
     this.title = "Ask Sage";
-    
-
-  
 
   }
 
-  logoff(){
+  //Trigger the side navigation on menu click
+  sideNavTrig() {
+    if (document.readyState === "complete") {
+      let navBar: HTMLElement = document.getElementById("mobile-menu")
+      navBar.style.transform = "translateX(100%)";
+    }
+
+  }
+
+  logoff() {
     this._brokerService.setLogoff()
       .subscribe(
         data => {

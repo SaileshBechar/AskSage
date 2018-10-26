@@ -84,20 +84,5 @@
         }
       }
     }
-<<<<<<< HEAD
-=======
-  },
- "swapi": {
-    "dataSource": "swapi",
-    "public": true,
-    "options": {
-      "remoting": {
-        "sharedMethods": {
-          "*": true
-         
-        }
-      }
-    }
->>>>>>> cbcbc9ab4b32861e175539d85e11036485a130a2
   }
 }

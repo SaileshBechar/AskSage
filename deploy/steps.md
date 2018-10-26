@@ -32,7 +32,6 @@ pm2 -n AskSage start -i max server/server.js -prod
 
 
 
-
 ///ngnix
 
 /etc/nginx/sites-available
@@ -83,7 +82,7 @@ localStorage.token = "jhgadshgfdhadsf"
 Search Companies  -> Create a Group  Add Companies to group -> Call Search 
 
 
-npm install -g rxjs-tslint
+sudo npm install -g rxjs-tslint
 rxjs-5-to-6-migrate -p src/tsconfig.app.json
 
 ng update @angular/cli @angular/core
@@ -102,3 +101,7 @@ git push origin master
 
 
 https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github
+
+//test server
+ ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-183-103-5.ca-central-1.compute.amazonaws.com
+nano node_modules/loopback-component-explorer/public/index.html

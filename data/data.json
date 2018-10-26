@@ -1,7 +1,7 @@
 {
   "ids": {
     "User": 1,
-    "AccessToken": 2,
+    "AccessToken": 3,
     "ACL": 1,
     "Broker": 4,
     "RoleMapping": 1,

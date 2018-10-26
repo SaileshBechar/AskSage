@@ -1,5 +1,7 @@
 'use strict';
 
+var axios = require('axios');
+
 module.exports = function(server) {
   // Install a `/` route that returns server status
   // var router = server.loopback.Router();
@@ -11,4 +13,9 @@ module.exports = function(server) {
 // });
 
 // server.use(router);
+
+
+ 
+
+
 };

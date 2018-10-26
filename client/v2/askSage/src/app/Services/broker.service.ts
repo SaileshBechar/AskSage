@@ -25,11 +25,15 @@ export class BrokerService {
     this._loggedIn = true; //Service remembers that user was legitamently logged in
   }
 
+  getCredentials(){
+    this._token = localStorage.getItem('token');
+    this._userId = localStorage.getItem('userId');
+  }
+
 
   //Function to verify authenticity of user
   verifyUser(){
-    this._token = localStorage.getItem('token');
-    this._userId = localStorage.getItem('userId');
+    this.getCredentials();
     if (this._token == null || this._userId == null){ //Checks if user has no credentials to save resources
       return of(false); //returns observable
     }
@@ -42,8 +46,29 @@ export class BrokerService {
     }
   }
 
+  getBroker(){
+    this.getCredentials();
+    return this.http.get('/api/Brokers/' + this._userId + '?access_token='+ this._token);
+  }
+
+  updateBroker(brokerModel){
+    this.getCredentials();
+    return this.http.patch('/api/Brokers/' + this._userId + '?access_token='+ this._token, {
+      email : brokerModel.email,
+      fname : brokerModel.fname,
+      lname : brokerModel.lname,
+      bdr : {
+        name: brokerModel.bdr.name,
+        phone: brokerModel.bdr.phone,
+        email: brokerModel.bdr.email,
+        role: brokerModel.bdr.role,
+        company: brokerModel.bdr.company,
+      }
+    });
+  }
 
   setLogoff(){
+    this.getCredentials();
     return this.http.post('/api/Brokers/logout?access_token='+ this._token, {});
   }
 

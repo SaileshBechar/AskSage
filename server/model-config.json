@@ -32,10 +32,11 @@
       "remoting": {
         "sharedMethods": {
           "*": false,
-          "create":true,
+          "create": true,
           "login": true,
           "logout": true,
           "prototype.__findById__accessTokens": true,
+          "prototype.patchAttributes" : true,
           "findById": true,
           "greet": true
           

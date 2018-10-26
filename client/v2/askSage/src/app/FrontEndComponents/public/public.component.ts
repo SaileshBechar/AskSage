@@ -19,17 +19,24 @@ export class PublicComponent implements OnInit {
   constructor(private httpClient : HttpClient) { }
 
   ngOnInit() {
-    $(window).on('scroll', function(){
-      if ($(window).scrollTop() > 100){
-        $('div .nav-wrapper').removeClass('default');
-        $('div .nav-wrapper').addClass('scrolled');
+    $(window).on('scroll', function () {
+      console.log('Window is scrolling');
+      if (document.getElementById("loginbtn")){
+        var elementOffset = $('#loginbtn').offset().top;
+        console.log(elementOffset);
+        if ($(window).scrollTop() > elementOffset - 54) { //Gets height of element from top of screen and only 
+          $('div .nav-wrapper').removeClass('default'); // transitions at that height minus height of element
+          $('div .nav-wrapper').addClass('scrolled');
+        }
+        else {
+          $('div .nav-wrapper').addClass('default');
+          $('div .nav-wrapper').removeClass('scrolled');
+        }      
       }
       else{
-        $('div .nav-wrapper').addClass('default');
-        $('div .nav-wrapper').removeClass('scrolled');
+        $(window).off('scroll');
       }
     })
-    
   }
 
   // getPhoto(): Observable<Photos[]> {

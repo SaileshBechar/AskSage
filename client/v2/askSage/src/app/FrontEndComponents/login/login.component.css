@@ -1,17 +1,23 @@
+
 * {
     font-family: 'Montserrat', sans-serif;
     color: #000;
 }
-/* .card-container {
-    box-shadow: 0 -2px 2px 2px #646464;
-} */
+
+.card-panel {
+    box-shadow: 0 0 4pt 3pt #DEDDDD;
+}
 
 .main-container {
     padding: 50px;
 }
 
+.image-container {
+    height: 155pt;
+}
 .logo {
-    max-width: 155pt;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .title {
@@ -23,24 +29,24 @@
     border-radius: 100px;
     background-color: #0FB786;
     color: white;
-    padding: 0 8%;
+    padding: 0 10%;
 }
 
 /* label color */
 .input-field label {
-color: #000;
-font-weight: 600;
+    color: #000;
+    font-weight: 600;
 }
 
 /* label underline focus color */
 .input-field input:focus {
-border-bottom: 1px solid #0FB786;
-box-shadow: 0 1px 0 0 #0FB786;
+    border-bottom: 1px solid #0FB786;
+    box-shadow: 0 1px 0 0 #0FB786;
 }
 /* valid color */
 .input-field input.valid {
-border-bottom: 1px solid #0FB786;
-box-shadow: 0 1px 0 0 #0FB786;  
+    border-bottom: 1px solid #0FB786;
+    box-shadow: 0 1px 0 0 #0FB786;  
 }
 
 .error-text {
@@ -53,8 +59,8 @@ box-shadow: 0 1px 0 0 #0FB786;
   }
   
 .copyright-text {
-font-family: 'Montserrat', sans-serif;
-font-size: 1em;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
 }
 
 .copyright-graphic {
@@ -63,6 +69,7 @@ font-size: 1em;
     max-width: 150px;
     max-height: 120px;
     padding: 10px 0;
-  }
+}
+
 
        

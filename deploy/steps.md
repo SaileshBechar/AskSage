@@ -33,6 +33,7 @@ pm2 -n AskSage start -i max server/server.js -prod
 
 
 
+
 ///ngnix
 
 /etc/nginx/sites-available
@@ -203,3 +204,4 @@ http://webdesignforidiots.net/2016/02/digital-ocean-public-key-access-denied-on-
 
 
 git push live master
+Test push

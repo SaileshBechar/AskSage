@@ -33,18 +33,18 @@ export class NewsComponent implements OnInit {
 
     
 
-    this._picService.getPics("pic").subscribe(
-      (next : any) => {
-        //Sucess
-        // console.log ("Success from getPics Service");
-        this.picsList = next.results;
-        // console.log(this.picsList);
-      },
-      (err) => {
-        // console.log ("Error");
-        console.log(err);
-      }
-    )
+    // this._picService.getPics("pic").subscribe(
+    //   (next : any) => {
+    //     //Sucess
+    //     // console.log ("Success from getPics Service");
+    //     this.picsList = next.results;
+    //     // console.log(this.picsList);
+    //   },
+    //   (err) => {
+    //     // console.log ("Error");
+    //     console.log(err);
+    //   }
+    // )
    
 
   }

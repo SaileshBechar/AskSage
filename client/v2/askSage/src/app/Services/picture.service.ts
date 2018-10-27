@@ -17,7 +17,7 @@ export class PictureService {
 
 
 
-    return this.http.get('https://api.unsplash.com/search/photos/?client_id=' + this.accessKey + '&query=' + topic);
+    // return this.http.get('https://api.unsplash.com/search/photos/?client_id=' + this.accessKey + '&query=' + topic);
   }
 
 

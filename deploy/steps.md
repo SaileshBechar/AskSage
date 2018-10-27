@@ -1,5 +1,6 @@
 ssh-keygen -t rsa -b 4096 -C "your_email"
 
+ssh-add .\deploy\InnoLabKey.pem
 ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com
 mkdir remoteRepo
 cd remoteRepo
@@ -105,3 +106,100 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on
 //test server
  ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-183-103-5.ca-central-1.compute.amazonaws.com
 nano node_modules/loopback-component-explorer/public/index.html
+
+
+docker build-t asksage/nginx .
+docker run -d -p 80:80 --name asksage asksage/nginx
+docker ps
+docker stop <name>
+docker rm   <name>
+
+docker login
+docker push
+
+
+//nginx box
+sudo apt-get update
+sudo apt-get install nginx
+cd /etc/nginx
+nano nginx.conf
+>>worker_process:<cpu>
+
+cd sites-available
+sudo nano default
+
+
+upstream project{
+ server <ip1:3000>;
+ server <ip2:3000>;
+}
+
+proxy_cache_path  /var/cache/nginx/api levels=1 keys_zone=api:10m;
+
+server {
+  listen 80;
+  server_name ask-sage.ca ask-sage.com www.ask-sage.ca www.ask-sage.com;
+
+  location / {
+    proxy_pass http://project;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_redirect off;
+  }
+}
+
+
+sudo service nginx reload
+
+sudo apt install apache2-utils
+ab -c 40 -n 1000 www.ask-sage.com
+
+
+//To completely uninstall Docker:
+
+Step 1
+
+dpkg -l | grep -i docker
+To identify what installed package you have:
+
+Step 2
+
+sudo apt-get purge -y docker-engine docker docker.io docker-ce  
+sudo apt-get autoremove -y --purge docker-engine docker docker.io docker-ce  
+
+
+sudo rm -rf /var/lib/docker
+sudo rm /etc/apparmor.d/docker
+sudo groupdel docker
+sudo rm -rf /var/run/docker.sock
+
+
+//Add ssl
+https://www.nginx.com/blog/free-certificates-lets-encrypt-and-nginx/
+
+//Add nodes
+sudo apt-get update
+wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install pm2 -g
+mkdir apps && cd apps && git clone 
+
+
+//lb
+cd ~/apps
+mkdir repo
+git init --bare asksage.git
+git clone /home/lb/apps/repo/asksage.git /home/lb/apps/asksage
+
+ chmod ug+x ./post-receive
+ 
+live    ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com/home/lb/apps/repo/asksage.git (fetch)
+live    ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com/home/lb/apps/repo/asksage.git (pu
+
+http://webdesignforidiots.net/2016/02/digital-ocean-public-key-access-denied-on-existing-droplet/
+
+
+git push live master

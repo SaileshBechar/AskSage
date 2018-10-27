@@ -207,16 +207,3 @@ git push live master
 Test push
 
 //postReceive hook
-#!/bin/bash
-echo ‘post-receive: Triggered.’
-cd /home/lb/apps/asksage
-echo ‘post-receive: git check out…’
-git --git-dir=/home/lb/apps/repo/asksage.git --work-tree=/home/lb/apps/asksage checkout master -f
-echo ‘post-receive: npm install…’
-npm install \
-&& echo ‘post-receive: building…’ \
-&& cd /home/lb/apps/asksage/client/v2/askSage  && npm i && ng build --prod --build-optimizer && cd /home/lb/apps/asksage \
-&& echo ‘post-receive: → done.’ \
-&& (pm2 delete ‘AskSage’ || true) \
-&& pm2 -n AskSage start -i max server/server.js -prod  \
-&& echo ‘post-receive: app started successfully with pm2.

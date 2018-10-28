@@ -6,7 +6,7 @@ git --git-dir=/home/lb/apps/repo/asksage.git --work-tree=/home/lb/apps/asksage c
 echo ‘post-receive: npm install…’
 npm install \
 && echo ‘post-receive: building…’ \
-&& cd /home/lb/apps/asksage/client/v2/askSage  && npm i && ng build --prod --build-optimizer && cd /home/lb/apps/asksage \
+#&& cd /home/lb/apps/asksage/client/v2/askSage  && npm i && ng build --prod --build-optimizer && cd /home/lb/apps/asksage \
 && echo ‘post-receive: → done.’ \
 && (pm2 delete ‘AskSage’ || true) \
 && pm2 -n AskSage start -i max server/server.js -prod  \

@@ -20,10 +20,10 @@ export class PublicComponent implements OnInit {
 
   ngOnInit() {
     $(window).on('scroll', function () {
-      console.log('Window is scrolling');
+      // console.log('Window is scrolling');
       if (document.getElementById("loginbtn")){
         var elementOffset = $('#loginbtn').offset().top;
-        console.log(elementOffset);
+        // console.log(elementOffset);
         if ($(window).scrollTop() > elementOffset - 54) { //Gets height of element from top of screen and only 
           $('div .nav-wrapper').removeClass('default'); // transitions at that height minus height of element
           $('div .nav-wrapper').addClass('scrolled');

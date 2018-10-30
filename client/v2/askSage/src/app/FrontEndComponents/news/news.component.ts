@@ -16,7 +16,7 @@ export class NewsComponent implements OnInit {
   constructor( private _newsService : NewsService, private _picService: PictureService) { }
 
   ngOnInit() {
-    this.title ="Todays News Feed";
+    this.title ="Today in news";
     this._newsService.getNews(this.searchQuery)
     .subscribe(
       (data : any) => {

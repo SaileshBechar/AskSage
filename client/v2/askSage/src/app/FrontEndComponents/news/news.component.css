@@ -5,3 +5,7 @@
     overflow:hidden !important;
     text-overflow: ellipsis;
 } */
+
+* {
+    font-family: 'Montserrat', sans-serif;
+  }

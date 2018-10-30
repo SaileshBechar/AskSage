@@ -1,5 +1,5 @@
 <div class="container row">
-  <h5>{{ title }}</h5>
+  <h5><strong>{{ title }}</strong></h5>
 
 
   <div *ngFor="let item of newsFeed">
@@ -7,14 +7,14 @@
 
 
     <div *ngIf="item.urlToImage">
-      <div class="col s12 m12 l6 ">
+      <div class="col s12 m12 l12 ">
 
 
         <div class="card hoverable">
           <div class="card-image">
 
 
-            <div style="overflow: hidden; height:10em">
+            <div style="overflow: hidden; height:30em">
               <img [src]="item.urlToImage">
               <!-- <div *ngFor="let pic of picsList">
                 <img [src]="pic.urls.small">

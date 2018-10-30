@@ -208,3 +208,7 @@ Test push
 
 //postReceive hook
 && cd /home/lb/apps/asksage/client/v2/askSage  && npm i && ng build --prod --build-optimizer && cd /home/lb/apps/asksage \
+
+
+
+ng add @angular/pwa --project askSage

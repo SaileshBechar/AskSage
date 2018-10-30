@@ -20,6 +20,8 @@
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0FB786">
 <link rel="stylesheet" href="styles.9ea26ebd55073c38467f.css"></head>
 
 <body>
@@ -43,11 +45,7 @@
 
 
     document.addEventListener('DOMContentLoaded', function () {
-      var elems = document.querySelectorAll('.fixed-action-btn');
-      var instances = M.FloatingActionButton.init(elems, {
-        toolbarEnabled: false,
-        hoverEnabled: true
-      });
+    
       var side_elems = document.querySelectorAll('.sidenav');
       var side_instances = M.Sidenav.init(side_elems, {
         edge: "right"
@@ -57,7 +55,6 @@
       var slide_instances = M.Slider.init(slide_elems, {
         indicators:true,
         height:400,
-
       });
     });
 
@@ -65,6 +62,7 @@
 
   </script>
 
-<script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.d1c7bf4a2ae7c3435f95.js"></script><script type="text/javascript" src="main.74cbb08435e16085df8d.js"></script></body>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script type="text/javascript" src="runtime.ec2944dd8b20ec099bf3.js"></script><script type="text/javascript" src="polyfills.d1c7bf4a2ae7c3435f95.js"></script><script type="text/javascript" src="main.e1f43b7ae2fdf981f93e.js"></script></body>
 
 </html>

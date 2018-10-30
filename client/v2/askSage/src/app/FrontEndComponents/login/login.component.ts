@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
         data => {
           // console.log('Success!', data);
           this._brokerService.storeCredentials(data.id, data.userId);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/news']);
 
         },
         error => {

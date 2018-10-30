@@ -1,102 +1,197 @@
 <style>
-  .star2 {
-      background: none;
-      border: none;
-      color: #999;
-      cursor: pointer;
-      font-size: 18pt;
-      margin: 0;
-      outline: none;
-      padding: 0;
-  }
-  .star2:focus{
-      background-color: transparent
+  #background{
+    align-content: center
   }
 
+  .row.card-panel{
+    width: 810pt;
+    height: 1441pt;
+    background: #F8F9FA;
+    margin: auto
+  }
+
+  /* First container */
+  .row1 {
+    text-align: center;
+    padding-top: 40pt
+  }.feedback-title{
+    font-size: 32pt;
+    color: #0FB786;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  #feedback-subtitle{
+    font-size: 16pt;
+    color: #4a4a4a;
+    margin: 0;
+    margin-bottom: 45pt
+  }
+
+  .logo {
+    width: 109pt;
+    height: 109pt;
+    border: 6px solid #0FB786;
+    border-radius: 1000000px;
+    margin-bottom: 10pt
+  }
+
+
+  /* Question container */
+  .quest-container{
+    margin-left: 60pt;
+    margin-right: 60pt;
+    margin-bottom: 16pt;
+    line-height: 0
+  }
+
+  .materialize-textarea{
+    height: 202pt;
+    border: 5pt;
+    border-color: black;
+    border: 1px solid black;
+    border-radius: 2px;
+    margin: 0;
+    padding: 10px
+  }
+  .materialize-textarea::placeholder{
+    color: gray
+  }
+
+  hr{
+    margin: 0
+  }
+
+  .question-title{
+    margin: 0;
+    margin-top: 30pt;
+    margin-bottom: 16pt
+  }
+
+  .ans-optn{
+    color: #4a4a4a;
+    font-size: 14pt;
+  }
+
+
+
+
+  /* Submit button */ 
+  .loginbtn {
+    border-radius: 100px;
+    background-color: #0FB786;
+    color: white;
+    padding: 0 3%;
+    margin-top: 22pt;
+    margin-right: 60pt;
+    margin-bottom: 52pt;
+    font-weight: bold
+}
+
+.container.submit-container{
+  background-color: red
+}
   
-  .star2.gold {
-      color: goldenrod;
-  }
-
 </style>
 
-<div ng-controller="HomeCtrl" ng-cloak="">
-  <span ng-include="'views/header.html'"></span>
+<app-header></app-header>
 
-  <div class="container">
-    <section class="col s12 m6 container" style="min-width: 280px;">
-      <form class="card-panel lighten-2 grey " style="width: auto;" method="post" id="feedbackForm" #feedbackForm="ngForm"
-        (ngSubmit)="onSubmit(feedbackForm.value)">
-        <div class="center">
-          
-          <div class="row">
-            <div class="input-field col s6">
-              <label for="fname">First Name:</label>
-              <input type="text" id="fname" name="fname" required ngModel/>
-            </div>
-            <div class="input-field col s6">
-              <label for="lname">Last Name:</label>
-              <input type="text" id="lname" name="lname" required ngModel/>
-            </div>
-          </div>
+<div class="col s12 m12 l6 offset-l3" id="background">
+  <div class="row card-panel">
 
-          <div class="row">
-            <div class="input-field col s12">
-              <label for="email">Email:</label>
-              <input class="validate" type="email" id="email" name="email" required ngModel/>
-              <span ng-show="feedbackForm.email.$touched && feedbackForm.email.$invalid">Please enter a valid
-                email.</span>
-            </div>
-          </div>
+    <div class="head-container">
+      <div class="container">
+        <div class="row1">
+          <img class="logo" src="assets/img/ask_sage_icon.png">
 
-          <div class="row">
-            <div class="row">
-              <div class="input-field col s6">
-                <input id="input_text" name="inputText" type="text" data-length="10" ngModel>
-                <label for="input_text">Input text</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
-                <label for="textarea2">Textarea</label>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="row">
-
-            <table>
-              <tbody>
-                <tr>
-                  <table summary="" cellpadding="4" cellspacing="0" class="form-scale-table" data-component="scale">
-                    <tbody>
-                      <tr>
-                        <button type="button" class="star2" id="star1" (click)="submitRating(0)">★</button>
-                        <button type="button" class="star2" id="star2" (click)="submitRating(1)">★</button>
-                        <button type="button" class="star2" id="star3" (click)="submitRating(2)">★</button>
-                        <button type="button" class="star2" id="star4" (click)="submitRating(3)">★</button>
-                        <button type="button" class="star2" id="star5" (click)="submitRating(4)">★</button>
-                      </tr>
-                    </tbody>
-                  </table>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-
-          <div>
-            <input class="btn waves-effect waves-light blue right" type="submit" value="Submit" id="submitButton" />
-          </div>
-
-          <br />
-          <br />
-
+          <h1 class="feedback-title">Feedback</h1>
+          <h5 class="feedback-subtitle" id="feedback-subtitle">Help us make Sage smarter by telling us a bit about your
+            experience.</h5>
         </div>
+      </div>
+    </div>
+
+    <div class="quest-container">
+      <hr>
+      <form action="#">
+        <h5 class="question-title">1. If Sage could answer your key question, how often would you interact with Sage?</h5>
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio" />
+            <span class="ans-optn">Daily</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio" />
+            <span class="ans-optn">Weekly</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio" />
+            <span class="ans-optn">Monthly</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input class="with-gap" name="group1" type="radio" />
+            <span class="ans-optn">Never</span>
+          </label>
+        </p>
       </form>
-    </section>
+    </div>
+
+    <div class="quest-container">
+      <hr>
+      <form action="#">
+        <h5 class="question-title">2. What method(s) would you use to interact with Sage?</h5>
+        <p>
+          <label>
+            <input type="checkbox" />
+            <span class="ans-optn">Desktop Chat</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" checked="filled-in" />
+            <span class="ans-optn">Mobile Chat</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" class="filled-in" checked="checked" />
+            <span class="ans-optn">Voice</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" checked="filled-in" disabled="disabled" />
+            <span class="ans-optn">All of the above</span>
+          </label>
+        </p>
+      </form>
+
+    </div>
+
+    <div class="quest-container">
+      <hr>
+      <form action="#">
+        <h5 class="question-title">3. What other question(s) would you want Sage to answer for you?</h5>
+        <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback"></textarea>
+      </form>
+    </div>
+
+    <div class="quest-container">
+      <hr>
+      <form action="#">
+        <h5 class="question-title">4. We would love to hear any other feedback you have for Sage?</h5>
+        <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback"></textarea>
+      </form>
+    </div>
+
+    <input type="submit" class="btn loginbtn z-depth-0 right" value="Submit">
+
   </div>
 </div>
 

@@ -1,8 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { BrokerService } from '../../Services/broker.service';
 import { Router } from '@angular/router';
-import { TargetLocator } from 'selenium-webdriver';
-declare var $:any;
 declare var M:any;
 
 @Component({

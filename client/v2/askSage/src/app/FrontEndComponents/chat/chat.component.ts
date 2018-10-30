@@ -22,8 +22,8 @@ export class ChatComponent implements OnInit {
   showButtons(){
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
-      toolbarEnabled: false,
-      hoverEnabled: true  
+      // toolbarEnabled: false,
+      // hoverEnabled: true  
     });
 
 

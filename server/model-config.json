@@ -57,7 +57,7 @@
   },
   "BDR": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "feedback": {
     "dataSource": "db",

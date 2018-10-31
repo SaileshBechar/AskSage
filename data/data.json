@@ -1,36 +1,24 @@
 {
   "ids": {
     "User": 1,
-    "AccessToken": 14,
+    "AccessToken": 1,
     "ACL": 1,
-    "Broker": 7,
+    "Broker": 2,
     "RoleMapping": 1,
     "Role": 1,
-    "feedback": 20
+    "BDR": 1,
+    "feedback": 1
   },
   "models": {
     "User": {},
-    "AccessToken": {
-      "o8v1QlcEb8AqcEFOPLuCKHo2D2Cp4njswiNLjz6ACqgfAfASDTVwZS3EIPj7VSYH": "{\"id\":\"o8v1QlcEb8AqcEFOPLuCKHo2D2Cp4njswiNLjz6ACqgfAfASDTVwZS3EIPj7VSYH\",\"ttl\":1209600,\"created\":\"2018-10-24T16:48:37.504Z\",\"userId\":1}",
-      "CPVqBVmdy7DPskH3EX4FS26v6ICACpfuv1NkaIx4PnskEQr7LQTSj9e7CNyYXkEJ": "{\"id\":\"CPVqBVmdy7DPskH3EX4FS26v6ICACpfuv1NkaIx4PnskEQr7LQTSj9e7CNyYXkEJ\",\"ttl\":1209600,\"created\":\"2018-10-24T19:10:44.336Z\",\"userId\":1}",
-      "4k26r7FCCFJYJblfnIW8nkQYPCYhmIF7jGJmqzwKDNvkiMZBKzbZx5eFGYnPh9IR": "{\"id\":\"4k26r7FCCFJYJblfnIW8nkQYPCYhmIF7jGJmqzwKDNvkiMZBKzbZx5eFGYnPh9IR\",\"ttl\":1209600,\"created\":\"2018-10-30T14:16:26.342Z\",\"userId\":1}",
-      "hVRzGqX2YaRtgtdp1c5NGkK6sKFG72I4twjCS0UEbqtEpnP0ZvRYVLeGz9lcHHX3": "{\"id\":\"hVRzGqX2YaRtgtdp1c5NGkK6sKFG72I4twjCS0UEbqtEpnP0ZvRYVLeGz9lcHHX3\",\"ttl\":1209600,\"created\":\"2018-10-30T14:45:51.978Z\",\"userId\":1}",
-      "QnfHGpIyvrO4AYWoBTZ76XZvN8NlYjigE0VG6a2jkADMulDHnfDtmMv0mqeUUQ6z": "{\"id\":\"QnfHGpIyvrO4AYWoBTZ76XZvN8NlYjigE0VG6a2jkADMulDHnfDtmMv0mqeUUQ6z\",\"ttl\":1209600,\"created\":\"2018-10-30T19:10:08.511Z\",\"userId\":1}",
-      "ie4jUCMatLLtcEJYKkoVPvlHuHbuIUGeS5Nyt9dwWzLgnntdLVC3gCkeYdgvRE1P": "{\"id\":\"ie4jUCMatLLtcEJYKkoVPvlHuHbuIUGeS5Nyt9dwWzLgnntdLVC3gCkeYdgvRE1P\",\"ttl\":1209600,\"created\":\"2018-10-30T20:14:09.495Z\",\"userId\":1}",
-      "iKbAwkkJ9ZhOjzOwX7cijq0pBm5rZGc49L6CyCZbFNx9cKfqqX03FI4w7d10gFFw": "{\"id\":\"iKbAwkkJ9ZhOjzOwX7cijq0pBm5rZGc49L6CyCZbFNx9cKfqqX03FI4w7d10gFFw\",\"ttl\":1209600,\"created\":\"2018-10-31T16:04:38.240Z\",\"userId\":1}",
-      "UYVtPTqTKA4H55uj1uWqasCDjRro1kodnOpfzVHcAlc6KIxvZIMEptplGOyTNGk7": "{\"id\":\"UYVtPTqTKA4H55uj1uWqasCDjRro1kodnOpfzVHcAlc6KIxvZIMEptplGOyTNGk7\",\"ttl\":1209600,\"created\":\"2018-10-31T18:30:16.982Z\",\"userId\":1}"
-    },
+    "AccessToken": {},
     "ACL": {},
     "Broker": {
-      "1": "{\"password\":\"$2a$10$r1dTBHOS61N.1ELBwpC/vOrT5T1yu6DspHmWlMW4FYbxfVD6ssiRy\",\"email\":\"user1@asksage.com\",\"id\":1}",
-      "2": "{\"password\":\"$2a$10$EzPf6wM6SpnkjqEBBsYaAO6MqT9UXkjLWndKt1FFIbHJKnEIpsXs.\",\"email\":\"user2@asksage.com\",\"id\":2}",
-      "3": "{\"password\":\"$2a$10$G6CnE4FKRc0J4e4cwuLJnuhZyvhvzlxX3966yq5MEqHP5AsO13QzK\",\"email\":\"user3@asksage.com\",\"id\":3}",
-      "4": "{\"bdr\":{},\"fname\":\"string\",\"lname\":\"string\",\"password\":\"$2a$10$jnHhcE2T/oQcI43c05lHNexKlOwmwS1tdiEYLCJKeLOg2pqojvXRu\",\"email\":\"a@b.com\",\"id\":4}",
-      "5": "{\"bdr\":{\" uhdufhds\":\"hasd\"},\"fname\":\"string\",\"lname\":\"string\",\"password\":\"$2a$10$MPZLR1qwLWdlFusKl3mYW.6UzVhwSBddpZOV0j3RlmkPSVJcU0./O\",\"email\":\"a@c.com\",\"id\":5}",
-      "6": "{\"bdr\":{},\"fname\":\"string\",\"lname\":\"string\",\"password\":\"$2a$10$4jWNVzUvqinkEBqiv7pIuuj571528kOqIMlZagP.xM4lGtwCOiP6W\",\"email\":\"a@dsfsd.com\",\"id\":6}"
+      "1": "{\"bdr\":{\"name\":\"Mike Ross\",\"phone\":\"123456\",\"role\":\"Business Executive\",\"company\":\"Harvey LLC\",\"email\":\"m.r@harvey.com\"},\"fname\":\"Jhon\",\"lname\":\"Doe\",\"password\":\"$2a$10$t7lfIGuphtNQOh8JoSq4UOnFXQ419MXQPsr59u0I67cU/lKvd60Ee\",\"email\":\"user1@asksage.com\",\"id\":1}"
     },
     "RoleMapping": {},
     "Role": {},
+    "BDR": {},
     "feedback": {}
   }
 }

@@ -217,3 +217,31 @@ git tag -a v0.1 -m "Version 0.1 - 10/31/2018"
 git push origin --tags
 git checkout v0.1
 
+
+
+///Clean user
+
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "Broker": 2,
+    "RoleMapping": 1,
+    "Role": 1,
+    "BDR": 1,
+    "feedback": 1
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "Broker": {
+      "1": "{\"bdr\":{\"name\":\"Mike Ross\",\"phone\":\"123456\",\"role\":\"Business Executive\",\"company\":\"Harvey LLC\",\"email\":\"m.r@harvey.com\"},\"fname\":\"Jhon\",\"lname\":\"Doe\",\"password\":\"$2a$10$t7lfIGuphtNQOh8JoSq4UOnFXQ419MXQPsr59u0I67cU/lKvd60Ee\",\"email\":\"user1@asksage.com\",\"id\":1}"
+    },
+    "RoleMapping": {},
+    "Role": {},
+    "BDR": {},
+    "feedback": {}
+  }
+}

@@ -212,3 +212,8 @@ Test push
 <!--  -->
 
 ng add @angular/pwa --project askSage
+
+git tag -a v0.1 -m "Version 0.1 - 10/31/2018"
+git push origin --tags
+git checkout v0.1
+

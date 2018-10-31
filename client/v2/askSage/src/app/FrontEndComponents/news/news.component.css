@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-/* .card-title {
-    display:inline-block;
-    width:100%;
-    white-space: nowrap;
-    overflow:hidden !important;
-    text-overflow: ellipsis;
-} */
-
-* {
-    font-family: 'Montserrat', sans-serif;
-  }
-=======
 span, p {
     font-family: 'Montserrat' , sans-serif;
 }
@@ -59,4 +46,3 @@ img {
     font-weight: 600;
 }
 
->>>>>>> 34daf4b2e2a974d8832c6cd41577b780520afd6b

@@ -1,34 +1,15 @@
 <div class="container row">
-<<<<<<< HEAD
-  <h5><strong>{{ title }}</strong></h5>
-
-
-=======
   <div class="col s12 m8 offset-m2">
     <br><br>
     <span class="main-title">{{ title }}</span>
   </div>
->>>>>>> 34daf4b2e2a974d8832c6cd41577b780520afd6b
   <div *ngFor="let item of newsFeed">
     <div *ngIf="item.urlToImage">
-<<<<<<< HEAD
-      <div class="col s12 m12 l12 ">
-
-
-        <div class="card hoverable">
-          <div class="card-image">
-
-
-            <div style="overflow: hidden; height:30em">
-              <img [src]="item.urlToImage">
-              <!-- <div *ngFor="let pic of picsList">
-=======
       <div class="col s12 m8 offset-m2">
         <div class="card sticky-action hoverable">
           <div class="card-image">
             <img class="activator" [src]="item.urlToImage">
             <!-- <div *ngFor="let pic of picsList">
->>>>>>> 34daf4b2e2a974d8832c6cd41577b780520afd6b
                 <img [src]="pic.urls.small">
               </div> -->
           </div>

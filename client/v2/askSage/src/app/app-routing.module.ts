@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'register', component: RegisterComponent
   },
   {
-    path: 'home', component: HomeComponent, canActivate: [AuthGuard]
+    path: 'news', component: HomeComponent, canActivate: [AuthGuard]
   },
   {
     path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuard]

@@ -1,31 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { BrokerService } from '../../Services/broker.service';
 import { Router } from '@angular/router';
-import { $ } from 'protractor';
+import { TargetLocator } from 'selenium-webdriver';
+declare var $:any;
+declare var M:any;
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit{
   public title: string;
-
+  side_elems = document.querySelectorAll('.sidenav');
 
   constructor(private _brokerService: BrokerService, private _router: Router) { }
 
   ngOnInit() {
-    this.title = "Ask Sage";
-
   }
+
+  
 
   //Trigger the side navigation on menu click
   sideNavTrig() {
-    if (document.readyState === "complete") {
-      let navBar: HTMLElement = document.getElementById("mobile-menu")
-      navBar.style.transform = "translateX(100%)";
-    }
+      var side_elems = document.querySelectorAll('.sidenav');
+      var side_instances = M.Sidenav.init(side_elems, {
+        onCloseEnd : this.removeElementsByClass('sidenav-overlay'),
+        onCloseStart : this.removeElementsByClass('sidenav-overlay')
+      });
+  }
 
+  removeElementsByClass(className){
+    var elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
   }
 
   logoff() {

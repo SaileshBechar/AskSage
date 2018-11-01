@@ -1,0 +1,93 @@
+{
+  "configVersion": 1,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/favicon.ico",
+        "/index.html",
+        "/main.e2e2f8a55ee9f647201d.js",
+        "/polyfills.d1c7bf4a2ae7c3435f95.js",
+        "/runtime.ec2944dd8b20ec099bf3.js",
+        "/styles.9ea26ebd55073c38467f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/assets/Logo.jpg",
+        "/assets/favicon.ico",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/img/ask_sage_icon.png",
+        "/assets/img/graphic1.png",
+        "/assets/img/graphic2.png",
+        "/assets/img/laptopgraphic.png",
+        "/assets/img/phonegraphic.png",
+        "/assets/img/pronavlogo.png",
+        "/assets/img/wawa.png",
+        "/assets/profile.png",
+        "/assets/sage_chat_window_icon.svg"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/assets/Logo.jpg": "06a3718a8cd1fb8228744683b26d4e6fc6ef3424",
+    "/assets/favicon.ico": "f0cd878c5f8fc444e07dbb10effc3b2f9bdad2f9",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/img/ask_sage_icon.png": "ad29d7d5b8702338e9a850c59ddf63b5ef3139c6",
+    "/assets/img/graphic1.png": "cad20215a25edf1ea53d8e71cbd8ff4148d3f5e4",
+    "/assets/img/graphic2.png": "0b605b9dc2298640f2141e59b95e7869bed3f47a",
+    "/assets/img/laptopgraphic.png": "0dfcb26a7acde7734cf1f1627576194137f418ff",
+    "/assets/img/phonegraphic.png": "4e6095504c6adaa76c5225445e9feb77b225c60d",
+    "/assets/img/pronavlogo.png": "f4aabb31f3cad3c76696e23d59a506bc9b91aa47",
+    "/assets/img/wawa.png": "bc9c03fbafa61ce9b82ec7a0caeeec57c47aed2e",
+    "/assets/profile.png": "b0da17aea278bcdebf566c89c4b82daa555c178f",
+    "/assets/sage_chat_window_icon.svg": "a110f2dd76eb9c695b6bf624a442f433a22f87d8",
+    "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/index.html": "867245065b3501d9f283a87ed878e41fe3e73cd1",
+    "/main.e2e2f8a55ee9f647201d.js": "e1af07a78f2403e9c51f5f32b3d7ae05fa07c997",
+    "/polyfills.d1c7bf4a2ae7c3435f95.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
+    "/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
+    "/styles.9ea26ebd55073c38467f.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}

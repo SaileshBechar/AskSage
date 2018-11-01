@@ -26,13 +26,14 @@ export class HeaderComponent implements OnInit{
       var side_elems = document.querySelectorAll('.sidenav');
       var side_instances = M.Sidenav.init(side_elems, {
         onCloseEnd : this.removeElementsByClass('sidenav-overlay'),
-        onCloseStart : this.removeElementsByClass('sidenav-overlay')
+        onCloseStart : this.removeElementsByClass('drag-target')
       });
   }
 
   removeElementsByClass(className){
     var elements = document.getElementsByClassName(className);
-    while(elements.length > 0){
+
+    while(elements.length > 1){
         elements[0].parentNode.removeChild(elements[0]);
     }
   }

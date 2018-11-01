@@ -9,7 +9,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.b8ccbe28b02deb20164b.js",
+        "/main.9bcdadf5026c585b60b6.js",
         "/polyfills.d1c7bf4a2ae7c3435f95.js",
         "/runtime.ec2944dd8b20ec099bf3.js",
         "/styles.9ea26ebd55073c38467f.css"
@@ -37,6 +37,7 @@
         "/assets/img/laptopgraphic.png",
         "/assets/img/phonegraphic.png",
         "/assets/img/pronavlogo.png",
+        "/assets/img/sage_icon_landing.png",
         "/assets/img/wawa.png",
         "/assets/profile.png",
         "/assets/sage_chat_window_icon.svg"
@@ -62,12 +63,13 @@
     "/assets/img/laptopgraphic.png": "0dfcb26a7acde7734cf1f1627576194137f418ff",
     "/assets/img/phonegraphic.png": "4e6095504c6adaa76c5225445e9feb77b225c60d",
     "/assets/img/pronavlogo.png": "f4aabb31f3cad3c76696e23d59a506bc9b91aa47",
+    "/assets/img/sage_icon_landing.png": "8e64fedfc74d8361c2556630c570a7de888b9d30",
     "/assets/img/wawa.png": "bc9c03fbafa61ce9b82ec7a0caeeec57c47aed2e",
     "/assets/profile.png": "b0da17aea278bcdebf566c89c4b82daa555c178f",
     "/assets/sage_chat_window_icon.svg": "a110f2dd76eb9c695b6bf624a442f433a22f87d8",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "b1208de74aa3b4abe6aa46fcc7b81c42e7688566",
-    "/main.b8ccbe28b02deb20164b.js": "7b8a3804d4ffdf479345248c1deb1e419a01e43e",
+    "/index.html": "b8407634b556a5478b374ed542d3d9962dc00591",
+    "/main.9bcdadf5026c585b60b6.js": "53e9c29f9683d46dc8a76e3884d8c01727d8a802",
     "/polyfills.d1c7bf4a2ae7c3435f95.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
     "/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/styles.9ea26ebd55073c38467f.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"

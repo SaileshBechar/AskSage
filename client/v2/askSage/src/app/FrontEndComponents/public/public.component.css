@@ -37,8 +37,6 @@
 .logo {
   max-width: 100%;
   max-height: 100%;
-  border: 10px solid white;
-  border-radius: 1000px;
 }
 
 .nav-wrapper.default .floatbtn {
@@ -67,14 +65,15 @@
   font-family: 'Cookie', cursive;
   color: white;
   margin: auto;
-  font-size: 6vmax;
+  font-size: 10vmin;
   text-shadow: 2px 2px 4px #646464;
-  line-height: 80%;
+  max-height: 100%;
+  
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 2vmax;
+  font-size: 1.6em;
   color: white;
   margin: 3% 0;
 }

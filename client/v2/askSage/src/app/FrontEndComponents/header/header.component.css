@@ -1,0 +1,36 @@
+a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight : 600;
+    color: black;
+}
+
+nav {
+    box-shadow: 0 2pt 5pt #DEDDDD;
+}
+
+.nav-wrapper {
+    background-color: white;
+    /* padding-right: 20px; */
+}
+
+.nav-fixed {
+    box-shadow: 0;
+}
+
+.active {
+    color: #0FB786;
+}
+
+ul.right li {
+    margin: 0 10px;
+}
+
+ul.sidenav li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight : 700;
+}
+
+.sidenav-close i{
+    padding: 32px;
+    padding-bottom: 0;
+}

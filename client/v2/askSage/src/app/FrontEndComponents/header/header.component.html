@@ -1,51 +1,39 @@
 <header>
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper  green lighten-1">
+            <div class="nav-wrapper">
+                <ul class="right hide-on-small-only">
+                    <li>
+                        <a routerLink="/news" routerLinkActive="active">NEWS</a>
+                    </li>
+                    <li>
+                        <a routerLink="/feedback" routerLinkActive="active">FEEDBACK</a>
+                    </li>
+                    <li>
+                        <a routerLink="/profile" routerLinkActive="active" >PROFILE</a>
+                    </li>
+                    <li>
+                        <a (click)="logoff()" > LOGOUT </a>
 
-                <a class="left hide-on-small-and-down" style="height: 100%; background: white;">
-                    <!-- <img src="../assets/wawa.png" style="height: 100%;"> -->
-                    
-                </a>
-                <a class="brand-logo center ">{{ title }}
-                </a>
-                <ul id="nav-web" class="right hide-on-med-and-down">
-                    <li>
-                        <a routerLink="/home">Home</a>
-                    </li>
-                    <li>
-                        <a routerLink="/profile">Profile</a>
-                    </li>
-                    <li>
-                        <a routerLink="/feedback">Feedback</a>
-                    </li>
-                    <li>
-                        <a (click)="logoff()"> Logoff </a> 
-                        
                     </li>
                 </ul>
                 <div>
-                    <a data-target="mobile-menu" class="sidenav-trigger right">
-                    <i class="material-icons">menu</i></a>
-                </div>
+                    <a class="sidenav-trigger hide-on-med-and-up" data-target="mobile-menu" (click)="sideNavTrig()">
+                        <i class="material-icons">menu</i>
+                    </a>
+                </div>                    
             </div>
         </nav>
     </div>
-
-     <ul class="sidenav" id="mobile-menu">
-                <li><div>
-                    <div class="white background">
-                    <!-- <img class ="responsive-img" ng-src="../img/Logo.jpg"> -->
-                    </div>
-                    </div></li>
-                <li><div class="divider"></div></li>
-                <li><a routerLink="/home">Home</a></li>
-                <li><a routerLink="/profile">Profile</a></li>
-                <!-- <li><a href="#!chat">Chat</a></li> -->
-                <li><a routerLink="/feedback">Feedback</a></li>
-                <li>
-                    <a (click)="logoff()"> Logoff</a>
-                </li> 
-            </ul>
+    <ul class="sidenav" id="mobile-menu">
+            <li class="sidenav-close">
+                <i class="material-icons">close</i>
+            </li>
+            <li><a class="sidenav-close" routerLink="/news" routerLinkActive="active" >NEWS</a></li>
+            <li><a class="sidenav-close" routerLink="/feedback" routerLinkActive="active" >FEEDBACK</a></li>
+            <li><a class="sidenav-close" routerLink="/profile" routerLinkActive="active" >PROFILE</a></li>
+            <li>
+                <a class="sidenav-close" (click)="logoff()"> LOGOUT</a>
+            </li>
+        </ul>
 </header>
-

@@ -1,6 +1,10 @@
 {
   "loopback-component-explorer": {
     "mountPath": "/explorer",
-    "generateOperationScopedModels": true
+    "generateOperationScopedModels": true,
+    "apiInfo": {
+      "title": "Ask Sage",
+      "description": "Use the below APIs for accessing the broker endpoints"
+    }
   }
 }

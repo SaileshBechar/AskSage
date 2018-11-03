@@ -22,6 +22,8 @@ import { BrokerService } from './Services/broker.service';
 import { AuthGuard } from './Services/auth.guard'
 import { LoginGuard} from './Services/login.guard'
 import { NewsService } from './Services/news.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 
@@ -45,7 +47,8 @@ import { NewsService } from './Services/news.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [BrokerService, AuthGuard, LoginGuard, NewsService],
   bootstrap: [AppComponent]

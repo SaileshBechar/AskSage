@@ -1,0 +1,220 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "AskSage",
+        "description": "AskSage"
+    },
+    "basePath": "/api",
+    "paths": {
+        "/Brokers/{id}/accessTokens/{fk}": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Find a related item by id for accessTokens.",
+                "operationId": "Broker.prototype.__findById__accessTokens",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Broker id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "fk",
+                        "in": "path",
+                        "description": "Foreign key for accessTokens",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/AccessToken"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/{id}": {
+            "get": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Find a model instance by {{id}} from the data source.",
+                "operationId": "Broker.findById",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Model id",
+                        "required": true,
+                        "type": "string",
+                        "format": "JSON"
+                    },
+                    {
+                        "name": "filter",
+                        "in": "query",
+                        "description": "Filter defining fields and include - must be a JSON-encoded string ({\"something\":\"value\"})",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "$ref": "#/definitions/Broker"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/login": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Login a user with username/email and password.",
+                "operationId": "Broker.login",
+                "parameters": [
+                    {
+                        "name": "credentials",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object"
+                        }
+                    },
+                    {
+                        "name": "include",
+                        "in": "query",
+                        "description": "Related objects to include in the response. See the description of return value for more details.",
+                        "required": false,
+                        "type": "string",
+                        "format": "JSON"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "description": "The response body contains properties of the AccessToken created on login.\nDepending on the value of `include` parameter, the body may contain additional properties:\n\n  - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)\n\n",
+                            "type": "object"
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/logout": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "summary": "Logout a user with access token.",
+                "operationId": "Broker.logout",
+                "parameters": [],
+                "responses": {
+                    "204": {
+                        "description": "Request was successful"
+                    }
+                },
+                "deprecated": false
+            }
+        },
+        "/Brokers/greet": {
+            "post": {
+                "tags": [
+                    "Broker"
+                ],
+                "operationId": "Broker.greet",
+                "parameters": [
+                    {
+                        "name": "msg",
+                        "in": "formData",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Request was successful",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "greeting": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "deprecated": false
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Broker",
+            "description": "A model represting a broker"
+        }
+    ],
+    "consumes": [
+        "application/json",
+        "application/x-www-form-urlencoded",
+        "application/xml",
+        "text/xml"
+    ],
+    "produces": [
+        "application/json",
+        "application/xml",
+        "text/xml",
+        "application/javascript",
+        "text/javascript"
+    ],
+        "Broker": {
+            "description": "A model represting a broker",
+            "properties": {
+                "bdr": {
+                    "type": "object"
+                },
+                "fname": {
+                    "type": "string"
+                },
+                "lname": {
+                    "type": "string"
+                },
+                "realm": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "emailVerified": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "number",
+                    "format": "double"
+                }
+            },
+            "required": [
+                "email"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

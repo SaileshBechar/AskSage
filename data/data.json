@@ -3,20 +3,22 @@
     "User": 1,
     "AccessToken": 1,
     "ACL": 1,
-    "Broker": 4,
+    "Broker": 2,
     "RoleMapping": 1,
-    "Role": 1
+    "Role": 1,
+    "BDR": 1,
+    "feedback": 1
   },
   "models": {
     "User": {},
     "AccessToken": {},
     "ACL": {},
     "Broker": {
-      "1": "{\"password\":\"$2a$10$r1dTBHOS61N.1ELBwpC/vOrT5T1yu6DspHmWlMW4FYbxfVD6ssiRy\",\"email\":\"user1@asksage.com\",\"id\":1}",
-      "2": "{\"password\":\"$2a$10$EzPf6wM6SpnkjqEBBsYaAO6MqT9UXkjLWndKt1FFIbHJKnEIpsXs.\",\"email\":\"user2@asksage.com\",\"id\":2}",
-      "3": "{\"password\":\"$2a$10$G6CnE4FKRc0J4e4cwuLJnuhZyvhvzlxX3966yq5MEqHP5AsO13QzK\",\"email\":\"user3@asksage.com\",\"id\":3}"
+      "1": "{\"bdr\":{\"name\":\"Mike Ross\",\"phone\":\"123456\",\"role\":\"Business Executive\",\"company\":\"Harvey LLC\",\"email\":\"m.r@harvey.com\"},\"fname\":\"Jhon\",\"lname\":\"Doe\",\"password\":\"$2a$10$t7lfIGuphtNQOh8JoSq4UOnFXQ419MXQPsr59u0I67cU/lKvd60Ee\",\"email\":\"user1@asksage.com\",\"id\":1}"
     },
     "RoleMapping": {},
-    "Role": {}
+    "Role": {},
+    "BDR": {},
+    "feedback": {}
   }
 }

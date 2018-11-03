@@ -14,7 +14,8 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": false
   },
   "AccessToken": {
     "dataSource": "db",
@@ -26,7 +27,22 @@
   },
   "Broker": {
     "dataSource": "db",
-    "public": true
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "create": true,
+          "login": true,
+          "logout": true,
+          "prototype.__findById__accessTokens": true,
+          "prototype.patchAttributes" : true,
+          "findById": true,
+          "greet": true
+          
+        }
+      }
+    }
   },
   "RoleMapping": {
     "dataSource": "db",
@@ -38,5 +54,35 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "BDR": {
+    "dataSource": "db",
+    "public": false
+  },
+  "feedback": {
+    "dataSource": "db",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "create": true,
+          "find": true,
+          "findById": true
+        }
+      }
+    }
+  },
+  "news": {
+    "dataSource": "newsAPI",
+    "public": true,
+    "options": {
+      "remoting": {
+        "sharedMethods": {
+          "*": false,
+          "getNews": true
+        }
+      }
+    }
   }
 }

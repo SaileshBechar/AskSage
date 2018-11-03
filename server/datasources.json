@@ -3,5 +3,35 @@
     "name": "db",
     "connector": "memory",
     "file": "data/data.json"
+  },
+  "newsAPI": {
+    "name": "newsAPI",
+    "baseURL": "https://newsapi.org/v2/top-headlines",
+    "crud": false,
+    "connector": "rest",
+    "operations": [
+      {
+        "functions": {
+          "getNews": ["name"]
+        },
+        "template": {
+          "method": "GET",
+          "url": "https://newsapi.org/v2/top-headlines?country=ca&category=technology",
+          "headers": {
+            "accepts": "application/json",
+            "content-type": "application/json",
+            "x-api-key": "9a8d068cd73e4618bb1183d9cdb3f9dc"
+          },
+          "query": {
+            "name": "{name}"
+          },
+          "responsePath": "$.articles.*"
+        }
+      }
+    ]
   }
+
+
+
+  
 }

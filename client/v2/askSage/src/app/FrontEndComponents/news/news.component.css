@@ -1,7 +1,48 @@
-/* .card-title {
-    display:inline-block;
-    width:100%;
-    white-space: nowrap;
-    overflow:hidden !important;
-    text-overflow: ellipsis;
-} */
+span, p {
+    font-family: 'Montserrat' , sans-serif;
+}
+
+.main-title {
+    font-weight: 700;
+    font-size: 1.4em;
+    margin-top: 50px;
+}
+
+.main-container {
+    padding: 0 20%;
+}
+
+.card-content {
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating)  {
+    color: black;
+    font-family: 'Montserrat' , sans-serif;
+    margin-right: 0;
+    font-size: 0.9em;
+}
+
+.material-icons {
+    max-height: 100%;
+}
+
+img {
+    max-height : 30em;
+    overflow: hidden;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.sub-title{
+    font-weight: 300;
+}
+
+.reveal-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+

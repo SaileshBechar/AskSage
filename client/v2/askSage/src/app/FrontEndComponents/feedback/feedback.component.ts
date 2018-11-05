@@ -4,6 +4,7 @@ import { FeedbackService } from 'src/app/Services/feedback.service';
 import { BrokerService } from 'src/app/Services/broker.service';
 import { AuthGuard } from 'src/app/Services/auth.guard';
 import { AuthService } from 'src/app/auth.service';
+// import { }
 
 @Component({
   selector: 'app-feedback',
@@ -13,6 +14,8 @@ import { AuthService } from 'src/app/auth.service';
 export class FeedbackComponent implements OnInit {
 
 
+  public feedback: string = "q2";
+
   constructor(private _brokerService: BrokerService, private _feedbackService: FeedbackService) {
   }
 
@@ -20,46 +23,18 @@ export class FeedbackComponent implements OnInit {
   }
 
   onSubmit(feedback) {
-    console.log("FEEDBACK: " + feedback)
-    console.log(this._feedbackService.postForm(feedback).subscribe(
+    //Serialize form data into JSON format
+    var serialize = require('form-serialize');
+    var form = document.querySelector('#feedbackForm');
+    var obj = serialize(form, { hash: true });
+
+    //Post serialized form data to feedback endpoint
+    console.log(this._feedbackService.postForm(obj).subscribe(
       data => {
         console.log('Success!', data);
       },
       error => console.log('error', error)));
   }
-
-
-
-
-
-
-
-  //Rating Control
-  rating = 0;
-  stars: NodeListOf<Element>; // = document.querySelectorAll(".star2");
-
-  submitRating(rating) {
-    console.log(rating);
-
-    //Get the rating
-    this.stars = document.querySelectorAll(".star2");
-    this.setStars(rating);
-    this.rating = rating++;
-  }
-
-  setStars(whichStar) {
-    this.clearStars()
-    for (let i = 0; i <= whichStar; i++) {
-      this.stars[i].classList.add("gold")
-    }
-  }
-
-  clearStars() {
-    for (let i = 0; i < this.stars.length; i++) {
-      this.stars[i].classList.remove("gold")
-    }
-  }
-
 
 
 }

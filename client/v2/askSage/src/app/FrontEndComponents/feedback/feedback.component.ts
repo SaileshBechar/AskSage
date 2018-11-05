@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { $ } from 'protractor';
 import { FeedbackService } from 'src/app/Services/feedback.service';
 import { BrokerService } from 'src/app/Services/broker.service';
-import { AuthGuard } from 'src/app/Services/auth.guard';
-import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
+declare var M: any;
+
 // import { }
 
 @Component({
@@ -14,9 +14,7 @@ import { AuthService } from 'src/app/auth.service';
 export class FeedbackComponent implements OnInit {
 
 
-  public feedback: string = "q2";
-
-  constructor(private _brokerService: BrokerService, private _feedbackService: FeedbackService) {
+  constructor(private _brokerService: BrokerService, private _feedbackService: FeedbackService, private router: Router) {
   }
 
   ngOnInit() {
@@ -29,11 +27,14 @@ export class FeedbackComponent implements OnInit {
     var obj = serialize(form, { hash: true });
 
     //Post serialized form data to feedback endpoint
-    console.log(this._feedbackService.postForm(obj).subscribe(
+    this._feedbackService.postForm(obj).subscribe(
       data => {
-        console.log('Success!', data);
+        // console.log('Success!', data);
+
+        M.toast({html: 'Thanks! Appreciate your feedback.'})
+        this.router.navigate(['/news']);
       },
-      error => console.log('error', error)));
+      error => console.log('error', error));
   }
 
 

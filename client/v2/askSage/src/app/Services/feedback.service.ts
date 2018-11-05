@@ -11,7 +11,7 @@ export class FeedbackService {
 
   postForm(formData: string) {
     this._token = localStorage.getItem('token');
-    console.log("FormData")
+    // console.log("FormData")
     return this.http.post('/api/feedback?access_token=' + this._token, {formData});
   }
 }

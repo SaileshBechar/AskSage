@@ -1,0 +1,40 @@
+{
+  "name": "policy",
+  "plural": "policies",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string"
+    },
+    "Customer": {
+      "type": "object"
+    },
+    "brokerId": {
+      "type": "string"
+    },
+    "Adjuster": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "brokers": {
+      "type": "hasAndBelongsToMany",
+      "model": "Broker",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

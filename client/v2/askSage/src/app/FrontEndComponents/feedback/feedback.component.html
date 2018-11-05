@@ -1,101 +1,13 @@
 <style>
-  #background{
-      align-content: center;
-      background: #F8F9FA;
-      font-size: 16pt;
-  }
-
-  @media(max-width: 800px){
-      #background{
-      align-content: center;
-      background: #F8F9FA;
-      font-size: 12pt;
-    }
-  }
-
-  .col.card-panel{
-    background: rgb(253, 253, 253);
-  }
-
-  /* First container */
-  .head-container {
-    text-align: center;
-    padding-top: 40pt
-  }.feedback-title{
-    font-size: 2em;
-    color: #0FB786;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  #feedback-subtitle{
-    font-size: 1em;
-    color: #4a4a4a;
-    margin: 0;
-    margin-bottom: 45pt
-  }
-
-  .logo {
-    width: 109pt;
-    height: 109pt;
-    border: 6px solid #0FB786;
-    border-radius: 1000000px;
-    margin-bottom: 10pt
-  }
-
-
-  /* Question container */
-  .quest-container{
-    margin-left: 60pt;
-    margin-right: 60pt;
-    margin-bottom: 16pt;
-    line-height: 0
-  }
-
-  .materialize-textarea{
-    height: 202pt;
-    border: 1px solid lightgray;
-    border-radius: 2px;
-    margin: 0;
-    padding: 10px
-  }
-  .materialize-textarea::placeholder{
-    color: gray
-  }
-
-  hr{
-    margin: 0
-  }
-
-  .question-title{
-    font-size: 1em;
-    margin: 0;
-    margin-top: 30pt;
-    margin-bottom: 16pt
-  }
-
-  .ans-optn{
-    color: #4a4a4a;
-    font-size: 0.875em;
-  }
-
-
-  /* Submit button */ 
-  .loginbtn {
-    border-radius: 100px;
-    background-color: #0FB786;
-    color: white;
-    padding: 0 3%;
-    margin-top: 22pt;
-    margin-right: 60pt;
-    margin-bottom: 52pt;
-    font-weight: bold
-}
 
   
 </style>
 
 <app-header></app-header>
+<script>
+M.AutoInit();
+</script>
+
 
 <div class="row" id="background">
   <div class="col s10 offset-s1 l8 offset-l2 card-panel">
@@ -113,7 +25,7 @@
     <form action="#" id="feedbackForm" #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm.value)">
 
       <div class="quest-container">
-        <hr>
+        <!-- <hr> -->
         <h5 class="question-title">1. If Sage could answer your key question, how often would you interact with Sage?</h5>
         <p>
           <label>

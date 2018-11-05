@@ -10,6 +10,7 @@
 
 .main-container {
     padding: 50px;
+    min-width: 300px;
 }
 
 .image-container {

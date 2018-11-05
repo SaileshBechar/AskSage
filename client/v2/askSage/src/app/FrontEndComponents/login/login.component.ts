@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   isError: boolean;
+  hide = true;
+
+  
 
   constructor(private _brokerService: BrokerService, private router: Router) { }
 

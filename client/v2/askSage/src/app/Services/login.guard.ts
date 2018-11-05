@@ -19,13 +19,13 @@ export class LoginGuard implements CanActivate {
           return true;
         }
         else{
-          console.log(loggedin);
+          // console.log(loggedin);
           this._routing.navigate(['/news']); //If user is logged in they will not be allowed to access external pages
           return false;
         }
       }),
       catchError((err) => {
-        console.log(err);
+        // console.log(err);
         return of(true);
       })
     )

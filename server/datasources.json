@@ -12,7 +12,9 @@
     "operations": [
       {
         "functions": {
-          "getNews": ["name"]
+          "getNews": [
+            "name"
+          ]
         },
         "template": {
           "method": "GET",
@@ -30,8 +32,4 @@
       }
     ]
   }
-
-
-
-  
 }

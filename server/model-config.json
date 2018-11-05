@@ -36,10 +36,9 @@
           "login": true,
           "logout": true,
           "prototype.__findById__accessTokens": true,
-          "prototype.patchAttributes" : true,
+          "prototype.patchAttributes": true,
           "findById": true,
           "greet": true
-          
         }
       }
     }
@@ -84,5 +83,9 @@
         }
       }
     }
+  },
+  "policy": {
+    "dataSource": "db",
+    "public": true
   }
 }

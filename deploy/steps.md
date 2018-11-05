@@ -245,3 +245,19 @@ git checkout v0.1
     "feedback": {}
   }
 }
+
+
+
+   $ cd C:\Dinesh\playground\api_connect\inventory
+
+  Create a model in your app
+    $ apic create --type model
+
+  Compose your API, run, manage, enforce and deploy it with API Connect
+    $ apic edit
+
+  Run the app
+    $ apic start
+
+
+    

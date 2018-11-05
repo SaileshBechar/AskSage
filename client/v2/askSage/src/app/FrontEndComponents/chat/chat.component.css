@@ -1,7 +1,18 @@
 #x {
     position: absolute;
-    background: red;
+    background:grey;
     color: white;
-    top: -10px;
-    right: -10px;
+    top: -5px;
+    right: 0px;
+    border-radius: 10px;
+}
+
+
+#btnControl {
+    display: none;
+}
+
+#btnControl:checked + label > img {
+    width: 70px;
+    height: 74px;
 }

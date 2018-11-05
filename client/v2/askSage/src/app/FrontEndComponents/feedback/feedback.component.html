@@ -1,28 +1,35 @@
 <style>
   #background{
-    align-content: center
+      align-content: center;
+      background: #F8F9FA;
+      font-size: 16pt;
   }
 
-  .row.card-panel{
-    width: 810pt;
-    height: 1441pt;
-    background: #F8F9FA;
-    margin: auto
+  @media(max-width: 800px){
+      #background{
+      align-content: center;
+      background: #F8F9FA;
+      font-size: 12pt;
+    }
+  }
+
+  .col.card-panel{
+    background: rgb(253, 253, 253);
   }
 
   /* First container */
-  .row1 {
+  .head-container {
     text-align: center;
     padding-top: 40pt
   }.feedback-title{
-    font-size: 32pt;
+    font-size: 2em;
     color: #0FB786;
     margin-top: 0;
     margin-bottom: 0;
   }
 
   #feedback-subtitle{
-    font-size: 16pt;
+    font-size: 1em;
     color: #4a4a4a;
     margin: 0;
     margin-bottom: 45pt
@@ -47,9 +54,7 @@
 
   .materialize-textarea{
     height: 202pt;
-    border: 5pt;
-    border-color: black;
-    border: 1px solid black;
+    border: 1px solid lightgray;
     border-radius: 2px;
     margin: 0;
     padding: 10px
@@ -63,6 +68,7 @@
   }
 
   .question-title{
+    font-size: 1em;
     margin: 0;
     margin-top: 30pt;
     margin-bottom: 16pt
@@ -70,10 +76,8 @@
 
   .ans-optn{
     color: #4a4a4a;
-    font-size: 14pt;
+    font-size: 0.875em;
   }
-
-
 
 
   /* Submit button */ 
@@ -88,110 +92,98 @@
     font-weight: bold
 }
 
-.container.submit-container{
-  background-color: red
-}
   
 </style>
 
 <app-header></app-header>
 
-<div class="col s12 m12 l6 offset-l3" id="background">
-  <div class="row card-panel">
+<div class="row" id="background">
+  <div class="col s10 offset-s1 l8 offset-l2 card-panel">
+
 
     <div class="head-container">
-      <div class="container">
-        <div class="row1">
-          <img class="logo" src="assets/img/ask_sage_icon.png">
+      <img class="logo" src="assets/img/ask_sage_icon.png">
 
-          <h1 class="feedback-title">Feedback</h1>
-          <h5 class="feedback-subtitle" id="feedback-subtitle">Help us make Sage smarter by telling us a bit about your
-            experience.</h5>
-        </div>
-      </div>
+      <h1 class="feedback-title">Feedback</h1>
+      <h5 class="feedback-subtitle" id="feedback-subtitle">Help us make Sage smarter by telling us a bit about your
+        experience.</h5>
     </div>
 
-    <div class="quest-container">
-      <hr>
-      <form action="#">
+
+    <form action="#" id="feedbackForm" #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm.value)">
+
+      <div class="quest-container">
+        <hr>
         <h5 class="question-title">1. If Sage could answer your key question, how often would you interact with Sage?</h5>
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio" />
+            <input class="with-gap" name="q1" type="radio" value="daily" ngModel />
             <span class="ans-optn">Daily</span>
           </label>
         </p>
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio" />
+            <input class="with-gap" name="q1" type="radio" value="weekly" ngModel />
             <span class="ans-optn">Weekly</span>
           </label>
         </p>
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio" />
+            <input class="with-gap" name="q1" type="radio" value="monthly" ngModel />
             <span class="ans-optn">Monthly</span>
           </label>
         </p>
         <p>
           <label>
-            <input class="with-gap" name="group1" type="radio" />
+            <input class="with-gap" name="q1" type="radio" value="never" ngModel />
             <span class="ans-optn">Never</span>
           </label>
         </p>
-      </form>
-    </div>
 
-    <div class="quest-container">
-      <hr>
-      <form action="#">
-        <h5 class="question-title">2. What method(s) would you use to interact with Sage?</h5>
-        <p>
-          <label>
-            <input type="checkbox" />
-            <span class="ans-optn">Desktop Chat</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input type="checkbox" checked="filled-in" />
-            <span class="ans-optn">Mobile Chat</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input type="checkbox" class="filled-in" checked="checked" />
-            <span class="ans-optn">Voice</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input type="checkbox" checked="filled-in" disabled="disabled" />
-            <span class="ans-optn">All of the above</span>
-          </label>
-        </p>
-      </form>
+      </div>
 
-    </div>
 
-    <div class="quest-container">
-      <hr>
-      <form action="#">
+      <div class="quest-container">
+        <hr>
+          <h5 class="question-title">2. What method(s) would you use to interact with Sage?</h5>
+          <p>
+            <label>
+              <input type="checkbox" name="q2[Desktop Chat]" value="true" ngModel />
+              <span class="ans-optn">Desktop Chat</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="q2[Mobile Chat]" value="true" checked="filled-in" ngModel />
+              <span class="ans-optn">Mobile Chat</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input type="checkbox" name="q2[Voice]" class="filled-in" value="true" checked="checked" ngModel />
+              <span class="ans-optn">Voice</span>
+            </label>
+          </p>
+      </div>
+
+      <div class="quest-container">
+        <hr>
         <h5 class="question-title">3. What other question(s) would you want Sage to answer for you?</h5>
-        <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback"></textarea>
-      </form>
-    </div>
+        <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback" name="q3" ngModel></textarea>
+      </div>
 
-    <div class="quest-container">
-      <hr>
-      <form action="#">
+      <div class="quest-container">
+        <hr>
         <h5 class="question-title">4. We would love to hear any other feedback you have for Sage?</h5>
-        <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback"></textarea>
-      </form>
-    </div>
+        <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback" name="q4"></textarea>
+      </div>
 
-    <input type="submit" class="btn loginbtn z-depth-0 right" value="Submit">
 
+
+
+      <input type="submit" class="btn loginbtn z-depth-0 right" value="Submit">
+
+    </form>
   </div>
 </div>
 

@@ -27,7 +27,9 @@ export class NewsService {
       var url ='https://newsapi.org/v2/top-headlines?q='+this.searchQuery;
     }
     else{ 
-    var url ='https://newsapi.org/v2/top-headlines?country=ca&category=technology'
+
+      var url = "https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal, financial-times, business-insider"
+    // var url ='https://newsapi.org/v2/top-headlines?country=ca&category=business'
   }
    
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);

@@ -34,3 +34,14 @@ ul.sidenav li a {
     padding: 32px;
     padding-bottom: 0;
 }
+
+
+.title {
+    font-family: 'Cookie', cursive;
+    color: black;
+    margin: 5px;
+    /* padding: 5px; */
+    font-size: 3em;
+    /* text-shadow: 2px 2px 4px #646464; */
+    max-height: 100%;
+  }

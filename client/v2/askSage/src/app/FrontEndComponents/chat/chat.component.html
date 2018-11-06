@@ -12,17 +12,19 @@
 
   <div class="col s12 m5" style="">
 
+    <div *ngIf="!dismiss">
+
+      <div class="hoverable " id="txt-msg" style=" border:2px solid white ;border-radius: 5px; background-color:#FFEED9 ; padding: 10px;font-family: 'Montserrat', sans-serif; font-size: smaller;  font-weight: normal;">
+        <i class="material-icons right " (click)="dismiss=!dismiss">{{dismiss ? 'check' : 'close'}} </i>
 
 
-    <div class="hoverable " style="border:2px solid white ;border-radius: 5px; background-color:#FFEED9 ; padding: 10px;font-family: 'Montserrat', sans-serif; font-size: smaller;  font-weight: normal;">
-      <!-- <button id="x">X</button> -->
-      <div class="black-text" style="font-weight: normal; letter-spacing: normal"> Hi I`m Sage, I`m here to help. </div>
-      <div class="black-text" style="font-weight: normal; letter-spacing: normal">Ask me a question and let`s chat!</div>
+        <div class="black-text" style="font-weight: normal; letter-spacing: normal"> Hi I`m Sage, I`m here to help.</div>
+        <div class="black-text" style="font-weight: normal; letter-spacing: normal">Ask me a question and let`s chat!</div>
+      </div>
     </div>
 
-
     <div class="">
-      <img class="right hoverable" style="height:100px; border:5px solid #0FB786 ;border-radius: 75px;padding:2px; background-color: white "
+      <img class="right hoverable" style="height:15vmin; border:5px solid #0FB786 ;border-radius: 1000px;padding:2px; background-color: white "
         src="assets/img/ask_sage_icon.png">
     </div>
 

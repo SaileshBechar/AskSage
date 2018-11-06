@@ -31,7 +31,7 @@ export class FeedbackComponent implements OnInit {
       data => {
         // console.log('Success!', data);
 
-        M.toast({html: 'Thanks! Appreciate your feedback.'})
+        M.toast({html: 'Thanks! Appreciate your feedback.', classes: 'rounded', displayLength: 5000})
         this.router.navigate(['/news']);
       },
       error => console.log('error', error));

@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
     this._brokerservice.getBroker()
       .subscribe(
         (info : any) => {
-          console.log(info);
+          // console.log(info);
           this.brokerModel = info;   
         },
         error => {
@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
     this._brokerservice.updateBroker(this.brokerModel)
       .subscribe(
         data => {
-          console.log('Successfully updated broker', data);
+          console.log('Successfully updated broker');
           this.isEdit = null;
         },
         error => {

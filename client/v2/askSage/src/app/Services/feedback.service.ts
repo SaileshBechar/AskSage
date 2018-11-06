@@ -9,9 +9,9 @@ export class FeedbackService {
 
   constructor(private http: HttpClient) { }
 
-  postForm(formData: string) {
+  postForm(inputText: string) {
     this._token = localStorage.getItem('token');
     // console.log("FormData")
-    return this.http.post('/api/feedback?access_token=' + this._token, {formData});
+    return this.http.post('/api/feedback?access_token=' + this._token, {inputText});
   }
 }

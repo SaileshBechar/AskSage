@@ -22,6 +22,9 @@
     },
     "Adjuster": {
       "type": "string"
+    },
+    "Claim Status": {
+      "type": "string"
     }
   },
   "validations": [],

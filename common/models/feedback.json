@@ -7,20 +7,13 @@
     "validateUpsert": true
   },
   "properties": {
-    "fname": {
-      "type": "string",
-      "required": false
-    },
-    "lname": {
-      "type": "string",
-      "required": false
-    },
-    "email": {
-      "type": "string",
-      "required": false
-    },
+  
     "inputText": {
-      "type": "string",
+      "type": "object",
+      "required": false
+    },
+    "inputFromChatBot": {
+      "type": "object",
       "required": false
     }
   },

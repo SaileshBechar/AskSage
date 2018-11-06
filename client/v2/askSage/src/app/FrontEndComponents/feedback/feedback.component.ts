@@ -3,6 +3,7 @@ import { FeedbackService } from 'src/app/Services/feedback.service';
 import { BrokerService } from 'src/app/Services/broker.service';
 import { Router } from '@angular/router';
 declare var M: any;
+var serialize = require('form-serialize');
 
 // import { }
 
@@ -22,7 +23,7 @@ export class FeedbackComponent implements OnInit {
 
   onSubmit(feedback) {
     //Serialize form data into JSON format
-    var serialize = require('form-serialize');
+    
     var form = document.querySelector('#feedbackForm');
     var obj = serialize(form, { hash: true });
 

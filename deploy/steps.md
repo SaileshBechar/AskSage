@@ -156,7 +156,7 @@ server {
 sudo service nginx reload
 
 sudo apt install apache2-utils
-ab -c 40 -n 1000 www.ask-sage.com
+ab -c 40 -n 1000 www.ask-sage.com/login
 
 
 //To completely uninstall Docker:
@@ -272,5 +272,72 @@ git checkout v0.1
 }
 
 
+//Debug mongo db remote
+  //LB nginx
+  ssh -i .\deploy\InnoLabKey.pem lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com -- LB
 
-  
+//DB
+  ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-182-61-225.ca-central-1.compute.amazonaws.com --DB
+
+/var/lib/mongodb
+/var/log/
+
+
+
+
+
+  sudo apt-get update
+
+
+
+  echo "  
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+  echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+  sudo apt-get update
+  sudo apt-get install -y mongodb-org
+  echo "mongodb-org hold" | sudo dpkg --set-selections
+  echo "mongodb-org-server hold" | sudo dpkg --set-selections
+  echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+  echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+  echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+" >> mongoInstall.bash
+
+echo "
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+sudo service mongod start
+systemctl mongod status
+
+
+show dbs
+show collections
+db
+use AskSage <db>
+db.Broker.find()
+
+
+
+
+
+sudo bash ./mongoInstall.bash
+
+
+//Create app Server
+ ssh -i .\deploy\InnoLabKey.pem ubuntu@ec2-35-183-113-127.ca-central-1.compute.amazonaws.com
+
+
+// git --git-dir=/apps/repo/asksage.git --work-tree=/apps/asksage checkout master -f
+//Install Node + npm
+ 8.12 /6.4
+
+
+//To add to git post_receive hook later in git server
+
+git clone ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com/home/lb/apps/repo/asksage.git . && sudo apt install curl && curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - && sudo apt install nodejs -y && node -v && npm -v && npm i && npm install pm2 -g && (pm2 delete ‘AskSage’ || true) && pm2 -n AskSage start -i max server/server.js -prod 
+
+
+ 
+
+

@@ -60,19 +60,19 @@ M.AutoInit();
           <h5 class="question-title">2. What method(s) would you use to interact with Sage?</h5>
           <p>
             <label>
-              <input type="checkbox" name="q2[Desktop Chat]" value="true" ngModel />
+              <input type="checkbox" name="q2[Desktop Chat]" value="true" ngModel checked="checked" ngModel/>
               <span class="ans-optn">Desktop Chat</span>
             </label>
           </p>
           <p>
             <label>
-              <input type="checkbox" name="q2[Mobile Chat]" value="true" checked="filled-in" ngModel />
+              <input type="checkbox" name="q2[Mobile Chat]" value="true" checked="checked" ngModel />
               <span class="ans-optn">Mobile Chat</span>
             </label>
           </p>
           <p>
             <label>
-              <input type="checkbox" name="q2[Voice]" class="filled-in" value="true" checked="checked" ngModel />
+              <input type="checkbox" name="q2[Voice]" value="true" checked="checked" ngModel />
               <span class="ans-optn">Voice</span>
             </label>
           </p>
@@ -85,7 +85,7 @@ M.AutoInit();
       </div>
 
       <div class="quest-container">
-        <hr>
+        <!-- <hr> -->
         <h5 class="question-title">4. We would love to hear any other feedback you have for Sage?</h5>
         <textarea id="textarea1" class="materialize-textarea" placeholder="Click in the box to enter feedback" name="q4"></textarea>
       </div>

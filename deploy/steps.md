@@ -261,3 +261,16 @@ git checkout v0.1
 
 
     
+{
+  "uuid": "186d1967b557ca7e2ef71b5ec25c51cd3a7c28672c7ea5dafb8bd76e0a5c2e2a",
+  "type": "Auto",
+  "Customer": {
+"Name":"Ethan Hunt",
+"Address": "007 That Street, Thisville, ON"},
+  "brokerId": "186d1967b557ca7e2ef71b5ec25c51cd3a7c28672c7ea5dafb8bd76e0a5c2e2a",
+  "Adjuster": "Will Smith"
+}
+
+
+
+  

@@ -22,7 +22,7 @@
         <div class="input-field col s12">
           
           <label for="password">Password:</label>
-          <input [type]="hide ? 'password' : 'text'" name="password" class="validate" ngModel required style = "width: 90%"/>
+          <input [type]="hide ? 'password' : 'text'" name="password" class="validate" ngModel required style = "width: 90%" autocomplete ="on"/>
           <i class="material-icons prefix " (click)="hide = !hide"  >{{hide ? 'visibility_off' : 'visibility'}} </i>
           
         </div>
@@ -36,10 +36,12 @@
           <br>
           <input type="submit" class="btn loginbtn z-depth-0" value="SIGN IN" />
         </div>
+
         <!-- <div class="col s12">
               <br><br>
               <a href="">Forgot your Password?</a>
             </div> -->
+
       </div>
     </div>
   </div>

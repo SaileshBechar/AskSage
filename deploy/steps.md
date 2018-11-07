@@ -335,7 +335,7 @@ sudo bash ./mongoInstall.bash
 
 //To add to git post_receive hook later in git server
 
-git clone ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com/home/lb/apps/repo/asksage.git . && sudo apt install curl && curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - && sudo apt install nodejs -y && node -v && npm -v && npm i && npm install pm2 -g && (pm2 delete ‘AskSage’ || true) && pm2 -n AskSage start -i max server/server.js -prod 
+git clone ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com/home/lb/apps/repo/asksage.git . && sudo apt install curl && curl -sL https://deb.nodesource.com/setup_8.x | sudo bash - && sudo apt install nodejs -y && node -v && npm -v && sudo npm i && sudo npm install pm2 -g && (pm2 delete ‘AskSage’ || true) && pm2 -n AskSage start -i max server/server.js -prod 
 
 
  

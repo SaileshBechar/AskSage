@@ -14,19 +14,19 @@
     ]
   },
   "User": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": false
   },
   "Broker": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": true,
     "options": {
       "remoting": {
@@ -44,22 +44,22 @@
     }
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": false
   },
   "BDR": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": false
   },
   "feedback": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": true,
     "options": {
       "remoting": {
@@ -85,7 +85,7 @@
     }
   },
   "policy": {
-    "dataSource": "db",
+    "dataSource": "mongod",
     "public": true
   }
 }

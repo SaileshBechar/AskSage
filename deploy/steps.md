@@ -341,3 +341,22 @@ cd apps && git clone ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.co
  
 
 mkdir apps
+
+
+MongoDB shell version v4.0.3
+
+,
+
+  // "mongod": {
+  //   "host": "35.182.61.225",
+  //   "port": 27017,
+  //   "url": "mongodb://35.182.61.225:27017/askSage",
+  //   "database": "askSage",
+  //   "password": "",
+  //   "name": "mongod",
+  //   "user": "",
+  //   "connector": "mongodb"
+  // }
+
+
+

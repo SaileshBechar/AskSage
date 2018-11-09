@@ -41,7 +41,7 @@
     "url": "mongodb://35.182.61.225:27017/askSage",
     "database": "askSage",
     "password": "",
-    "name": "mongod",
+    "name": "mongodb",
     "user": "webClient",
     "connector": "mongodb"
   }

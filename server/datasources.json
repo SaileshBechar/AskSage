@@ -42,7 +42,7 @@
     "database": "askSage",
     "password": "",
     "name": "mongod",
-    "user": "",
+    "user": "webClient",
     "connector": "mongodb"
   }
 

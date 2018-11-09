@@ -33,18 +33,6 @@
     ]
   }
   
-  ,
-
-  "mongod": {
-    "host": "35.182.61.225",
-    "port": 27017,
-    "url": "mongodb://35.182.61.225:27017/askSage",
-    "database": "askSage",
-    "password": "",
-    "name": "mongod",
-    "user": "",
-    "connector": "mongodb"
-  }
 
 
 }

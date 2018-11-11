@@ -31,36 +31,8 @@
         }
       }
     ]
-<<<<<<< HEAD
-  },
-
-  "mongod": {
-    "host": "ec2-35-182-61-225.ca-central-1.compute.amazonaws.com",
-    "port": 27017,
-    "url":"mongodb://ec2-35-182-61-225.ca-central-1.compute.amazonaws.com:27017/askSage", 
-    "useNewUrlParser": "true",
-    "database": "askSage",
-    "password": "",
-    "name": "mongod",
-    "user": "",
-    "connector": "mongodb"
-=======
->>>>>>> 4d963f81c8f15437a256db3ac0414e028aca9a47
   }
   
-
-  ,
-  "mongodb": {
-    "host": "35.182.61.225",
-    "port": 27017,
-    "url": "mongodb://35.182.61.225:27017/askSage",
-    "database": "askSage",
-    "password": "",
-    "name": "mongodb",
-    "user": "webClient",
-    "connector": "mongodb"
-  }
-
 
 
 }

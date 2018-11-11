@@ -363,3 +363,28 @@ MongoDB shell version v4.0.3
 
 
 
+
+
+{
+  "bdr": {
+"name" :"Mike Ross",
+"Role" : "Business Execute",
+"email": "mross@harvey.com",
+"phone": "123456789",
+"company": "Harvey LLC",
+"address": "100 King St",
+"city": "Waterloo",
+"province": "ON",
+"postcode": "n2h 6t7"
+},
+  "fname": "Jhon",
+  "lname": "Doe",
+  "realm": "string",
+  "username": "jdoe",
+  "email": "user1@asksage.com",
+  "password": "password"
+}
+
+
+
+db.dropDatabase()

@@ -31,7 +31,7 @@
     "options": {
       "remoting": {
         "sharedMethods": {
-          "*": false,
+          "*": true,
           "create": true,
           "login": true,
           "logout": true,
@@ -85,7 +85,7 @@
     }
   },
   "policy": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   }
 }

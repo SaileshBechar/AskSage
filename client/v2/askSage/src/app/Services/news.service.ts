@@ -23,10 +23,11 @@ export class NewsService {
 
     // var url = 'https://newsapi.org/v2/top-headlines?category=technology';  
     // var url ='https://newsapi.org/v2/everything?q=blockchain'
-    if ( searchQuery){
-      var url ='https://newsapi.org/v2/top-headlines?q='+this.searchQuery;
-    }
-    else{ 
+    // if ( searchQuery){
+    //   var url ='https://newsapi.org/v2/top-headlines?q='+this.searchQuery;
+    // }
+    // else
+    { 
 
     var url = "https://newsapi.org/v2/everything?q=insurance"
   }

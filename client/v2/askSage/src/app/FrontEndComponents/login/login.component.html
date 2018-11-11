@@ -27,7 +27,11 @@
           
         </div>
 
-
+        <label>
+          <input type="checkbox" checked="checked"  name="rememberMe"ngModel="rememberMe"/>
+          <span>Remember my password</span> 
+         
+        </label>
 
         <div class="col s12">
           <div *ngIf="isError">
@@ -41,6 +45,8 @@
               <br><br>
               <a href="">Forgot your Password?</a>
             </div> -->
+
+           
 
       </div>
     </div>
@@ -61,3 +67,6 @@
     </div>
   </div>
 </div>
+
+
+{{loginForm.value | json}}

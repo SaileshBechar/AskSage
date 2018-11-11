@@ -31,6 +31,7 @@
         }
       }
     ]
+<<<<<<< HEAD
   },
 
   "mongod": {
@@ -43,9 +44,10 @@
     "name": "mongod",
     "user": "",
     "connector": "mongodb"
+=======
+>>>>>>> 4d963f81c8f15437a256db3ac0414e028aca9a47
   }
-
-
+  
 
 
 }

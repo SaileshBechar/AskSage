@@ -11,6 +11,9 @@ export class LoginComponent implements OnInit {
   isError: boolean;
   hide = true;
 
+  rememberMe : boolean;
+
+
   
 
   constructor(private _brokerService: BrokerService, private router: Router) { }
@@ -24,7 +27,10 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           // console.log('Success!', data);
+          //remeneber==ture
           this._brokerService.storeCredentials(data.id, data.userId);
+
+          
           this.router.navigate(['/news']);
 
         },

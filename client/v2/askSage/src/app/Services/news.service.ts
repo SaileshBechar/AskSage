@@ -31,7 +31,7 @@ export class NewsService {
 
     var url = "https://newsapi.org/v2/everything?q=insurance";
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);
-    console.log(url);
+    // console.log(url);
 
     return this.http.get(url,{headers});
 

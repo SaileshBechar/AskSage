@@ -34,9 +34,10 @@
   },
 
   "mongod": {
-    "host": "172.31.13.224",
+    "host": "ec2-35-182-61-225.ca-central-1.compute.amazonaws.com",
     "port": 27017,
-    "url": "mongodb://172.31.13.224:27017/askSage",
+    "url":"mongodb://ec2-35-182-61-225.ca-central-1.compute.amazonaws.com:27017/askSage", 
+    "useNewUrlParser": "true",
     "database": "askSage",
     "password": "",
     "name": "mongod",

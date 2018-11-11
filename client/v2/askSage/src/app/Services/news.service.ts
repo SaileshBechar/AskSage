@@ -27,12 +27,12 @@ export class NewsService {
     //   var url ='https://newsapi.org/v2/top-headlines?q='+this.searchQuery;
     // }
     // else
-    { 
+     
 
-    var url = "https://newsapi.org/v2/everything?q=insurance"
-  }
-   
+    var url = "https://newsapi.org/v2/everything?q="+this.searchQuery;
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);
+    console.log(url);
+
     return this.http.get(url,{headers});
 
     // var url = 'https://api.intellizence.com/api/v1/companies';  

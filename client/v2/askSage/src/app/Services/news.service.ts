@@ -28,8 +28,9 @@ export class NewsService {
     }
     else{ 
 
-      var url = "https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal, financial-times, business-insider"
+      // var url = "https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal, financial-times, business-insider"
     // var url ='https://newsapi.org/v2/top-headlines?country=ca&category=business'
+    var url = 'https://newsapi.org/v2/top-headlines?q=insurance'
   }
    
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);

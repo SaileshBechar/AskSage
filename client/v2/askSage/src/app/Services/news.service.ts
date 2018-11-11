@@ -29,7 +29,7 @@ export class NewsService {
     // else
      
 
-    var url = "https://newsapi.org/v2/everything?q="+this.searchQuery;
+    var url = "https://newsapi.org/v2/everything?q=insurance";
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);
     console.log(url);
 

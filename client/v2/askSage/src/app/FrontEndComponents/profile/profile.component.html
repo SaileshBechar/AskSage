@@ -9,6 +9,11 @@
       <div *ngIf="brokerModel.lname" class="col s12">
         <p>{{brokerModel.lname}}</p>
       </div>
+      <div *ngIf="brokerModel.brokerage" class="col s12">
+        <p>{{brokerModel.brokerage}}</p>
+      </div>
+
+
       <div *ngIf="brokerModel.bdr">
         <div *ngIf="brokerModel.bdr.name" class="col s12">
           <p>{{brokerModel.bdr.name}}</p>
@@ -44,6 +49,12 @@
           <label class="active" for="lname">Last Name:</label>
           <input type="text" name="lname" [(ngModel)]="brokerModel.lname" />
         </div>
+        <div class="input-field col s12">
+          <label class="active" for="brokerage">Brokerage:</label>
+          <input type="text" name="brokerage" [(ngModel)]="brokerModel.brokerage" />
+        </div>
+
+
         <div *ngIf="brokerModel.bdr">
           <div class="input-field col s12">
             <label class="active" for="bdrName">BDR Name:</label>
@@ -65,6 +76,13 @@
             <label class="active" for="bdrPhone">BDR Phone:</label>
             <input type="text" name="bdrPhone" [(ngModel)]="brokerModel.bdr.phone" />
           </div>
+
+
+          <div class="input-field col s12">
+            <label class="active" for="newPassword">New Password:</label>
+            <input type="text" name="newPassword" [(ngModel)]="brokerModel.password" />
+          </div>
+
           <div class="col s12">
             <input type="submit" class="btn loginbtn z-depth-0" value="SAVE" />
           </div>

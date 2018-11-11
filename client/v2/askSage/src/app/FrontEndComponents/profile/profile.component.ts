@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
           this.brokerModel = info;   
         },
         error => {
-          console.log('Could not get user details!', error);
+          // console.log('Could not get user details!', error);
         }
       )
   }
@@ -33,15 +33,15 @@ export class ProfileComponent implements OnInit {
   }
 
   saveInfo(){
-    console.log(this.brokerModel);
+    // console.log(this.brokerModel);
     this._brokerservice.updateBroker(this.brokerModel)
       .subscribe(
         data => {
-          console.log('Successfully updated broker');
+          // console.log('Successfully updated broker');
           this.isEdit = null;
         },
         error => {
-          console.log('Unsuccessfully updated broker', error);
+          // console.log('Unsuccessfully updated broker', error);
         }
       )
   }

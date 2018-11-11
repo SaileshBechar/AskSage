@@ -18,6 +18,10 @@
     "lname": {
       "type": "string",
       "required": false
+    },
+    "brokerage": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],

@@ -11,7 +11,7 @@ export class NewsService {
   //News API
   newsAPIKey = '9a8d068cd73e4618bb1183d9cdb3f9dc';
   //Inteligence API
-  intelizenceKey = 'gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi';
+  // intelizenceKey = 'gQywpIf8cE7hrzTAouTNV1rcDAp97ADC20S1lAGi';
 
   searchQuery : string;
 
@@ -28,9 +28,6 @@ export class NewsService {
     }
     else{ 
 
-      // var url = "https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal, financial-times, business-insider"
-    // var url ='https://newsapi.org/v2/top-headlines?country=ca&category=business'
-    // var url = 'https://newsapi.org/v2/top-headlines?q=insurance';
     var url = "https://newsapi.org/v2/everything?q=insurance"
   }
    

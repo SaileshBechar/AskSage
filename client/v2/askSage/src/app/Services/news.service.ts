@@ -30,7 +30,8 @@ export class NewsService {
 
       // var url = "https://newsapi.org/v2/top-headlines?sources=the-wall-street-journal, financial-times, business-insider"
     // var url ='https://newsapi.org/v2/top-headlines?country=ca&category=business'
-    var url = 'https://newsapi.org/v2/top-headlines?q=insurance'
+    // var url = 'https://newsapi.org/v2/top-headlines?q=insurance';
+    var url = "https://newsapi.org/v2/everything?q=insurance"
   }
    
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);

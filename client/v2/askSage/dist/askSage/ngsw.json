@@ -9,7 +9,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.fcdcbc41ef9aab854636.js",
+        "/main.5055d4f701696429890f.js",
         "/polyfills.d1c7bf4a2ae7c3435f95.js",
         "/runtime.ec2944dd8b20ec099bf3.js",
         "/styles.9ea26ebd55073c38467f.css"
@@ -68,8 +68,8 @@
     "/assets/profile.png": "b0da17aea278bcdebf566c89c4b82daa555c178f",
     "/assets/sage_chat_window_icon.svg": "a110f2dd76eb9c695b6bf624a442f433a22f87d8",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "3ff89f78ff11ff7eca5b9f7531576715e7ac1884",
-    "/main.fcdcbc41ef9aab854636.js": "da9b213ae34223c61e63db94daf481c9535e7f48",
+    "/index.html": "06732b68e683511bb3a7b973aeb2cbe8ed6fce16",
+    "/main.5055d4f701696429890f.js": "c22585e90e9aeba78242f14e642f1cbeae703332",
     "/polyfills.d1c7bf4a2ae7c3435f95.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
     "/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/styles.9ea26ebd55073c38467f.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"

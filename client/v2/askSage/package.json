@@ -22,7 +22,9 @@
     "@angular/pwa": "^0.7.5",
     "@angular/router": "^7.0.0",
     "@angular/service-worker": "^7.0.0",
+    "@types/mixpanel": "^2.14.0",
     "core-js": "^2.5.4",
+    "mixpanel-browser": "^2.23.0",
     "rxjs": "~6.3.3",
     "zone.js": "~0.8.26"
   },

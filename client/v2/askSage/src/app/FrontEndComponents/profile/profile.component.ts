@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
     this._brokerservice.getBroker()
       .subscribe(
         (info : any) => {
-          // console.log(info);
+          console.log(info);
           this.brokerModel = info;   
         },
         error => {

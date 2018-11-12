@@ -1,13 +1,4 @@
-<style>
-
-  
-</style>
-
 <app-header></app-header>
-<script>
-M.AutoInit();
-</script>
-
 
 <div class="row" id="background">
   <div class="col s10 offset-s1 l8 offset-l2 card-panel">
@@ -25,8 +16,8 @@ M.AutoInit();
     <form action="#" id="feedbackForm" #feedbackForm="ngForm" (ngSubmit)="onSubmit(feedbackForm.value)">
 
       <div class="quest-container">
-        <!-- <hr> -->
-        <h5 class="question-title">1. If Sage could answer your key question, how often would you interact with Sage?</h5>
+        <hr>
+        <h5 class="question-title">1. If Sage could correctly answer your common questions, how often would you interact with her?</h5>
         <p>
           <label>
             <input class="with-gap" name="q1" type="radio" value="daily" ngModel />
@@ -73,7 +64,7 @@ M.AutoInit();
           <p>
             <label>
               <input type="checkbox" name="q2[Voice]" value="true" checked="checked" ngModel />
-              <span class="ans-optn">Voice</span>
+              <span class="ans-optn">Voice or Alexa&trade; device (e.g. Amazon Echo)</span>
             </label>
           </p>
       </div>
@@ -101,5 +92,4 @@ M.AutoInit();
 
 
 <app-chat></app-chat>
-
-<span ng-include="'views/footer.html'"></span>
+<app-footer></app-footer>

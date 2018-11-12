@@ -10,21 +10,19 @@
   </div> -->
 
 
-  <div class="col s12 m5" style="">
+  <div class="col s12 m5">
 
     <div *ngIf="!dismiss">
 
-      <div class="hoverable " id="txt-msg" style=" border:2px solid white ;border-radius: 5px; background-color:#FFEED9 ; padding: 10px;font-family: 'Montserrat', sans-serif; font-size: smaller;  font-weight: normal;">
+      <div class="hoverable box" id="txt-msg" style="width: 275px; border:2px solid white ;border-radius: 5px; background-color:#FFEED9 ; padding: 10px;font-family: 'Montserrat', sans-serif; font-size: smaller;  font-weight: normal;">
         <i class="material-icons right " (click)="dismiss=!dismiss">{{dismiss ? 'check' : 'close'}} </i>
-
-
-        <div class="black-text" style="font-weight: normal; letter-spacing: normal"> Hi I'm Sage, I'm here to help.</div>
-        <div class="black-text" style="font-weight: normal; letter-spacing: normal">Ask me a question and let's chat!</div>
+        <div class="black-text">Hi I'm your virtual assistant Sage.</div>
+        <div class="black-text">I'm here to help you with your insurance questions.</div>
       </div>
     </div>
 
     <div class="">
-      <img class="right hoverable" style="height:15vmin; border:5px solid #0FB786 ;border-radius: 1000px;padding:2px; background-color: white "
+      <img class="right hoverable" style="height:15vmin; border:5px solid #0FB786 ;border-radius: 1000px;padding:2px; background-color: white; margin-top:10px;"
         src="assets/img/ask_sage_icon.png">
     </div>
 

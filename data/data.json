@@ -1,7 +1,7 @@
 {
   "ids": {
     "User": 1,
-    "AccessToken": 1,
+    "AccessToken": 2,
     "ACL": 1,
     "Broker": 2,
     "RoleMapping": 1,
@@ -11,7 +11,9 @@
   },
   "models": {
     "User": {},
-    "AccessToken": {},
+    "AccessToken": {
+      "GvzSBRdqZv22x7BBcXrIzKnollIdghu55hcrAETGtNNYCDMx2UHHH9e5DHIsOUae": "{\"id\":\"GvzSBRdqZv22x7BBcXrIzKnollIdghu55hcrAETGtNNYCDMx2UHHH9e5DHIsOUae\",\"ttl\":1209600,\"created\":\"2018-11-11T16:30:17.265Z\",\"userId\":1}"
+    },
     "ACL": {},
     "Broker": {
       "1": "{\"bdr\":{\"name\":\"Mike Ross\",\"phone\":\"123456\",\"role\":\"Business Executive\",\"company\":\"Harvey LLC\",\"email\":\"m.r@harvey.com\"},\"fname\":\"Jhon\",\"lname\":\"Doe\",\"password\":\"$2a$10$t7lfIGuphtNQOh8JoSq4UOnFXQ419MXQPsr59u0I67cU/lKvd60Ee\",\"email\":\"user1@asksage.com\",\"id\":1}"

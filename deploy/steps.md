@@ -180,6 +180,9 @@ sudo rm -rf /var/run/docker.sock
 
 //Add ssl
 https://www.nginx.com/blog/free-certificates-lets-encrypt-and-nginx/
+crontab -e
+sudo /usr/bin/certbot renew 
+
 
 //Add nodes
 sudo apt-get update

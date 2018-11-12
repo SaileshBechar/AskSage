@@ -85,7 +85,7 @@
     }
   },
   "policy": {
-    "dataSource": "mongodb",
+    "dataSource": "db",
     "public": true
   }
 }

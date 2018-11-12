@@ -17,6 +17,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit() {
     this.title ="Today in news";
+    this.searchQuery ="insurance";
     this._newsService.getNews(this.searchQuery)
     .subscribe(
       (data : any) => {

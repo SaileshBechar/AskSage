@@ -10,54 +10,78 @@ import { Observable, of } from 'rxjs';
 export class BrokerService {
   _token: string;
   _userId: string;
-  _loggedIn : boolean;
+  _loggedIn: boolean;
+  _rememberMe: boolean;
 
   constructor(private http: HttpClient) { }
 
-  setLogin(email: string, password: string) {
-    return this.http.post<any>('/api/Brokers/login', {email, password});
+  setLogin(email: string, password: string, rememberMe: boolean) {
+    this._rememberMe = rememberMe;
+    return this.http.post<any>('/api/Brokers/login', { email, password });
   }
 
   //Function called when user logs in to store credentials in local variables
-  storeCredentials(token : string, userId : string){
-    localStorage.token = token;
-    localStorage.userId = userId;
-    this._loggedIn = true; //Service remembers that user was legitamently logged in
+  storeCredentials(token: string, userId: string) {
+
+    //if rememberMe is true store to storage else store to session
+    // console.log(this._rememberMe);
+    if (this._rememberMe) {
+      localStorage.token = token;
+      localStorage.userId = userId;
+      this._loggedIn = true; //Service remembers that user was legitamently logged in
+    }
+    else{
+      sessionStorage.token = token;
+      sessionStorage.userId = userId;
+      this._loggedIn = true; //Service remembers that user was legitamently logged in
+    }
+
   }
 
-  getCredentials(){
-    this._token = localStorage.getItem('token');
-    this._userId = localStorage.getItem('userId');
+  getCredentials() {
+
+    if (this._rememberMe){
+      this._token = localStorage.getItem('token');
+      this._userId = localStorage.getItem('userId');
+    }
+    else{
+      this._token = sessionStorage.getItem('token');
+      this._userId = sessionStorage.getItem('userId');
+    }
+  
   }
 
 
   //Function to verify authenticity of user
-  verifyUser(){
+  verifyUser() {
     this.getCredentials();
-    if (this._token == null || this._userId == null){ //Checks if user has no credentials to save resources
+    if (this._token == null || this._userId == null) { //Checks if user has no credentials to save resources
       return of(false); //returns observable
     }
-    if (this._loggedIn === true){ //Checks if user has logged in this session
+    if (this._loggedIn === true) { //Checks if user has logged in this session
       return of(true);
     }
-    else{ //If user has not logged in this session, we validate the token
-      
+    else { //If user has not logged in this session, we validate the token
+
       return this.http.get('/api/Brokers/' + this._userId + '/accessTokens/' + this._token + '?access_token=' + this._token);
     }
   }
 
-  getBroker(){
+  getBroker() {
     this.getCredentials();
-    return this.http.get('/api/Brokers/' + this._userId + '?access_token='+ this._token);
+    return this.http.get('/api/Brokers/' + this._userId + '?access_token=' + this._token);
   }
 
-  updateBroker(brokerModel){
+  updateBroker(brokerModel) {
     this.getCredentials();
-    return this.http.patch('/api/Brokers/' + this._userId + '?access_token='+ this._token, {
-      email : brokerModel.email,
-      fname : brokerModel.fname,
-      lname : brokerModel.lname,
-      bdr : {
+    return this.http.patch('/api/Brokers/' + this._userId + '?access_token=' + this._token, {
+      email: brokerModel.email,
+      password: brokerModel.password,
+      fname: brokerModel.fname,
+      lname: brokerModel.lname,
+      brokerage: brokerModel.brokerage,
+
+      bdr: {
         name: brokerModel.bdr.name,
         phone: brokerModel.bdr.phone,
         email: brokerModel.bdr.email,
@@ -67,16 +91,24 @@ export class BrokerService {
     });
   }
 
-  setLogoff(){
+  setLogoff() {
     this.getCredentials();
-    return this.http.post('/api/Brokers/logout?access_token='+ this._token, {});
+    return this.http.post('/api/Brokers/logout?access_token=' + this._token, {});
   }
 
-  removeCredentials(){
+  removeCredentials() {
     this._token = null;
     this._userId = null;
-    localStorage.removeItem('token');
-    localStorage.removeItem('userId');
+
+    if(this._rememberMe){
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
+    }
+    else{
+      sessionStorage.removeItem('token');
+      sessionStorage.removeItem('userId');
+    }
+    
     this._loggedIn = null;
   }
 

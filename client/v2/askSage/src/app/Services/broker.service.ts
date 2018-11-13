@@ -11,7 +11,7 @@ export class BrokerService {
   _token: string;
   _userId: string;
   _loggedIn: boolean;
-  _rememberMe: boolean;
+  _rememberMe: boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -39,6 +39,7 @@ export class BrokerService {
   }
 
   getCredentials() {
+    // console.log(this._rememberMe);
 
     if (this._rememberMe){
       this._token = localStorage.getItem('token');
@@ -55,6 +56,9 @@ export class BrokerService {
   //Function to verify authenticity of user
   verifyUser() {
     this.getCredentials();
+
+    // console.log (this._token, this._userId);
+
     if (this._token == null || this._userId == null) { //Checks if user has no credentials to save resources
       return of(false); //returns observable
     }
@@ -62,7 +66,7 @@ export class BrokerService {
       return of(true);
     }
     else { //If user has not logged in this session, we validate the token
-
+      // console.log("Geting brokers from token");
       return this.http.get('/api/Brokers/' + this._userId + '/accessTokens/' + this._token + '?access_token=' + this._token);
     }
   }

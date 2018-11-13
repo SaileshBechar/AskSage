@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { BrokerService } from '../../Services/broker.service';
 import { Router } from '@angular/router';
+import { MixPanelService } from '../../Services/mix-panel.service';
+
+// mixpanel.init("fa268afdf77e936a3280b21b1f55391a");
+// mixpanel.track("Login form");
+
 
 @Component({
   selector: 'app-login',
@@ -16,11 +21,10 @@ export class LoginComponent implements OnInit {
 
   
 
-  constructor(private _brokerService: BrokerService, private router: Router) { }
+  constructor(private _brokerService: BrokerService, private router: Router, private mixpanelService: MixPanelService) { }
 
   ngOnInit() {
     //Get from localStorage and set it to form.value on init
-    
     // console.log(localStorage.getItem('token'), localStorage.getItem('userId'));
 
     
@@ -32,7 +36,12 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           // console.log('Success!', data);
-          //remeneber==ture
+         
+          //Send to mixpanel
+          this.mixpanelService.init(data.userId);
+          this.mixpanelService.track("Login Action", {"email":data.email, "token": data.id});
+
+
           this._brokerService.storeCredentials(data.id, data.userId);
           this.router.navigate(['/news']);
 

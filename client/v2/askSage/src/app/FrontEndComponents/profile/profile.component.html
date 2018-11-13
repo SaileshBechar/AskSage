@@ -26,10 +26,10 @@
                 <div class="subtext">{{brokerModel.bdr.company}}</div>
                 <br>
                 <div class="subtext">{{brokerModel.bdr.address.street}}</div>
-                <div class="subtext">{{brokerModel.bdr.address.city}}, {{brokerModel.bdr.address.province | uppercase}}</div>
-                <div class="subtext">{{brokerModel.bdr.address.postalCode | uppercase}}</div>
+                <div class="subtext">{{brokerModel.bdr.address.city}}, {{brokerModel.bdr.address.province}}</div>
+                <div class="subtext">{{brokerModel.bdr.address.postalCode}}</div>
                 <div class="editbutton">
-                        <a (click)="activateEdit()">Edit</a>
+                        <a (click)="isEdit = true">Edit</a>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <div class="col s12">
                 <div class="editsubtitle">Tell us a bit about yourself and who you work with.</div>
             </div>
-            <form (ngSubmit)="saveInfo()">
+            <form (ngSubmit)="saveInfo(editForm.value.password)" #editForm="ngForm">
                 <div class="col s12">
                     <div class="subtitle">Your Information</div>
                 </div>
@@ -49,6 +49,25 @@
                 </div>
                 <div class="col s12">
                     <input placeholder="Brokerage" name="Brokerage" [(ngModel)]="brokerModel.brokerage" type="text">
+                </div>
+                <div *ngIf="changePass">
+                    <div class="col s12">
+                        <br>
+                        <div class="subtitle">
+                            Change your Password
+                        </div>
+                        <input placeholder="Enter New Password" type="password" name="password" #password="ngModel" minlength=8 
+                        (keyup)="checkPasswords(password.value, confirmpassword.value)" ngModel/>
+                        <span class="error-password" *ngIf="password.invalid && password.dirty">Please enter a password 8 characters long</span>
+                        
+                        <input placeholder="Confirm Your Password" [class.invalid]="notEquivalent && confirmpassword.dirty" 
+                        (keyup)="checkPasswords(password.value, confirmpassword.value)"
+                        type="password" name="confirmpassword" ngModel #confirmpassword="ngModel"/>
+                        <span class="error-password" *ngIf="notEquivalent && confirmpassword.dirty">Passwords are not the same</span>
+                    </div>
+                </div>
+                <div *ngIf="!changePass">
+                    <button (click)="this.changePass = true" class="btn loginbtn z-depth-0">CHANGE PASSWORD</button>
                 </div>
                 <div *ngIf="brokerModel.bdr">
                     <div class="col s12">
@@ -62,10 +81,10 @@
                         <input placeholder="Role" type="text" name="bdrRole" [(ngModel)]="brokerModel.bdr.role">
                     </div>
                     <div class="col s12">
-                        <input class="validate" placeholder="Email" type="email" name="bdrEmail" [(ngModel)]="brokerModel.bdr.email">
+                        <input placeholder="Email" [class.invalid]="bdrEmail.invalid" type=email name="bdrEmail" [(ngModel)]="brokerModel.bdr.email" email #bdrEmail="ngModel">
                     </div>
                     <div class="col s12">
-                        <input placeholder="Phone" type="text" name="bdrPhone" [(ngModel)]="brokerModel.bdr.phone">
+                        <input placeholder="Phone" [class.invalid]="bdrPhone.invalid" minlength="10" type="text" name="bdrPhone" #bdrPhone="ngModel" [(ngModel)]="brokerModel.bdr.phone">
                     </div>
                     <div class="col s12">
                         <input  placeholder="Company" type="text" name="bdrCompany" [(ngModel)]="brokerModel.bdr.company">
@@ -77,15 +96,15 @@
                         <input placeholder="Address" type="text" name="bdrStreet" [(ngModel)]="brokerModel.bdr.address.street">
                     </div>
                     <div class="col s12">
-                        <input placeholder="City" type="text" name="bdrCity" [(ngModel)]="brokerModel.bdr.address.city">
+                        <input class="validate" placeholder="City*" type="text" name="bdrCity" [(ngModel)]="brokerModel.bdr.address.city" required>
                     </div>
                     <div class="col s12 m7">
-                        <input placeholder="Province" type="text" name="bdrProvince" [(ngModel)]="brokerModel.bdr.address.province">
+                        <input class="validate" placeholder="Province*" type="text" name="bdrProvince" [(ngModel)]="brokerModel.bdr.address.province" required>
                     </div>
                     <div class="col s12 m5">
-                        <input placeholder="Postal Code" type="text" name="bdrPostalCode" [(ngModel)]="brokerModel.bdr.address.postalCode">
+                        <input placeholder="Postal Code" type="text" name="bdrPostalCode" [(ngModel)]="brokerModel.bdr.address.postalCode" >
                     </div>
-                        <input type="submit" class="btn loginbtn z-depth-0" value="SAVE" />
+                    <button [disabled]="editForm.form.invalid || notEquivalent" type="submit" class="btn loginbtn z-depth-0">SAVE</button>
                 </div>
             </form>
         </div>

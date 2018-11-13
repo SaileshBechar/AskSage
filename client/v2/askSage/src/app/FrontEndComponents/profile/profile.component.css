@@ -1,4 +1,4 @@
-* {
+input, div, span, button {
     font-family: 'Montserrat', sans-serif;
     color: #4A4A4A;
 }
@@ -50,13 +50,21 @@
 }
 
 /* Fancy Input Fields */
-input[type=text], input[type=email] {
+input[type=text], input[type=email], input[type=password] {
     border: 1px solid #9B9B9B;
     border-radius: 4px;
     padding-left: 10px;
     margin-bottom: 20px;
     height: 54px;
     width: 100%;
+}
+
+input[type=password] {
+    margin-bottom: 0;
+}
+
+input[name=confirmpassword] {
+    margin-top: 20px;
 }
 
 input[type=text]:disabled {
@@ -74,15 +82,21 @@ input[type=email]:not(.browser-default):focus:not([read-only]) {
     box-shadow: none;
 }
 
+input[type=password]:not(.browser-default):focus:not([read-only]) {
+    border: 1px solid #0FB786;
+    box-shadow: none;
+}
+
   /* valid color */
-input[type=email].valid, input[type=email].valid:focus {
+input[type=email].valid, input[type=email].valid:focus,  
+input[type=password].valid, input[type=password].valid:focus{
     border: 1px solid #9B9B9B;
     border-radius: 4px;
     box-shadow: none;
 }
 
   /* invalid color */
-input.invalid[type=email] {
+input.invalid[type=email], input.invalid[type=password], input.invalid[type=text] {
     border: 1px solid rgb(228, 61, 61);
     border-radius: 4px;
     box-shadow: none;
@@ -93,11 +107,13 @@ input.invalid[type=email] {
     border-radius: 100px;
     background-color: #0FB786;
     color: white;
-    padding: 0 10%;
+    padding: 0 5%;
     font-weight: 600;
     float: right;
 }
 
-input[name=bdrPostalCode], input[name=bdrProvince] {
-    text-transform: uppercase;
+.error-password {
+    color: rgb(184, 46, 46);
 }
+
+

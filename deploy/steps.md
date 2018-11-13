@@ -180,6 +180,9 @@ sudo rm -rf /var/run/docker.sock
 
 //Add ssl
 https://www.nginx.com/blog/free-certificates-lets-encrypt-and-nginx/
+crontab -e
+sudo /usr/bin/certbot renew 
+
 
 //Add nodes
 sudo apt-get update
@@ -341,3 +344,47 @@ cd apps && git clone ssh://lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.co
  
 
 mkdir apps
+
+
+MongoDB shell version v4.0.3
+
+,
+
+  // "mongod": {
+  //   "host": "35.182.61.225",
+  //   "port": 27017,
+  //   "url": "mongodb://35.182.61.225:27017/askSage",
+  //   "database": "askSage",
+  //   "password": "",
+  //   "name": "mongod",
+  //   "user": "",
+  //   "connector": "mongodb"
+  // }
+
+
+
+
+
+{
+  "bdr": {
+"name" :"Mike Ross",
+"Role" : "Business Execute",
+"email": "mross@harvey.com",
+"phone": "123456789",
+"company": "Harvey LLC",
+"address": "100 King St",
+"city": "Waterloo",
+"province": "ON",
+"postcode": "n2h 6t7"
+},
+  "fname": "Jhon",
+  "lname": "Doe",
+  "realm": "string",
+  "username": "jdoe",
+  "email": "user1@asksage.com",
+  "password": "password"
+}
+
+
+
+db.dropDatabase()

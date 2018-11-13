@@ -31,20 +31,8 @@
         }
       }
     ]
-  },
-
-  "mongod": {
-    "host": "172.31.13.224",
-    "port": 27017,
-    "url": "mongodb://172.31.13.224:27017/askSage",
-    "database": "askSage",
-    "password": "",
-    "name": "mongod",
-    "user": "",
-    "connector": "mongodb"
   }
-
-
+  
 
 
 }

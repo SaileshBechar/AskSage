@@ -14,24 +14,27 @@
         </div>
         <div class="input-field col s12">
           <label for="email">Email:</label>
-          <input type="email" name="email" class="validate" ngModel required style = "width: 90%" />
+          <input type="email" name="email" class="validate" ngModel required />
         </div>
 
-    
+
 
         <div class="input-field col s12">
-          
+
           <label for="password">Password:</label>
-          <input [type]="hide ? 'password' : 'text'" name="password" class="validate" ngModel required style = "width: 90%" autocomplete ="on"/>
-          <i class="material-icons prefix " (click)="hide = !hide"  >{{hide ? 'visibility_off' : 'visibility'}} </i>
-          
+          <input [type]="hide ? 'password' : 'text'" name="password" class="validate" ngModel required autocomplete="on" />
+          <div class="hidden-pass-icon-container">
+            <i id="hidden-pass" class="material-icons prefix " (click)="hide = !hide">{{hide ? 'visibility_off' :
+              'visibility'}} </i>
+          </div>
+
         </div>
 
         <label>
-          <input type="checkbox" class="filled-in"  name="rememberMe" ngModel/>
-          <span>Remember my password</span> 
+          <input type="checkbox" class="filled-in" name="rememberMe" ngModel />
+          <span>Remember my password</span>
         </label>
-<!--        
+        <!--        
         <div>
           {{loginForm.value | json}}
         </div> -->
@@ -49,7 +52,7 @@
               <a href="">Forgot your Password?</a>
             </div> -->
 
-           
+
 
       </div>
     </div>
@@ -70,5 +73,3 @@
     </div>
   </div>
 </div>
-
-

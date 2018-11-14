@@ -72,5 +72,15 @@
     padding: 10px 0;
 }
 
+.hidden-pass-icon-container {
+    float: right;
+    padding-right: 34.5px;
+    size: 2px
+}#hidden-pass{
+    font-size: 1.6rem;
+    top: 0.8rem;
+    color: #7E7E7E
+}
+
 
        

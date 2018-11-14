@@ -9,7 +9,11 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
+<<<<<<< HEAD
         "/main.9ef3044c9307dbc567b9.js",
+=======
+        "/main.fe147d674fd115cdac25.js",
+>>>>>>> 91d6b417b484a1cb914c428de830531b54c8c69e
         "/polyfills.d1c7bf4a2ae7c3435f95.js",
         "/runtime.ec2944dd8b20ec099bf3.js",
         "/styles.9ea26ebd55073c38467f.css"
@@ -64,8 +68,13 @@
     "/assets/img/wawa.png": "bc9c03fbafa61ce9b82ec7a0caeeec57c47aed2e",
     "/assets/sage_chat_window_icon.svg": "a110f2dd76eb9c695b6bf624a442f433a22f87d8",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+<<<<<<< HEAD
     "/index.html": "df4a939ff27c87cd6e092f675bfab4c65b977086",
     "/main.9ef3044c9307dbc567b9.js": "4eed711bf2acc6ef44b522ebbc38a084957a7f35",
+=======
+    "/index.html": "c30549b7b18660eb06a4e2593e0efac9e9c55a66",
+    "/main.fe147d674fd115cdac25.js": "1082d68c8fb0242219a3bd4a26337ddce3814122",
+>>>>>>> 91d6b417b484a1cb914c428de830531b54c8c69e
     "/polyfills.d1c7bf4a2ae7c3435f95.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
     "/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/styles.9ea26ebd55073c38467f.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"

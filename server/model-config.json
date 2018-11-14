@@ -88,5 +88,10 @@
   "policy": {
     "dataSource": "db",
     "public": true
+  },
+
+  "Email": {
+    "dataSource": "mail",
+    "public": true
   }
 }

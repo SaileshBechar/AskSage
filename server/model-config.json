@@ -37,6 +37,7 @@
           "logout": true,
           "prototype.__findById__accessTokens": true,
           "prototype.patchAttributes": true,
+          "setPassword" : true,
           "findById": true,
           "greet": true
         }

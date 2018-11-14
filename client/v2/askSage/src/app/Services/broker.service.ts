@@ -78,19 +78,21 @@ export class BrokerService {
 
   updateBroker(brokerModel) {
     this.getCredentials();
-    return this.http.patch('/api/Brokers/' + this._userId + '?access_token=' + this._token, {
-      email: brokerModel.email,
-      password: brokerModel.password,
-      fname: brokerModel.fname,
-      lname: brokerModel.lname,
-      brokerage: brokerModel.brokerage,
-
-      bdr: {
+    return this.http.patch('/api/Brokers/' + this._userId + '?access_token='+ this._token, {
+      name : brokerModel.name,
+      brokerage : brokerModel.brokerage,
+      bdr : {
         name: brokerModel.bdr.name,
         phone: brokerModel.bdr.phone,
         email: brokerModel.bdr.email,
         role: brokerModel.bdr.role,
         company: brokerModel.bdr.company,
+        address : {
+          street: brokerModel.bdr.address.street,
+          city: brokerModel.bdr.address.city,
+          province: brokerModel.bdr.address.province,
+          postalCode: brokerModel.bdr.address.postalCode
+        }
       }
     });
   }
@@ -116,4 +118,8 @@ export class BrokerService {
     this._loggedIn = null;
   }
 
+  setPassword(newpassword: string) {
+    this.getCredentials();
+    return this.http.post('/api/Brokers/reset-password?access_token=' + this._token, {newPassword : newpassword});
+  }
 }

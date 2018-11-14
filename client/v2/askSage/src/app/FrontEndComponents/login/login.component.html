@@ -1,7 +1,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-
 <form class="main-container" #loginForm="ngForm" (ngSubmit)="onLogin(loginForm.value)">
   <div class="row">
     <div class="col s12 l6 offset-l3">
@@ -28,16 +27,18 @@
               'visibility'}} </i>
           </div>
 
-        </div>
 
+        </div>
         <label>
           <input type="checkbox" class="filled-in" name="rememberMe" ngModel />
           <span>Remember my password</span>
         </label>
+
         <!--        
         <div>
           {{loginForm.value | json}}
         </div> -->
+
 
         <div class="col s12">
           <div *ngIf="isError">
@@ -47,29 +48,18 @@
           <input type="submit" class="btn loginbtn z-depth-0" value="SIGN IN" />
         </div>
 
+
         <!-- <div class="col s12">
               <br><br>
               <a href="">Forgot your Password?</a>
             </div> -->
 
-
-
+        
       </div>
     </div>
   </div>
 </form>
-<br><br><br><br><br><br>
-<div class="footer-container">
-  <div class="row">
-    <div class="col s12 m8">
-      <p class="copyright-text">
-        Ask-Sage.ca is being developed by ProNavigator. Wawanesa Insurance is a content partner. <br>&copy; 2018 - All
-        rights reserved
-      </p>
-    </div>
-    <div class="col s12 m4 center">
-      <img class="copyright-graphic" src="assets/img/wawa.png">
-      <img class="copyright-graphic" src="assets/img/pronavlogo.png">
-    </div>
-  </div>
-</div>
+
+<br><br><br><br>
+<app-footer></app-footer>
+

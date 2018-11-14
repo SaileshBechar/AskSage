@@ -1,3 +1,119 @@
-* {
-    font-family: 'Montserrat', sans-serif
+input, div, span, button {
+    font-family: 'Montserrat', sans-serif;
+    color: #4A4A4A;
 }
+
+.card-panel {
+    padding: 0 20% 10% 20%;
+}
+
+.container {
+    padding: 5% 10%;
+}
+
+.title {
+    color: #0FB786;
+    font-weight: 600;
+    text-align: center;
+    font-size: calc(26px + (35 - 26) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.box {
+    border: 1px solid #4A4A4A;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.subtitle {
+    font-weight: 600;
+    font-size: calc(18px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
+    margin-bottom: 10px;
+}
+
+.subtext {
+    font-size: calc(12px + (19 - 12) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.editbutton {
+    float: right;
+}
+
+.editbutton a{
+    color:  #0FB786;
+    font-size: calc(13px + (16 - 13) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.editsubtitle {
+    text-align: center;
+    font-size: calc(13px + (16 - 13) * ((100vw - 300px) / (1600 - 300)));
+    margin-bottom: 10%;
+}
+
+/* Fancy Input Fields */
+input[type=text], input[type=email], input[type=password] {
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    height: 54px;
+    width: 100%;
+}
+
+input[type=password] {
+    margin-bottom: 0;
+}
+
+input[name=confirmpassword] {
+    margin-top: 20px;
+}
+
+input[type=text]:disabled {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+  /*Input field focus color */
+input[type=text]:not(.browser-default):focus:not([read-only]) {
+    border: 1px solid #0FB786;
+    box-shadow: none;
+}
+
+input[type=email]:not(.browser-default):focus:not([read-only]) {
+    border: 1px solid #0FB786;
+    box-shadow: none;
+}
+
+input[type=password]:not(.browser-default):focus:not([read-only]) {
+    border: 1px solid #0FB786;
+    box-shadow: none;
+}
+
+  /* valid color */
+input[type=email].valid, input[type=email].valid:focus,  
+input[type=password].valid, input[type=password].valid:focus{
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+  /* invalid color */
+input.invalid[type=email], input.invalid[type=password], input.invalid[type=text] {
+    border: 1px solid rgb(228, 61, 61);
+    border-radius: 4px;
+    box-shadow: none;
+}
+ 
+.loginbtn {
+    margin-top: 20px;
+    border-radius: 100px;
+    background-color: #0FB786;
+    color: white;
+    padding: 0 5%;
+    font-weight: 600;
+    float: right;
+}
+
+.error-password {
+    color: rgb(184, 46, 46);
+}
+
+

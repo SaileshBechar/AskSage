@@ -18,6 +18,7 @@
 .nav-wrapper.scrolled {
   background-color: white;
   transition: 0.8s;
+  box-shadow: 0 0 4pt 3pt #DEDDDD;
 }
 
 .main-container {
@@ -66,7 +67,7 @@
   color: white;
   margin: auto;
   font-size: 10vmin;
-  text-shadow: 2px 2px 4px #646464;
+  text-shadow: 2px 2px 1px #686b6a;
   max-height: 100%;
   
 }
@@ -84,11 +85,11 @@
   padding: 0 16%;
   font-weight: bold;
   font-size: 1.2em;
+  box-shadow: 0 1px 2px 1px #8a8c;
 }
 
 .text-under-main {
   color:  #0FB786;
-  font-weight: 300;
   font-size: 1.7em;
   text-align: center;
 }
@@ -113,18 +114,14 @@
   max-height: 110px;
 }
 
-.footer-container {
-  padding : 0 3%;
+.grey-background {
+  background-color: #e1e1e1;
+  padding: 1.5% 10% 3% 10%;
+  margin-top: 30px;
 }
 
-.copyright-text {
-  font-size: 1em;
-}
-
-.copyright-graphic {
-  display: inline-block;
-  vertical-align: middle;
-  max-width: 150px;
-  max-height: 120px;
-  padding: 10px 0;
+.text-under-main-description {
+  font-size: 1.2em;
+  line-height: 1.8;
+  letter-spacing: 0.7pt;
 }

@@ -1,10 +1,16 @@
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+.copyright-text {
+  font-size: 0.8em;
+  margin-top: 4%;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
-    
+.copyright-graphic {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 150px;
+  max-height: 100px;
+  padding-left: 20px;
+}
+
+.footer-container {
+  padding : 0 3%;
+}

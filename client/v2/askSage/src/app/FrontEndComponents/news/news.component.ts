@@ -12,6 +12,7 @@ export class NewsComponent implements OnInit {
   public searchQuery :string;
   public newsFeed : any[];
   public picsList : any[];
+  public loaded = false;
 
   constructor( private _newsService : NewsService, private _picService: PictureService) { }
 
@@ -21,10 +22,8 @@ export class NewsComponent implements OnInit {
     this._newsService.getNews(this.searchQuery)
     .subscribe(
       (data : any) => {
-        //Success 
-         this.newsFeed = data.articles;
-        //  console.log(this.newsFeed);
-        
+          this.newsFeed = data.articles;
+          this.loaded = true;        
       },
       (err : any) => {
         // console.log ("Error");

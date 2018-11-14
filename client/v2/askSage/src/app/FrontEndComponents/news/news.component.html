@@ -3,6 +3,20 @@
     <br><br>
     <span class="main-title">{{ title }}</span>
   </div>
+  <div *ngIf="!loaded" class="col s12 m8 offset-m2">
+    <div class="card-image not-loaded">
+    </div>
+    <div class="card-content not-loaded">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div><br></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <div class="card-action not-loaded row">
+      <div class="col s3 offset-s9 not-loaded-action"></div>
+    </div>
+  </div>
   <div *ngFor="let item of newsFeed">
     <div *ngIf="item.urlToImage">
       <div class="col s12 m8 offset-m2">

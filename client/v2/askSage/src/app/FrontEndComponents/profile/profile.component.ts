@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BrokerService} from '../../Services/broker.service';
 import { Broker } from '../../Model/broker';
-import { ValidatorFn, FormGroup, FormControl, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',

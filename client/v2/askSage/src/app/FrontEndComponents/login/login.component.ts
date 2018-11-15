@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
          
           //Send to mixpanel
           this.mixpanelService.init(data.userId);
-          this.mixpanelService.track("Login Action", {"email":data.email, "token": data.id});
+          this.mixpanelService.track("Login Action "+ userDetails.email +" token: " + data.id);
 
 
           this._brokerService.storeCredentials(data.id, data.userId);

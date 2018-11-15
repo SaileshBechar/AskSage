@@ -27,7 +27,7 @@ export class NewsComponent implements OnInit {
       },
       (err : any) => {
         // console.log ("Error");
-        console.log(err);
+        // console.log(err);
       }
     )
 
@@ -48,5 +48,11 @@ export class NewsComponent implements OnInit {
    
 
   }
+
+
+  updateUrl($event){
+
+  }
+
 
 }

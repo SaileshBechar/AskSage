@@ -22,7 +22,7 @@
       <div class="col s12 m8 offset-m2">
         <div class="card sticky-action hoverable">
           <div class="card-image">
-            <img class="activator" [src]="item.urlToImage">
+            <img class="activator" [src]="item.urlToImage" (error)="this.src = 'assets/img/imgnotfound.png'"/>
             <!-- <div *ngFor="let pic of picsList">
                 <img [src]="pic.urls.small">
               </div> -->

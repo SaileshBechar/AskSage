@@ -29,7 +29,8 @@ export class NewsService {
     // else
      
 
-    var url = "https://newsapi.org/v2/everything?q=insurance";
+    var url = "https://newsapi.org/v2/everything?q=insurance&from=2018-11-01&sortBy=publishedAt";
+
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);
     // console.log(url);
 

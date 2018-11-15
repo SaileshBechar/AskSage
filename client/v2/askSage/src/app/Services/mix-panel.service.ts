@@ -13,7 +13,7 @@ export class MixPanelService {
   * @param {string} userId
   * @memberof MixpanelService
   */
-  init(userId: string): void {
+  init(userId: string =""): void {
     mixpanel.init('fa268afdf77e936a3280b21b1f55391a');
     // mixpanel.track("Success");
     mixpanel.identify(userId);
@@ -31,7 +31,7 @@ export class MixPanelService {
  * @param {*} [action={}] Actions object with custom properties.
  * @memberof MixpanelService
  */
-  track(id: string, action: any): void {
+  track(id: string, action: any={}): void {
     mixpanel.track(id, action);
   }
 

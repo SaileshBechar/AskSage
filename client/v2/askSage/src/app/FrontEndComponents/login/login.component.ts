@@ -43,13 +43,6 @@ export class LoginComponent implements OnInit {
 
           //Send to mixpanel
           this.mixpanelService.init(_userID);
-          // this.mixpanelService.setUser({
-          //   "userId": data.userId,
-          //   "token": data.id,
-          //   "ttl": data.ttl,
-          //   "$created": data.created
-          // });
-          // console.log(data.id, data.userId, data.created);
           this.mixpanelService.track("Login Success",{"key": _token, "created": _created});
 
 

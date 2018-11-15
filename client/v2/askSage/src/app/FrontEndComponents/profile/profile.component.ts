@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BrokerService} from '../../Services/broker.service';
 import { Broker } from '../../Model/broker';
 import { MixPanelService } from '../../Services/mix-panel.service';
-import { ValidatorFn, FormGroup, FormControl, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +12,8 @@ export class ProfileComponent implements OnInit {
   isEdit : boolean;
   changePass : boolean;
   notEquivalent: boolean;
+  hide1 = true;
+  hide2 = true;
   brokerModel = new Broker ();
 
   constructor(private _brokerservice : BrokerService, private mixpanelService: MixPanelService) { }
@@ -23,8 +24,12 @@ export class ProfileComponent implements OnInit {
         (info : any) => {
           // console.log(info);
           this.brokerModel = info;   
-          this.brokerModel.bdr.address.postalCode = this.brokerModel.bdr.address.postalCode.toUpperCase();
-          this.brokerModel.bdr.address.province = this.brokerModel.bdr.address.province.toUpperCase();
+          if (this.brokerModel.bdr.address.postalCode){
+            this.brokerModel.bdr.address.postalCode = this.brokerModel.bdr.address.postalCode.toUpperCase();
+          }
+          if (this.brokerModel.bdr.address.province){
+            this.brokerModel.bdr.address.province = this.brokerModel.bdr.address.province.toUpperCase();
+          }
         },
         error => {
           // console.log('Could not get user details!', error);
@@ -64,12 +69,8 @@ export class ProfileComponent implements OnInit {
           .subscribe(
             (data:any) => {
               this.changePass = null;
-
-              // console.log(data);
-              
               // this.mixpanelService.init(_brokerID);
               this.mixpanelService.track("Successfully updated password",{});
-              // console.log('Updated password with', newpassword);
             },
             error => {
               // console.log('Unsuccessfully updated password!');

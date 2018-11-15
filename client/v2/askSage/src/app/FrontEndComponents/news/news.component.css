@@ -46,3 +46,53 @@ img {
     font-weight: 600;
 }
 
+.card-image.not-loaded {
+    background: #d8d8d8;
+    height: 20em;
+    margin-top: 20px;
+}
+
+.card-content.not-loaded {
+    padding: 5%;
+    border: 1px solid #d8d8d8;
+}
+
+.line {
+    height: 20px;
+    margin-top: 10px;
+    animation: slide 1s infinite ease-in-out;
+    width: 100%;
+    background: #d8d8d8;
+    mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    mask-size: 200%;
+    animation: shine 1.5s infinite;
+}
+
+.card-action.not-loaded {
+    padding: 3% 5%;
+    border: 1px solid #d8d8d8;
+    border-top: none;
+    margin-bottom: 20px;
+}
+
+.not-loaded-action {
+    height: 20px;
+    mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+    mask-size: 200%;
+    animation: shine 1.5s infinite;
+    background: #d8d8d8;
+}
+
+/* Take out unessessary margins */
+.col .row {
+    margin: 0;
+}
+
+@keyframes shine {
+    from {
+        mask-position: 150%;
+    }
+    to {
+        mask-position: -50%;
+    }
+}

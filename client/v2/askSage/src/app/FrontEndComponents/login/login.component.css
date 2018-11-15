@@ -83,4 +83,8 @@
 }
 
 
+[type="checkbox"]:checked+span:not(.lever):before {
+    border-right-color: #0FB786;
+    border-bottom-color: #0FB786;
+}
        

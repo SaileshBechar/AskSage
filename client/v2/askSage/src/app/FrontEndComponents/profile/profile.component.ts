@@ -69,15 +69,8 @@ export class ProfileComponent implements OnInit {
           .subscribe(
             (data:any) => {
               this.changePass = null;
-<<<<<<< HEAD
-=======
-
-              // console.log(data);
-              
               // this.mixpanelService.init(_brokerID);
               this.mixpanelService.track("Successfully updated password",{});
-              // console.log('Updated password with', newpassword);
->>>>>>> dcc045d7641edf74569d84ef9c7dd849555e4056
             },
             error => {
               // console.log('Unsuccessfully updated password!');

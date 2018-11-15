@@ -9,7 +9,7 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main.b09982be1d6ccb2f6327.js",
+        "/main.b615a63072a07d46d8bd.js",
         "/polyfills.d1c7bf4a2ae7c3435f95.js",
         "/runtime.ec2944dd8b20ec099bf3.js",
         "/styles.9ea26ebd55073c38467f.css"
@@ -21,8 +21,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
-        "/assets/Logo.jpg",
-        "/assets/favicon.ico",
+        "/assets/favicon.png",
         "/assets/icons/icon-128x128.png",
         "/assets/icons/icon-144x144.png",
         "/assets/icons/icon-152x152.png",
@@ -39,7 +38,6 @@
         "/assets/img/pronavlogo.png",
         "/assets/img/sage_icon_landing.png",
         "/assets/img/wawa.png",
-        "/assets/profile.png",
         "/assets/sage_chat_window_icon.svg"
       ],
       "patterns": []
@@ -47,8 +45,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "/assets/Logo.jpg": "06a3718a8cd1fb8228744683b26d4e6fc6ef3424",
-    "/assets/favicon.ico": "f0cd878c5f8fc444e07dbb10effc3b2f9bdad2f9",
+    "/assets/favicon.png": "e881adbcbc0dade8938c900532c3e5174be55bc9",
     "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -65,11 +62,10 @@
     "/assets/img/pronavlogo.png": "f4aabb31f3cad3c76696e23d59a506bc9b91aa47",
     "/assets/img/sage_icon_landing.png": "8e64fedfc74d8361c2556630c570a7de888b9d30",
     "/assets/img/wawa.png": "bc9c03fbafa61ce9b82ec7a0caeeec57c47aed2e",
-    "/assets/profile.png": "b0da17aea278bcdebf566c89c4b82daa555c178f",
     "/assets/sage_chat_window_icon.svg": "a110f2dd76eb9c695b6bf624a442f433a22f87d8",
     "/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "/index.html": "be4366489adf9c6eab19c0f4fe8c9d1ecdafbf86",
-    "/main.b09982be1d6ccb2f6327.js": "0c71b495cdf6c599c4e729cb4220bd59e85b539f",
+    "/index.html": "637ceb3f0ba6ddca93032f12d587dbc89137f55d",
+    "/main.b615a63072a07d46d8bd.js": "80b62141479d56db80e17a3abc712fee8177e732",
     "/polyfills.d1c7bf4a2ae7c3435f95.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
     "/runtime.ec2944dd8b20ec099bf3.js": "b62956c2192bfe5516d6374e753773901ed50ec5",
     "/styles.9ea26ebd55073c38467f.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"

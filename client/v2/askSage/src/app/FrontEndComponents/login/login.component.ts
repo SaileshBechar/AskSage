@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   isError: boolean;
   hide = true;
 
-  rememberMe : boolean = false;
+  rememberMe: boolean = false;
 
 
-  
+
 
   constructor(private _brokerService: BrokerService, private router: Router, private mixpanelService: MixPanelService) { }
 
@@ -27,19 +27,24 @@ export class LoginComponent implements OnInit {
     //Get from localStorage and set it to form.value on init
     // console.log(localStorage.getItem('token'), localStorage.getItem('userId'));
 
-    
+
   }
 
-  onLogin(userDetails){
-  
+  onLogin(userDetails) {
+
     this._brokerService.setLogin(userDetails.email, userDetails.password, userDetails.rememberMe)
       .subscribe(
         data => {
           // console.log('Success!', data);
-         
+
+          var _token = data.id;
+          var _userID = data.userId;
+          var _created = data.created;
+
           //Send to mixpanel
-          this.mixpanelService.init(data.userId);
-          this.mixpanelService.track("Login Action", {"email":data.email, "token": data.id});
+          this.mixpanelService.init(_userID);
+          this.mixpanelService.track("Login Success",{"key": _token, "created": _created});
+
 
 
           this._brokerService.storeCredentials(data.id, data.userId);
@@ -48,7 +53,7 @@ export class LoginComponent implements OnInit {
         },
         error => {
           // console.log('Error', error);
-            this.isError = true;
+          this.isError = true;
         }
       )
   }

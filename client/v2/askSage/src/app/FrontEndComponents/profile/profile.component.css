@@ -1,3 +1,5 @@
+
+
 input, div, span, button {
     font-family: 'Montserrat', sans-serif;
     color: #4A4A4A;
@@ -27,11 +29,10 @@ input, div, span, button {
 .subtitle {
     font-weight: 600;
     font-size: calc(18px + (26 - 18) * ((100vw - 300px) / (1600 - 300)));
-    margin-bottom: 10px;
 }
 
 .subtext {
-    font-size: calc(12px + (19 - 12) * ((100vw - 300px) / (1600 - 300)));
+    font-size: calc(12px + (17 - 12) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .editbutton {
@@ -54,17 +55,11 @@ input[type=text], input[type=email], input[type=password] {
     border: 1px solid #9B9B9B;
     border-radius: 4px;
     padding-left: 10px;
-    margin-bottom: 20px;
-    height: 54px;
-    width: 100%;
-}
-
-input[type=password] {
-    margin-bottom: 0;
-}
-
-input[name=confirmpassword] {
     margin-top: 20px;
+    margin-bottom: 0;
+    height: 50px;
+    width: 100%;
+    font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 input[type=text]:disabled {
@@ -101,6 +96,10 @@ input.invalid[type=email], input.invalid[type=password], input.invalid[type=text
     border-radius: 4px;
     box-shadow: none;
 }
+
+input[name="Brokerage"] {
+    margin-bottom: 20px;
+}
  
 .loginbtn {
     margin-top: 20px;
@@ -116,4 +115,31 @@ input.invalid[type=email], input.invalid[type=password], input.invalid[type=text
     color: rgb(184, 46, 46);
 }
 
+.hidden-pass-icon-container {
+    position: relative;
+    float: right;
+    padding-right: 5%;
+}
 
+#hidden-pass{
+    position: absolute;
+    font-size: 1.6rem;
+    /* top: 3.8vh; */
+    top: 35px;
+    right: 3%;
+    color: #7E7E7E
+}
+
+#hidden-pass.extramargin {
+    position: absolute;
+    top: 55px;
+    /* top: 6vh; */
+}
+
+@media(max-width:600px) {
+    .container {
+        padding: 5% 0;
+        margin: 0 auto;
+    }
+
+}

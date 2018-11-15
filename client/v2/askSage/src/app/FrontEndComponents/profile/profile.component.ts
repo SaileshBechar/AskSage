@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrokerService} from '../../Services/broker.service';
 import { Broker } from '../../Model/broker';
+declare var $: any;
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +12,8 @@ export class ProfileComponent implements OnInit {
   isEdit : boolean;
   changePass : boolean;
   notEquivalent: boolean;
+  hide1 = true;
+  hide2 = true;
   brokerModel = new Broker ();
 
   constructor(private _brokerservice : BrokerService) { }
@@ -21,8 +24,12 @@ export class ProfileComponent implements OnInit {
         (info : any) => {
           // console.log(info);
           this.brokerModel = info;   
-          this.brokerModel.bdr.address.postalCode = this.brokerModel.bdr.address.postalCode.toUpperCase();
-          this.brokerModel.bdr.address.province = this.brokerModel.bdr.address.province.toUpperCase();
+          if (this.brokerModel.bdr.address.postalCode){
+            this.brokerModel.bdr.address.postalCode = this.brokerModel.bdr.address.postalCode.toUpperCase();
+          }
+          if (this.brokerModel.bdr.address.province){
+            this.brokerModel.bdr.address.province = this.brokerModel.bdr.address.province.toUpperCase();
+          }
         },
         error => {
           // console.log('Could not get user details!', error);
@@ -56,7 +63,6 @@ export class ProfileComponent implements OnInit {
           .subscribe(
             data => {
               this.changePass = null;
-              console.log('Updated password with', newpassword);
             },
             error => {
               console.log('Unsuccessfully updated password!');

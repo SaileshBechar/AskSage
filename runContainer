@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+#!/usr/bin/expect
+
+#Script must be run using 'sudo'
+
+#Folder to mount asksage in
+foldername=bot3
+
+#Mount server
+mount_server(){
+  #Install sshfs
+  apt-get update
+  apt-get -y install sshfs
+
+  #Make dir and mount asksage
+  mkdir $foldername
+  sshfs -o StrictHostKeyChecking=no lb@ec2-35-182-204-3.ca-central-1.compute.amazonaws.com:/home/lb/apps/asksage /home/ubuntu/$foldername
+}
+
+#Install Docker & update docker
+docker_install(){
+  apt-get -y update
+  apt-get -y install \
+      apt-transport-https \
+      ca-certificates \
+      curl \
+      software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+  apt-key fingerprint 0EBFCD88
+  add-apt-repository \
+     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+     $(lsb_release -cs) \
+     stable"   
+  apt-get -y install docker-ce
+}
+
+#Create image
+create_image(){
+  echo "Creating and running the image"
+  cd /home/ubuntu/$foldername
+  
+  #Chown of docker & login
+  usermod -a -G docker $USER
+  docker login -u "dziabko" --password "wawanesa@123"
+  
+
+  #Build docker image
+  docker build -t asksage .
+  echo "Built docker file"
+}
+
+#Run the docker image
+run_image(){
+  docker run -p 3000:3000 -it -v /home/ubuntu/$foldername/:/app/ asksage
+}
+
+#Main function
+main(){
+  echo -e "\e[31mMOUNTING SERVER\e[0m"
+  mount_server
+  echo -e "\e[31mINSTALLING DOCKER\e[0m"
+  docker_install
+  echo -e "\e[31mCREATING IMAGE\e[0m"
+  create_image
+  echo -e "\e[31mRUNNING IMAGE\e[0m"
+  run_image
+}
+
+#Executing the main function
+main

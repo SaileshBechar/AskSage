@@ -9,7 +9,7 @@ declare var M: any;
   styleUrls: ['./reset.component.css']
 })
 export class ResetComponent implements OnInit {
-
+  hide = true;
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {

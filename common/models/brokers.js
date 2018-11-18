@@ -31,17 +31,18 @@ module.exports = function (Broker) {
   //   Broker.disableRemoteMethodByName('upsertWithWhere');
   // "*": false,
 
-  Broker.greet = function (msg, cb) {
-    console.log('from Broker endpoint');
+  Broker.email = function (email, cb) {
+    // console.log('from Broker endpoint');
+
 
     Broker.app.models.Email.send({
-      to: 'wawanesainnolab@gmail.com',
-      from: 'noreply@ask-sage.com',
-      subject: 'Ask Sage...Welcome',
-      text: 'my text',
-      html: '<h1> Welcome </h1> '+ msg
+      to: email,
+      from: senderAddress,
+      subject: 'Ask Sage',
+      html: ' <h1 class="title">Ask Sage</h1> </div><div class="col s12"><h5 class="subtitle">Broker questions. Answered.</h5></div> '
     }, function (err, mail) {
-      console.log(mail);
+      // console.log(mail);
+      
       cb(err, 'Email sent... SUCCESS');
     });
 
@@ -49,30 +50,18 @@ module.exports = function (Broker) {
    
     
   };
-  // send an email
-  Broker.sendEmail = function (cb) {
-    Broker.app.models.Email.send({
-      to: 'wawanesainnolab@gmail.com',
-      from: 'wawanesainnolab@gmail.com',
-      subject: 'my subject',
-      text: 'my text',
-      html: 'my <em>html</em>'
-    }, function (err, mail) {
-      console.log('email sent!');
-      cb(err);
-    });
-  }
 
 
 
 
-  Broker.remoteMethod('greet', {
-    accepts: { arg: 'input', type: 'string' },
-    returns: { arg: 'greeting', type: 'string' }
+
+  Broker.remoteMethod('email', {
+    accepts: {arg:'email', type :'string' },
+    returns: { arg: 'Sucess', type: 'boolean' }
   });
 
   // Broker.afterRemote('login', function (ctx, data, next) {
-  //if first time logging in prompt for password
+  // // if first time logging in prompt for password
   // console.log(ctx, data, next);
   // });
 

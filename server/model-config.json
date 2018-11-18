@@ -40,7 +40,7 @@
           "prototype.patchAttributes": true,
           "setPassword" : true,
           "findById": true,
-          "greet": true
+          "email": true
         }
       }
     }

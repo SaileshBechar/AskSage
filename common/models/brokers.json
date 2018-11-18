@@ -48,9 +48,9 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "$unauthenticated",
       "permission": "ALLOW",
-      "property": "greet"
+      "property": "email"
     }
   ],
   "methods": {}

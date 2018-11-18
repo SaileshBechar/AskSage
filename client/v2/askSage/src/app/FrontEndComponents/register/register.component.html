@@ -1,3 +1,16 @@
-<p>
-  register works!
-</p>
+<form action="/api/users" method="post">
+  <fieldset>
+    <legend>Sign up form</legend>
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" name="email" />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" name="password"/>
+    </div>
+    <div>
+      <input type="submit" value="Sign up"/>
+    </div>
+  </fieldset>
+</form>

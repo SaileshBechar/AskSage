@@ -25,6 +25,9 @@ const routes: Routes = [
   {
     path: 'forgotPassword', component: ForgotPasswordComponent
   },
+  // {
+  //   // path: 'register', component: RegisterComponent
+  // },
   {
     path: 'news', component: HomeComponent, canActivate: [AuthGuard]
   },

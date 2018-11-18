@@ -36,13 +36,13 @@ module.exports = function (Broker) {
 
     Broker.app.models.Email.send({
       to: 'wawanesainnolab@gmail.com',
-      from: 'wawanesainnolab@gmail.com',
-      subject: 'my subject',
+      from: 'noreply@ask-sage.com',
+      subject: 'Ask Sage...Welcome',
       text: 'my text',
-      html: 'my <em>html</em>'
+      html: '<h1> Welcome </h1> '+ msg
     }, function (err, mail) {
       console.log(mail);
-      cb(err, 'Greetings... ' + msg);
+      cb(err, 'Email sent... SUCCESS');
     });
 
 

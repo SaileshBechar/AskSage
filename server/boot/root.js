@@ -19,3 +19,10 @@ module.exports = function(server) {
 
 
 };
+
+// //Create broker example (user)
+// module.exports = function(app) {
+//   User.create({email: 'foo@bar.com', password: 'foo'}, function(err, userInstance) {
+//     console.log(userInstance);
+//   });
+// }

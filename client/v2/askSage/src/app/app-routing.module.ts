@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PublicComponent } from './FrontEndComponents/public/public.component';
 import { LoginComponent } from './FrontEndComponents/login/login.component';
 import { RegisterComponent } from './FrontEndComponents/register/register.component';
+import { ForgotPasswordComponent } from './FrontEndComponents/forgot-password/forgot-password.component';
 import { HomeComponent } from './FrontEndComponents/home/home.component';
 import { PageNotFoundComponent } from './FrontEndComponents/page-not-found/page-not-found.component';
 import { ProfileComponent } from './FrontEndComponents/profile/profile.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent, canActivate: [LoginGuard] 
   },
   {
-    path: 'register', component: RegisterComponent
+    path: 'forgotPassword', component: ForgotPasswordComponent
   },
   {
     path: 'news', component: HomeComponent, canActivate: [AuthGuard]

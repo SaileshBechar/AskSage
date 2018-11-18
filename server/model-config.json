@@ -32,6 +32,7 @@
       "remoting": {
         "sharedMethods": {
           "*": false,
+          "confirm":true,
           "create": true,
           "login": true,
           "logout": true,
@@ -75,7 +76,7 @@
   },
   "news": {
     "dataSource": "newsAPI",
-    "public": true,
+    "public": false,
     "options": {
       "remoting": {
         "sharedMethods": {
@@ -91,7 +92,7 @@
   },
 
   "Email": {
-    "dataSource": "mail",
+    "dataSource": "email",
     "public": true
   }
 }

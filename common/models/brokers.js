@@ -63,7 +63,7 @@ module.exports = function (Broker) {
       to: email,
       from: senderAddress,
       subject: 'Ask Sage',
-      html: ' <h1 class="title">Ask Sage</h1> </div><div class="col s12"><h5 class="subtitle">Broker questions. Answered.</h5></div>   <br><br><a href="/reset">Click here to reset</a>'      
+      html: ' <h1 class="title">Ask Sage</h1> </div><div class="col s12"><h5 class="subtitle">Broker questions. Answered.</h5></div>   <br><br><a href="https://www.ask-sage.com/reset">Click here to reset</a><br><br>'      
       + tempToken
     }, function (err, mail) {
       console.log(mail);

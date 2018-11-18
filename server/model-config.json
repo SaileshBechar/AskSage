@@ -31,7 +31,7 @@
     "options": {
       "remoting": {
         "sharedMethods": {
-          "*": true,
+          "*": false,
           "reset":true,
           "confirm":true,
           "create": true,

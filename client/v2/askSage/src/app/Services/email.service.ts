@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Broker } from '../Model/broker';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ export class EmailService {
 
 
   forgotPassword(email: string) {
-   
-    return this.http.post<any>('/api/Brokers/email', { email });
+  //  console.log(email);
+
+
+
+    return this.http.post<any>('/api/Brokers/reset', { email });
   }
 }

@@ -26,6 +26,7 @@ import { NewsService } from './Services/news.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ForgotPasswordComponent } from './FrontEndComponents/forgot-password/forgot-password.component';
+import { ResetComponent } from './FrontEndComponents/reset/reset.component';
 
 
 
@@ -44,7 +45,8 @@ import { ForgotPasswordComponent } from './FrontEndComponents/forgot-password/fo
     FeedbackComponent,
     ProfileComponent,
     PageNotFoundComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ResetComponent
   ],
   imports: [
     BrowserModule,

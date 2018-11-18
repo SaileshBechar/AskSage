@@ -5,6 +5,20 @@ var path = require('path');
 var senderAddress = "noreply@asksage.com"; //Replace this address with actual address
 
 module.exports = function (Broker) {
+
+  //Reset
+  Broker.on('resetPasswordRequest', function (info) {
+    // console.log(info.email); // the email of the requested user
+    // console.log(info.accessToken.id); // the temp access token to allow password reset
+
+    Broker.email(info.email,info.accessToken.id );
+    // // requires AccessToken.belongsTo(User)
+    // info.accessToken.user(function (err, user) {
+    //   console.log(user); // the actual user
+    // });
+  });
+
+
   //   Broker.disableRemoteMethodByName('create');
   //   Broker.disableRemoteMethodByName('upsert');
   //   Broker.disableRemoteMethodByName('updateAll');
@@ -31,24 +45,35 @@ module.exports = function (Broker) {
   //   Broker.disableRemoteMethodByName('upsertWithWhere');
   // "*": false,
 
-  Broker.email = function (email, cb) {
+  Broker.email = function (email,tempToken) {
     // console.log('from Broker endpoint');
 
+    console.log(email, tempToken);
+  
+    //reset the broker password to above
+    //email the new password to the email   ID provided
 
+    var url = ""
+
+    // http://localhost:3000/api/Brokers/reset-password?access_token=9KMW34K44rQixEAEOTzaOtQqYVut3fvbaGBa9YG0WNSpYg4MhgTC6OURw0nNJBWN
+
+
+    //Send email
     Broker.app.models.Email.send({
       to: email,
       from: senderAddress,
       subject: 'Ask Sage',
-      html: ' <h1 class="title">Ask Sage</h1> </div><div class="col s12"><h5 class="subtitle">Broker questions. Answered.</h5></div> '
+      html: ' <h1 class="title">Ask Sage</h1> </div><div class="col s12"><h5 class="subtitle">Broker questions. Answered.</h5></div>   <br><br><a href="/reset">Click here to reset</a>'      
+      + tempToken
     }, function (err, mail) {
-      // console.log(mail);
-      
-      cb(err, 'Email sent... SUCCESS');
+      console.log(mail);
+
+      // cb(err, 'Email sent... SUCCESS');
     });
 
 
-   
-    
+
+
   };
 
 
@@ -56,7 +81,7 @@ module.exports = function (Broker) {
 
 
   Broker.remoteMethod('email', {
-    accepts: {arg:'email', type :'string' },
+    accepts: { arg: 'email', type: 'string' },
     returns: { arg: 'Sucess', type: 'boolean' }
   });
 

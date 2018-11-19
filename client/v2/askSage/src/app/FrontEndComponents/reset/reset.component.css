@@ -1,0 +1,57 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+}
+
+.card-panel{
+    text-align: center;
+    box-shadow: 0 0 4pt 3pt #DEDDDD;
+}
+
+.main-container {
+    padding: 50px;
+    min-width: 300px;
+}
+
+.image-container {
+    margin-top: 20px;
+}
+
+.lock {
+    height: 60px;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0FB786;
+    margin-top: 20px;
+    margin-bottom: 30px
+}
+
+.resetBtn {
+    border-radius: 100px;
+    background-color: #0FB786;
+    color: white;
+    padding: 0 10%;
+}
+
+.input-field label {
+    color: #000;
+    font-weight: 600;
+}
+
+
+.hidden-pass-icon-container {
+    float: right;
+    padding-right: 34.5px;
+    size: 2px
+}#hidden-pass{
+    font-size: 1.6rem;
+    font-family: 'Material Icons';
+    top: 0.8rem;
+    color: #7E7E7E
+}

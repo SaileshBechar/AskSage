@@ -12,9 +12,6 @@ export class EmailService {
 
   forgotPassword(email: string) {
   //  console.log(email);
-
-
-
     return this.http.post<any>('/api/Brokers/reset', { email });
   }
 }

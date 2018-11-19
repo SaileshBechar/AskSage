@@ -6,57 +6,24 @@ var senderAddress = "noreply@asksage.com"; //Replace this address with actual ad
 
 module.exports = function (Broker) {
 
-  //Reset
+  //reset the broker password to above
   Broker.on('resetPasswordRequest', function (info) {
     // console.log(info.email); // the email of the requested user
     // console.log(info.accessToken.id); // the temp access token to allow password reset
 
+     //email the new password to the email   ID provided
     Broker.email(info.email,info.accessToken.id );
-    // // requires AccessToken.belongsTo(User)
-    // info.accessToken.user(function (err, user) {
-    //   console.log(user); // the actual user
-    // });
+
+    // info.accessToken.broker(function(err, user) {
+    //       console.log(user); // the actual user
+    //     });
   });
+  // Broker.disableRemoteMethodByName('reset');
 
-
-  //   Broker.disableRemoteMethodByName('create');
-  //   Broker.disableRemoteMethodByName('upsert');
-  //   Broker.disableRemoteMethodByName('updateAll');
-  //   Broker.disableRemoteMethodByName('prototype.updateAttributes');
-
-  //   Broker.disableRemoteMethodByName('find');
-  //   // Broker.disableRemoteMethodByName('findById');
-  //   Broker.disableRemoteMethodByName('findOne');
-
-  //   Broker.disableRemoteMethodByName('deleteById');
-
-  //   Broker.disableRemoteMethodByName('confirm');
-  //   Broker.disableRemoteMethodByName('count');
-  //   Broker.disableRemoteMethodByName('exists');
-  //   Broker.disableRemoteMethodByName('resetPassword');
-
-  //   Broker.disableRemoteMethodByName('prototype.__count__accessTokens');
-  //   Broker.disableRemoteMethodByName('prototype.__create__accessTokens');
-  //   Broker.disableRemoteMethodByName('prototype.__delete__accessTokens');
-  //   Broker.disableRemoteMethodByName('prototype.__destroyById__accessTokens');
-  //  // // Broker.disableRemoteMethodByName('prototype.__findById__accessTokens');
-  //   Broker.disableRemoteMethodByName('prototype.__get__accessTokens');
-  //   Broker.disableRemoteMethodByName('prototype.__updateById__accessTokens');
-  //   Broker.disableRemoteMethodByName('upsertWithWhere');
-  // "*": false,
 
   Broker.email = function (email,tempToken) {
-    // console.log('from Broker endpoint');
-
-    console.log(email, tempToken);
-  
-    //reset the broker password to above
-    //email the new password to the email   ID provided
-
-    var url = ""
-
+    // console.log(email, tempToken);
     // http://localhost:3000/api/Brokers/reset-password?access_token=9KMW34K44rQixEAEOTzaOtQqYVut3fvbaGBa9YG0WNSpYg4MhgTC6OURw0nNJBWN
-
 
     //Send email
     Broker.app.models.Email.send({
@@ -67,17 +34,8 @@ module.exports = function (Broker) {
       + tempToken
     }, function (err, mail) {
       console.log(mail);
-
-      // cb(err, 'Email sent... SUCCESS');
     });
-
-
-
-
   };
-
-
-
 
 
   Broker.remoteMethod('email', {
@@ -102,7 +60,8 @@ module.exports = function (Broker) {
 
 
   // //send verification email after registration
-  // Broker.afterRemote('create', function(context, user, next) {
+  Broker.afterRemote('create', function(context, user, next) {
+    console.log("AfterRemote of create called");
   //   var options = {
   //     type: 'email',
   //     to: user.email,
@@ -111,7 +70,22 @@ module.exports = function (Broker) {
   //     template: path.resolve(__dirname, '../../server/views/verify.ejs'),
   //     redirect: '/verified',
   //     user: user
-  //   };
+    });
+
+
+    Broker.afterRemote('reset', function(context, user, next) {
+      console.log("Reset called");
+      //   var options = {
+      //     type: 'email',
+      //     to: user.email,
+      //     from: senderAddress,
+      //     subject: 'Thanks for registering.',
+      //     template: path.resolve(__dirname, '../../server/views/verify.ejs'),
+      //     redirect: '/verified',
+      //     user: user
+        });
+
+        
 
   //   user.verify(options, function(err, response) {
   //     if (err) {

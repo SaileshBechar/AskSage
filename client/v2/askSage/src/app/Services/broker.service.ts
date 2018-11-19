@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { logging } from 'protractor';
 import { Observable, of } from 'rxjs';
 
+var init_pronav :any;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -52,6 +54,15 @@ export class BrokerService {
   
   }
 
+
+
+
+sendCredentials(){
+console.log({"tok":this._token , "id":this._userId });
+
+// init_pronav("KKmdMCQIoFFWCDMyrrXCYJ1mJtm2GIMOsfQ0i13YOA5jFXgZekPbbWJVw8VEcbQE", "58")
+  return {"tok":this._token , "id":this._userId };
+}
 
   //Function to verify authenticity of user
   verifyUser() {

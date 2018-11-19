@@ -31,8 +31,13 @@
 
 
   </div>
-
+init_pronav(this._token,this._userId);
 </div> -->
 
+<!-- <script>function init_pronav(access_token,user_id){Pronav.init({appId:"5bf2f470beced40022d0218e",customText:{introductionText:"I am here to help. Ask me a question.",headerText:"Broker questions. Answered."},customColors:{buttonBackground:"rgb(238, 250, 247)",buttonText:"rgb(12, 143, 105)",detailBackground:"rgb(238, 250, 247)"}}).then(function(){return Pronav.updateUser({properties:{user_id:user_id,token:access_token}})}).then(function(){Pronav.startConversation()})} -->
 
 
+
+<!-- <script>
+  !function(e,n,t,r){var s,o,a,p=[],i=[];e[t]={init:function(){s=arguments;var e={then:function(n){return i.push({type:"t",next:n}),e},catch:function(n){return i.push({type:"c",next:n}),e}};return e},on:function(){p.push(arguments)},render:function(){o=arguments},destroy:function(){a=arguments}},e.__onWebMessengerHostReady__=function(n){if(delete e.__onWebMessengerHostReady__,e[t]=n,s)for(var r=n.init.apply(n,s),c=0;c<i.length;c++){var u=i[c];r="t"===u.type?r.then(u.next):r.catch(u.next)}for(o&&n.render.apply(n,o),a&&n.destroy.apply(n,a),c=0;c<p.length;c++)n.on.apply(n,p[c])};var c=new XMLHttpRequest;c.addEventListener("load",function(){try{var e;if((e="string"==typeof this.response?JSON.parse(this.response):this.response).url){var t=n.getElementsByTagName("script")[0],r=n.createElement("script");r.async=!0,r.src=e.url,t.parentNode.insertBefore(r,t)}}catch(e){}}),c.open("GET","https://s3.us-east-2.amazonaws.com/pronav-sdk/loader.json",!0),c.responseType="json",c.send()}(window,document,"Pronav"),Pronav.init({appId:"5bf2f470beced40022d0218e", customText:{introductionText:"I am here to help. Ask me a question.", headerText:"Broker questions. Answered."}, customColors:{buttonBackground:"rgb(238, 250, 247)", buttonText:"rgb(12, 143, 105)", detailBackground:"rgb(238, 250, 247)"}}).then(function(){return Pronav.updateUser({properties:{user_id:localStorage.getItem('userId')||"",token:localStorage.getItem('token')||""}})}).then(function(){Pronav.startConversation()});
+  </script> -->

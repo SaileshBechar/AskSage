@@ -1,0 +1,88 @@
+.title {
+    color: #0FB786;
+    font-weight: 600;
+    text-align: center;
+    font-size: calc(26px + (30 - 26) * ((100vw - 300px) / (1600 - 300)));
+}
+
+.modal {
+    width: 40%;
+}
+
+@media only screen and (max-width: 992px){
+    .modal {
+        width: 80%;
+    }
+}
+    
+.modal-content {
+    padding: 8% 15%;
+}
+
+.error-password {
+    color: rgb(184, 46, 46);
+}
+
+.hidden-pass-icon-container {
+    position: relative;
+    float: right;
+    padding-right: 5%;
+}
+
+#hidden-pass{
+    position: absolute;
+    font-size: 1.6rem;
+    /* top: 3.8vh; */
+    top: 35px;
+    right: 3%;
+    color: #7E7E7E
+}
+
+#hidden-pass.extramargin {
+    position: absolute;
+    top: 55px;
+}
+
+/* Fancy Input Fields */
+input[type=password], input[type=text] {
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    height: 50px;
+    width: 100%;
+    font-size: calc(14px + (16 - 14) * ((100vw - 300px) / (1600 - 300)));
+}
+
+input[type=password]:not(.browser-default):focus:not([read-only]) {
+    border: 1px solid #0FB786;
+    box-shadow: none;
+}
+
+input[type=text]:not(.browser-default):focus:not([read-only]) {
+    border: 1px solid #0FB786;
+    box-shadow: none;
+}
+
+input[type=password].valid, input[type=password].valid:focus{
+    border: 1px solid #9B9B9B;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+input.invalid[type=password], input.invalid[type=text]{
+    border: 1px solid rgb(228, 61, 61);
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+.loginbtn {
+    margin-right: 15%;
+    border-radius: 100px;
+    background-color: #0FB786;
+    color: white;
+    padding: 0 5%;
+    font-weight: 600;
+    float: right;
+}

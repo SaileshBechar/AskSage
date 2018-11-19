@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BrokerService} from '../../Services/broker.service';
 import { Broker } from '../../Model/broker';
 import { MixPanelService } from '../../Services/mix-panel.service';
-declare var M: any;
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +23,6 @@ export class ProfileComponent implements OnInit {
       .subscribe(
         (info : any) => {
           // console.log(info);
-          M.Toast.dismissAll();
           this.brokerModel = info;   
           if (this.brokerModel.bdr.address.postalCode){
             this.brokerModel.bdr.address.postalCode = this.brokerModel.bdr.address.postalCode.toUpperCase();

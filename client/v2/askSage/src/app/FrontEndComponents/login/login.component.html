@@ -26,8 +26,10 @@
             <i id="hidden-pass" class="material-icons prefix " (click)="hide = !hide">{{hide ? 'visibility_off' :
               'visibility'}} </i>
           </div>
-
-
+        </div>
+        
+        <div *ngIf="isError">
+          <span class="error-text">Please enter a valid email and password!</span>
         </div>
         <label>
           <input type="checkbox" name="rememberMe" ngModel />
@@ -36,9 +38,6 @@
 
 
         <div class="col s12">
-          <div *ngIf="isError">
-            <span class="error-text">Please enter a valid email and password!</span>
-          </div>
           <br>
           <input type="submit" class="btn loginbtn z-depth-0" value="SIGN IN" />
         </div>
@@ -46,7 +45,7 @@
 
         <div class="col s12">
               <br><br>
-              <a href="forgotPassword">Forgot your Password?</a>
+              <a routerLink="/forgotPassword">Forgot your Password?</a>
             </div>
             
         

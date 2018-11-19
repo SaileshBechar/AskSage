@@ -9,7 +9,7 @@ declare var M: any;
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-
+  public isError : boolean;
   constructor(private _emailService: EmailService, private router: Router) { }
 
   ngOnInit() {
@@ -21,11 +21,12 @@ export class ForgotPasswordComponent implements OnInit {
     .subscribe(
       data => {
         // console.log(data);
-        M.toast({html: 'Please check your email.', classes: 'rounded', displayLength: 5000});
+        M.toast({html: 'Please check your email.', displayLength: 5000});
         this.router.navigate(['/login']);
     },
     error => {
-      M.toast({html: error.error.error.message, classes: 'rounded', displayLength: 5000});
+      this.isError = true;
+      // M.toast({html: error.error.error.message, displayLength: 5000});
       // console.log('Error', error.error.error.message);
     }
   )

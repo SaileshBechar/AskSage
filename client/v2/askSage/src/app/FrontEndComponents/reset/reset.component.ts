@@ -11,13 +11,17 @@ declare var M: any;
 })
 export class ResetComponent implements OnInit {
   hide = true;
-  // key:string;
+  key:string;
   constructor(private router: Router, private http: HttpClient, private route:ActivatedRoute) { }
 
   ngOnInit() {
       // this.route.params
       // .subscribe( params => {this.key = params['access_token'];})
       // this.key = this.route.snapshot.params['access_token'];
+
+
+      this.key = this.route.snapshot.paramMap.get('access_token');
+      console.log(this.key);
   }
 
 
@@ -26,11 +30,11 @@ export class ResetComponent implements OnInit {
     
     var _newPass = user.newPassword;
     // var key = this.route.snapshot.params['access_token'];
-    var key = this.route.snapshot.paramMap.get('access_token');
+    
 
-    console.log(key);
+    console.log(this.key);
     // http://localhost:3000/api/Brokers/reset-password?access_token=9KMW34K44rQixEAEOTzaOtQqYVut3fvbaGBa9YG0WNSpYg4MhgTC6OURw0nNJBWN
-    return this.http.post<any>('/api/Brokers/reset-password?access_token=' + key, { "newPassword": user.newPassword })
+    return this.http.post<any>('/api/Brokers/reset-password?access_token=' + this.key, { "newPassword": user.newPassword })
       .subscribe(
         data => {
           // console.log('Success!', data);

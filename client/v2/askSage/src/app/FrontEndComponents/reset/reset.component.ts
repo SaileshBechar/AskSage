@@ -16,7 +16,7 @@ export class ResetComponent implements OnInit {
 
   ngOnInit() {
       this.route.params
-      .subscribe( params => {this.key = params['bank'];})
+      .subscribe( params => {this.key = params['access_token'];})
 
   }
 

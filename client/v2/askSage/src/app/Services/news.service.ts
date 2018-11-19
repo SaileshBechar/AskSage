@@ -29,7 +29,9 @@ export class NewsService {
     // else
      
 
-    var url = "https://newsapi.org/v2/everything?q=insurance";
+    var url = "https://newsapi.org/v2/everything?q=insurance&from=2018-11-01&sortBy=publishedAt";
+    // var url = "https://api.newsapi.aylien.com/api/v1/stories?text=insurance&published_at.start=NOW-30DAYS%2FDAY&published_at.end=NOW&language=fr&sort_by=recency";
+
     const headers = new HttpHeaders().set("x-api-key", this.newsAPIKey);
     // console.log(url);
 

@@ -388,3 +388,8 @@ MongoDB shell version v4.0.3
 
 
 db.dropDatabase()
+
+ng g s /Services/Email
+wawanesainnolab@gmail.com
+
+

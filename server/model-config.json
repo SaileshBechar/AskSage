@@ -31,7 +31,9 @@
     "options": {
       "remoting": {
         "sharedMethods": {
-          "*": false,
+          "*": true,
+          "reset":true,
+          "confirm":true,
           "create": true,
           "login": true,
           "logout": true,
@@ -39,7 +41,7 @@
           "prototype.patchAttributes": true,
           "setPassword" : true,
           "findById": true,
-          "greet": true
+          "email": true
         }
       }
     }
@@ -75,7 +77,7 @@
   },
   "news": {
     "dataSource": "newsAPI",
-    "public": true,
+    "public": false,
     "options": {
       "remoting": {
         "sharedMethods": {
@@ -91,7 +93,7 @@
   },
 
   "Email": {
-    "dataSource": "mail",
+    "dataSource": "email",
     "public": true
   }
 }

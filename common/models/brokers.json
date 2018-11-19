@@ -33,6 +33,14 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
     }
   },
   "acls": [
@@ -44,9 +52,9 @@
     },
     {
       "principalType": "ROLE",
-      "principalId": "$authenticated",
+      "principalId": "$unauthenticated",
       "permission": "ALLOW",
-      "property": "greet"
+      "property": "email"
     }
   ],
   "methods": {}

@@ -122,4 +122,8 @@ export class BrokerService {
     this.getCredentials();
     return this.http.post('/api/Brokers/reset-password?access_token=' + this._token, {newPassword : newpassword});
   }
+
+  setLoggedIn(){
+    return this.http.patch('/api/Brokers/' + this._userId + '?access_token='+ this._token, {hasLoggedIn : true});
+  }
 }

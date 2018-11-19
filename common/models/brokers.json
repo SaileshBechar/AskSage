@@ -18,6 +18,10 @@
     "brokerage": {
       "type": "string",
       "required": false
+    },
+    "hasLoggedIn" : {
+      "type" : "boolean",
+      "required": false
     }
   },
   "validations": [],

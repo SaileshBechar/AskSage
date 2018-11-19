@@ -11,7 +11,7 @@ declare var M: any;
 })
 export class ResetComponent implements OnInit {
   hide = true;
-  key:string;
+  key:any;
   constructor(private router: Router, private http: HttpClient, private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -20,8 +20,14 @@ export class ResetComponent implements OnInit {
       // this.key = this.route.snapshot.params['access_token'];
 
 
-      this.key = this.route.snapshot.toString();
-      console.log(this.key);
+      this.key = this.route.queryParams
+      .subscribe(params => {
+        console.log(params); // {order: "popular"}
+
+        this.key = params.access_token;
+        console.log(this.key); // popular
+      });
+      // console.log(JSON.stringify(this.key));
   }
 
 

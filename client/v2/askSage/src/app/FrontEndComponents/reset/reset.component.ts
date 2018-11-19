@@ -25,7 +25,8 @@ export class ResetComponent implements OnInit {
     // console.log(user.email, user.key, user.newPassword);
     
     var _newPass = user.newPassword;
-    var key = this.route.snapshot.params['access_token'];
+    // var key = this.route.snapshot.params['access_token'];
+    var key = this.route.snapshot.paramMap.get('access_token');
 
     console.log(key);
     // http://localhost:3000/api/Brokers/reset-password?access_token=9KMW34K44rQixEAEOTzaOtQqYVut3fvbaGBa9YG0WNSpYg4MhgTC6OURw0nNJBWN

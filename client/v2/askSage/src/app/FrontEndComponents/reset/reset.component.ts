@@ -22,10 +22,10 @@ export class ResetComponent implements OnInit {
 
       this.key = this.route.queryParams
       .subscribe(params => {
-        console.log(params); // {order: "popular"}
+        // console.log(params); // {order: "popular"}
 
         this.key = params.access_token;
-        console.log(this.key); // popular
+        // console.log(this.key); // popular
       });
       // console.log(JSON.stringify(this.key));
   }

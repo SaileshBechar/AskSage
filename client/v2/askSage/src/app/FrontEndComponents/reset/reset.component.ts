@@ -44,7 +44,7 @@ export class ResetComponent implements OnInit {
         data => {
           // console.log('Success!', data);
           
-          M.toast({"Password reset Success": 'rounded', displayLength: 5000});
+          M.toast({html: "Password reset Success", classes: 'rounded', displayLength: 5000});
           this.router.navigate(['/login']);
         },
         error => {

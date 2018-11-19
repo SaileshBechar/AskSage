@@ -20,7 +20,7 @@ export class ResetComponent implements OnInit {
       // this.key = this.route.snapshot.params['access_token'];
 
 
-      this.key = this.route.snapshot.paramMap.get('access_token');
+      this.key = this.route.snapshot.toString();
       console.log(this.key);
   }
 

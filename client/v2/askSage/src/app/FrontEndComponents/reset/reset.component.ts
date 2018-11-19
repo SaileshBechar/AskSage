@@ -15,16 +15,16 @@ export class ResetComponent implements OnInit {
   constructor(private router: Router, private http: HttpClient, private route:ActivatedRoute) { }
 
   ngOnInit() {
-      this.route.params
-      .subscribe( params => {this.key = params['access_token'];})
-
+      // this.route.params
+      // .subscribe( params => {this.key = params['access_token'];})
+      this.key = this.route.snapshot.params['access_token'];
   }
 
 
   resetPassword(user: any) {
     // console.log(user.email, user.key, user.newPassword);
     var _newPass = user.newPassword;
-
+    console.log(this.key);
     // http://localhost:3000/api/Brokers/reset-password?access_token=9KMW34K44rQixEAEOTzaOtQqYVut3fvbaGBa9YG0WNSpYg4MhgTC6OURw0nNJBWN
     return this.http.post<any>('/api/Brokers/reset-password?access_token=' + this.key, { "newPassword": user.newPassword })
       .subscribe(

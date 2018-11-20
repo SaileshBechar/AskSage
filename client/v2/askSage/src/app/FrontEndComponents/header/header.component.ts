@@ -44,6 +44,7 @@ export class HeaderComponent implements OnInit{
         data => {
           this._brokerService.removeCredentials();
           this._router.navigate(['/']);
+          window.location.reload();
         },
         error => {
           console.log('Logoff Error!', error);

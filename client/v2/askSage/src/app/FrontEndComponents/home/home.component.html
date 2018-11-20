@@ -1,8 +1,36 @@
 <app-header></app-header>
-
-
+<div id="modal1" class="modal">
+    <form (ngSubmit)="savePassword(changePasswordForm.value.password)" #changePasswordForm="ngForm">
+        <div class="modal-content ">
+            <div class="title">
+                Change Your Password
+            </div>
+            <div class="hidden-pass-icon-container">
+                <i id="hidden-pass" class="material-icons prefix " (click)="hide1 = !hide1">
+                    {{hide1 ? 'visibility_off' : 'visibility'}} </i>
+            </div>
+            <input placeholder="New Password" type="password" name="password" #password="ngModel" minlength=8 ngModel
+                (keyup)="checkPasswords(password.value, confirmpassword.value)" [class.invalid]="password.invalid && password.touched"
+                [type]="hide1 ? 'password' : 'text'" />
+            <span class="error-password" *ngIf="password.invalid && password.touched">Please enter a password 8 characters
+                long</span>
+    
+            <div class="hidden-pass-icon-container">
+                <i id="hidden-pass" class="material-icons prefix " (click)="hide2 = !hide2" [class.extramargin]="password.invalid && password.touched">
+                    {{hide2 ? 'visibility_off' : 'visibility'}} </i>
+            </div>
+            <input placeholder="Confirm Password" [class.invalid]="notEquivalent && confirmpassword.touched" (keyup)="checkPasswords(password.value, confirmpassword.value)"
+                [type]="hide2 ? 'password' : 'text'" type="password" name="confirmpassword" ngModel #confirmpassword="ngModel" />
+            <span class="error-password" *ngIf="notEquivalent && confirmpassword.touched">Passwords are not the same</span>
+            <div class="modal-footer">
+                <button [disabled]="changePasswordForm.form.invalid || notEquivalent || !password.value" type="submit" class="btn loginbtn z-depth-0">SAVE</button>
+            </div>
+  
+           
+        </div>
+    </form>
+</div>
 <app-news></app-news>
-
 <app-chat></app-chat>
 
 

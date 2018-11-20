@@ -21,7 +21,7 @@
     },
     "hasLoggedIn" : {
       "type" : "boolean",
-      "required": false
+      "required": true
     }
   },
   "validations": [],

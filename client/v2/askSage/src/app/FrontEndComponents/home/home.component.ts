@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
     this._brokerService.getBroker()
     .subscribe(
       (data : any) => {
-        if (data.hasLoggedIn === true) {
+        if (data.hasLoggedIn === false) {
             this._brokerService.setLoggedIn()
               .subscribe(
                 data => {
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
     .subscribe(
       (data:any) => {
         // this.mixpanelService.init(_brokerID);
-        this.mixpanelService.track("Successfully updated password",{});
+        // this.mixpanelService.track("Successfully updated password",{});
         $('.modal').modal('close');
       },
       error => {

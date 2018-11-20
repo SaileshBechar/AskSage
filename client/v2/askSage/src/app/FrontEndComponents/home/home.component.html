@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div id="modal1" class="modal">
     <form (ngSubmit)="savePassword(changePasswordForm.value.password)" #changePasswordForm="ngForm">
-        <div class="modal-content">
+        <div class="modal-content ">
             <div class="title">
                 Change Your Password
             </div>
@@ -22,9 +22,11 @@
             <input placeholder="Confirm Password" [class.invalid]="notEquivalent && confirmpassword.touched" (keyup)="checkPasswords(password.value, confirmpassword.value)"
                 [type]="hide2 ? 'password' : 'text'" type="password" name="confirmpassword" ngModel #confirmpassword="ngModel" />
             <span class="error-password" *ngIf="notEquivalent && confirmpassword.touched">Passwords are not the same</span>
-        </div>
-        <div class="modal-footer">
-            <button [disabled]="changePasswordForm.form.invalid || notEquivalent || !password.value" type="submit" class="btn loginbtn z-depth-0">SAVE</button>
+            <div class="modal-footer">
+                <button [disabled]="changePasswordForm.form.invalid || notEquivalent || !password.value" type="submit" class="btn loginbtn z-depth-0">SAVE</button>
+            </div>
+  
+           
         </div>
     </form>
 </div>

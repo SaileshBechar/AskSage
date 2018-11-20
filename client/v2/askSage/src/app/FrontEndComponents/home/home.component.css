@@ -2,7 +2,8 @@
     color: #0FB786;
     font-weight: 600;
     text-align: center;
-    font-size: calc(26px + (30 - 26) * ((100vw - 300px) / (1600 - 300)));
+    margin-bottom: 7%;
+    font-size: calc(23px + (25 - 23) * ((100vw - 300px) / (1600 - 300)));
 }
 
 .modal {
@@ -14,9 +15,14 @@
         width: 80%;
     }
 }
+
+.modal .modal-footer {
+    text-align: center;
+    margin-top: 20px;
+}
     
 .modal-content {
-    padding: 8% 15%;
+    padding: 8% 15% 4% 15%;
 }
 
 .error-password {
@@ -82,7 +88,6 @@ input.invalid[type=password], input.invalid[type=text]{
     border-radius: 100px;
     background-color: #0FB786;
     color: white;
-    padding: 0 5%;
+    padding: 0 10%;
     font-weight: 600;
-    float: right;
 }
